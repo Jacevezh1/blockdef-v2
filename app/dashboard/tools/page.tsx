@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar } from "@/components/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,13 +6,23 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { Code, Network, Search, Settings, Shield, Zap } from "lucide-react"
+} from "@/components/ui/breadcrumb";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import { Code, Network, Search, Settings, Shield, Zap } from "lucide-react";
 
 export default function ToolsPage() {
   return (
@@ -39,9 +49,10 @@ export default function ToolsPage() {
 
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="mt-4">
-            <h1 className="text-2xl font-bold">Security Research Tools</h1>
-            <p className="text-muted-foreground">
-              Comprehensive suite of tools for blockchain security analysis and research
+            <h1 className="text-sm font-bold">Security Research Tools</h1>
+            <p className="text-muted-foreground text-sm">
+              Comprehensive suite of tools for blockchain security analysis and
+              research
             </p>
           </div>
 
@@ -50,12 +61,13 @@ export default function ToolsPage() {
             {/* Code Analysis */}
             <Card className="cursor-pointer hover:shadow-md transition-shadow">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2 text-sm">
                   <Code className="h-6 w-6 text-blue-500" />
                   Code Analysis Suite
                 </CardTitle>
-                <CardDescription>
-                  Static and dynamic analysis tools for smart contract vulnerability detection
+                <CardDescription className="text-sm">
+                  Static and dynamic analysis tools for smart contract
+                  vulnerability detection
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -63,14 +75,18 @@ export default function ToolsPage() {
                   <div className="flex items-center justify-between">
                     <div className="space-y-1">
                       <p className="text-sm font-medium">Available Tools</p>
-                      <p className="text-xs text-muted-foreground">Slither, MythX, Echidna, Manticore</p>
+                      <p className="text-xs text-muted-foreground">
+                        Slither, MythX, Echidna, Manticore
+                      </p>
                     </div>
                     <Badge variant="outline">12 Tools</Badge>
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="space-y-1">
                       <p className="text-sm font-medium">Detection Coverage</p>
-                      <p className="text-xs text-muted-foreground">70+ vulnerability patterns</p>
+                      <p className="text-xs text-muted-foreground">
+                        70+ vulnerability patterns
+                      </p>
                     </div>
                     <Badge variant="secondary">Active</Badge>
                   </div>
@@ -82,25 +98,31 @@ export default function ToolsPage() {
             {/* Network Scanner */}
             <Card className="cursor-pointer hover:shadow-md transition-shadow">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2 text-sm">
                   <Network className="h-6 w-6 text-green-500" />
                   Network Scanner
                 </CardTitle>
-                <CardDescription>Real-time blockchain network monitoring and anomaly detection</CardDescription>
+                <CardDescription className="text-sm">
+                  Real-time blockchain network monitoring and anomaly detection
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="space-y-1">
                       <p className="text-sm font-medium">Networks Monitored</p>
-                      <p className="text-xs text-muted-foreground">Ethereum, BSC, Polygon, Arbitrum</p>
+                      <p className="text-xs text-muted-foreground">
+                        Ethereum, BSC, Polygon, Arbitrum
+                      </p>
                     </div>
                     <Badge variant="outline">15 Networks</Badge>
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="space-y-1">
                       <p className="text-sm font-medium">Real-time Alerts</p>
-                      <p className="text-xs text-muted-foreground">Suspicious transactions & contracts</p>
+                      <p className="text-xs text-muted-foreground">
+                        Suspicious transactions & contracts
+                      </p>
                     </div>
                     <Badge variant="secondary">Live</Badge>
                   </div>
@@ -112,25 +134,32 @@ export default function ToolsPage() {
             {/* Transaction Tracer */}
             <Card className="cursor-pointer hover:shadow-md transition-shadow">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2 text-sm">
                   <Search className="h-6 w-6 text-purple-500" />
                   Transaction Tracer
                 </CardTitle>
-                <CardDescription>Advanced transaction analysis and fund flow tracking capabilities</CardDescription>
+                <CardDescription className="text-sm">
+                  Advanced transaction analysis and fund flow tracking
+                  capabilities
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="space-y-1">
                       <p className="text-sm font-medium">Trace Depth</p>
-                      <p className="text-xs text-muted-foreground">Multi-hop transaction analysis</p>
+                      <p className="text-xs text-muted-foreground">
+                        Multi-hop transaction analysis
+                      </p>
                     </div>
                     <Badge variant="outline">∞ Hops</Badge>
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="space-y-1">
                       <p className="text-sm font-medium">Visualization</p>
-                      <p className="text-xs text-muted-foreground">Interactive flow diagrams</p>
+                      <p className="text-xs text-muted-foreground">
+                        Interactive flow diagrams
+                      </p>
                     </div>
                     <Badge variant="secondary">Visual</Badge>
                   </div>
@@ -142,12 +171,13 @@ export default function ToolsPage() {
             {/* API Access */}
             <Card className="cursor-pointer hover:shadow-md transition-shadow">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2 text-sm">
                   <Settings className="h-6 w-6 text-orange-500" />
                   API Access Hub
                 </CardTitle>
-                <CardDescription>
-                  Programmatic access to security data, vulnerability feeds, and analysis tools
+                <CardDescription className="text-sm">
+                  Programmatic access to security data, vulnerability feeds, and
+                  analysis tools
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -155,14 +185,18 @@ export default function ToolsPage() {
                   <div className="flex items-center justify-between">
                     <div className="space-y-1">
                       <p className="text-sm font-medium">API Endpoints</p>
-                      <p className="text-xs text-muted-foreground">RESTful & GraphQL interfaces</p>
+                      <p className="text-xs text-muted-foreground">
+                        RESTful & GraphQL interfaces
+                      </p>
                     </div>
                     <Badge variant="outline">50+ Endpoints</Badge>
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="space-y-1">
                       <p className="text-sm font-medium">Rate Limits</p>
-                      <p className="text-xs text-muted-foreground">10,000 requests/hour</p>
+                      <p className="text-xs text-muted-foreground">
+                        10,000 requests/hour
+                      </p>
                     </div>
                     <Badge variant="secondary">Premium</Badge>
                   </div>
@@ -175,8 +209,10 @@ export default function ToolsPage() {
           {/* Featured Tools */}
           <Card>
             <CardHeader>
-              <CardTitle>Featured Security Tools</CardTitle>
-              <CardDescription>Most popular and effective tools in our research arsenal</CardDescription>
+              <CardTitle className="text-sm">Featured Security Tools</CardTitle>
+              <CardDescription className="text-sm">
+                Most popular and effective tools in our research arsenal
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid gap-4 md:grid-cols-3">
@@ -190,7 +226,8 @@ export default function ToolsPage() {
                     <Badge variant="outline">Static Analysis</Badge>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Python-based static analysis framework with 70+ built-in detectors for Solidity smart contracts
+                    Python-based static analysis framework with 70+ built-in
+                    detectors for Solidity smart contracts
                   </p>
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
                     <span>• Reentrancy detection</span>
@@ -211,7 +248,8 @@ export default function ToolsPage() {
                     <Badge variant="outline">Symbolic Execution</Badge>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Security analysis tool using symbolic execution and SMT solving for deep vulnerability detection
+                    Security analysis tool using symbolic execution and SMT
+                    solving for deep vulnerability detection
                   </p>
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
                     <span>• Integer overflows</span>
@@ -232,7 +270,8 @@ export default function ToolsPage() {
                     <Badge variant="outline">Fuzzing</Badge>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Property-based fuzzing tool that generates random inputs to test smart contract invariants
+                    Property-based fuzzing tool that generates random inputs to
+                    test smart contract invariants
                   </p>
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
                     <span>• Property testing</span>
@@ -251,7 +290,9 @@ export default function ToolsPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="text-lg">Quick Analysis</CardTitle>
-                <CardDescription>Analyze a smart contract or transaction instantly</CardDescription>
+                <CardDescription>
+                  Analyze a smart contract or transaction instantly
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex gap-2">
@@ -269,7 +310,9 @@ export default function ToolsPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="text-lg">Batch Processing</CardTitle>
-                <CardDescription>Run analysis on multiple contracts or addresses</CardDescription>
+                <CardDescription>
+                  Run analysis on multiple contracts or addresses
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex gap-2">
@@ -287,5 +330,5 @@ export default function ToolsPage() {
         </div>
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }
