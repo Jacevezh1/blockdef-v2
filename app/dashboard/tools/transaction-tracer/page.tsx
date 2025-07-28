@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar } from "@/components/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,14 +6,31 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { Input } from "@/components/ui/input"
-import { Search, ArrowRight, Download, Share, Eye, GitBranch } from "lucide-react"
+} from "@/components/ui/breadcrumb";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import { Input } from "@/components/ui/input";
+import {
+  Search,
+  ArrowRight,
+  Download,
+  Share,
+  Eye,
+  GitBranch,
+} from "lucide-react";
 
 export default function TransactionTracerPage() {
   return (
@@ -31,7 +48,9 @@ export default function TransactionTracerPage() {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="/dashboard/tools">Research Tools</BreadcrumbLink>
+                  <BreadcrumbLink href="/dashboard/tools">
+                    Research Tools
+                  </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
@@ -44,9 +63,10 @@ export default function TransactionTracerPage() {
 
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="mt-4">
-            <h1 className="text-2xl font-bold">Transaction Flow Tracer</h1>
+            <h1 className="text-sm font-bold">Transaction Flow Tracer</h1>
             <p className="text-muted-foreground">
-              Advanced transaction analysis and fund flow tracking across multiple hops
+              Advanced transaction analysis and fund flow tracking across
+              multiple hops
             </p>
           </div>
 
@@ -57,7 +77,9 @@ export default function TransactionTracerPage() {
                 <Search className="h-5 w-5" />
                 Start New Trace
               </CardTitle>
-              <CardDescription>Enter transaction hash or address to begin tracing</CardDescription>
+              <CardDescription>
+                Enter transaction hash or address to begin tracing
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex gap-2">
@@ -66,7 +88,7 @@ export default function TransactionTracerPage() {
                   className="flex-1"
                   defaultValue="0x1234567890abcdef1234567890abcdef12345678"
                 />
-                <Button>
+                <Button size="sm">
                   <Search className="h-4 w-4 mr-2" />
                   Trace
                 </Button>
@@ -97,7 +119,9 @@ export default function TransactionTracerPage() {
                     <GitBranch className="h-5 w-5" />
                     Transaction Flow Map
                   </CardTitle>
-                  <CardDescription>Visual representation of fund flows and interactions</CardDescription>
+                  <CardDescription>
+                    Visual representation of fund flows and interactions
+                  </CardDescription>
                 </div>
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm">
@@ -128,7 +152,9 @@ export default function TransactionTracerPage() {
                       <span className="font-mono text-sm">0x1234...5678</span>
                       <Badge variant="secondary">EOA</Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground">Initial transaction: 100 ETH</p>
+                    <p className="text-sm text-muted-foreground">
+                      Initial transaction: 100 ETH
+                    </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
                       <span>Block: 18,945,123</span>
                       <span>Gas: 21,000</span>
@@ -152,7 +178,9 @@ export default function TransactionTracerPage() {
                       <span className="font-mono text-sm">0xabcd...efgh</span>
                       <Badge variant="secondary">Uniswap V3</Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground">Swap: 100 ETH → 150,000 USDC</p>
+                    <p className="text-sm text-muted-foreground">
+                      Swap: 100 ETH → 150,000 USDC
+                    </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
                       <span>Internal txs: 3</span>
                       <span>Gas used: 180,000</span>
@@ -176,7 +204,9 @@ export default function TransactionTracerPage() {
                       <span className="font-mono text-sm">0x9876...5432</span>
                       <Badge variant="secondary">Arbitrum Bridge</Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground">Bridge: 150,000 USDC → Arbitrum</p>
+                    <p className="text-sm text-muted-foreground">
+                      Bridge: 150,000 USDC → Arbitrum
+                    </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
                       <span>Confirmation time: 15 min</span>
                       <span>Bridge fee: 0.1%</span>
@@ -201,7 +231,8 @@ export default function TransactionTracerPage() {
                       <Badge variant="outline">Unknown</Badge>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Multiple small transfers to different addresses (possible mixing)
+                      Multiple small transfers to different addresses (possible
+                      mixing)
                     </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
                       <span>Outputs: 47 addresses</span>
@@ -223,7 +254,9 @@ export default function TransactionTracerPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Flow Analysis</CardTitle>
-                <CardDescription>Statistical analysis of the transaction flow</CardDescription>
+                <CardDescription>
+                  Statistical analysis of the transaction flow
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -252,7 +285,9 @@ export default function TransactionTracerPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Risk Indicators</CardTitle>
-                <CardDescription>Potential red flags identified in the flow</CardDescription>
+                <CardDescription>
+                  Potential red flags identified in the flow
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-center gap-2 text-sm">
@@ -281,5 +316,5 @@ export default function TransactionTracerPage() {
         </div>
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }

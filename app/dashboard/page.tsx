@@ -66,7 +66,7 @@ export default function Page() {
                 <AlertTriangle className="h-4 w-4 text-red-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-lg font-bold text-red-600">23</div>
+                <div className="text-sm font-bold text-red-600">23</div>
                 <p className="text-xs text-muted-foreground">
                   +3 from last week
                 </p>
@@ -81,7 +81,7 @@ export default function Page() {
                 <Shield className="h-4 w-4 text-blue-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-lg font-bold">3</div>
+                <div className="text-sm font-bold">3</div>
                 <p className="text-xs text-muted-foreground">
                   +12% from last month
                 </p>
@@ -96,7 +96,7 @@ export default function Page() {
                 <TrendingUp className="h-4 w-4 text-green-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-lg font-bold">2</div>
+                <div className="text-sm font-bold">2</div>
                 <p className="text-xs text-muted-foreground">
                   Published this month
                 </p>
@@ -111,7 +111,7 @@ export default function Page() {
                 <Users className="h-4 w-4 text-purple-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-lg font-bold">1</div>
+                <div className="text-sm font-bold">1</div>
                 <p className="text-xs text-muted-foreground">
                   +0 new this week
                 </p>

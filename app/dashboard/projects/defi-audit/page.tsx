@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar } from "@/components/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,14 +6,32 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { Progress } from "@/components/ui/progress"
-import { Calendar, CheckCircle, Clock, FileText, Users, AlertTriangle, Shield } from "lucide-react"
+} from "@/components/ui/breadcrumb";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import { Progress } from "@/components/ui/progress";
+import {
+  Calendar,
+  CheckCircle,
+  Clock,
+  FileText,
+  Users,
+  AlertTriangle,
+  Shield,
+} from "lucide-react";
 
 export default function DeFiAuditPage() {
   return (
@@ -41,16 +59,21 @@ export default function DeFiAuditPage() {
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="flex items-center justify-between mt-4">
             <div>
-              <h1 className="text-2xl font-bold">DeFi Protocol Security Audit</h1>
-              <p className="text-muted-foreground">Comprehensive security assessment of Compound V3 lending protocol</p>
+              <h1 className="text-sm font-bold">
+                DeFi Protocol Security Audit
+              </h1>
+              <p className="text-muted-foreground">
+                Comprehensive security assessment of Compound V3 lending
+                protocol
+              </p>
             </div>
             <div className="flex items-center gap-2">
               <Badge variant="secondary">In Progress</Badge>
-              <Button variant="outline">
+              <Button variant="outline" size="sm">
                 <FileText className="h-4 w-4 mr-2" />
                 Export Report
               </Button>
-              <Button>
+              <Button className="text-sm">
                 <Users className="h-4 w-4 mr-2" />
                 Share
               </Button>
@@ -65,9 +88,11 @@ export default function DeFiAuditPage() {
                 <Clock className="h-4 w-4 text-blue-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">75%</div>
+                <div className="text-sm font-bold">75%</div>
                 <Progress value={75} className="mt-2" />
-                <p className="text-xs text-muted-foreground mt-1">15 of 20 tasks completed</p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  15 of 20 tasks completed
+                </p>
               </CardContent>
             </Card>
 
@@ -77,19 +102,25 @@ export default function DeFiAuditPage() {
                 <AlertTriangle className="h-4 w-4 text-red-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">23</div>
-                <p className="text-xs text-muted-foreground">3 Critical, 8 High, 12 Medium</p>
+                <div className="text-sm font-bold">23</div>
+                <p className="text-xs text-muted-foreground">
+                  3 Critical, 8 High, 12 Medium
+                </p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Code Coverage</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Code Coverage
+                </CardTitle>
                 <Shield className="h-4 w-4 text-green-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">94%</div>
-                <p className="text-xs text-muted-foreground">Lines of code analyzed</p>
+                <div className="text-sm font-bold">94%</div>
+                <p className="text-xs text-muted-foreground">
+                  Lines of code analyzed
+                </p>
               </CardContent>
             </Card>
 
@@ -99,8 +130,10 @@ export default function DeFiAuditPage() {
                 <Calendar className="h-4 w-4 text-purple-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">5 days</div>
-                <p className="text-xs text-muted-foreground">Remaining until deadline</p>
+                <div className="text-sm font-bold">5 days</div>
+                <p className="text-xs text-muted-foreground">
+                  Remaining until deadline
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -109,7 +142,9 @@ export default function DeFiAuditPage() {
           <Card>
             <CardHeader>
               <CardTitle>Audit Progress</CardTitle>
-              <CardDescription>Current status of each audit phase</CardDescription>
+              <CardDescription>
+                Current status of each audit phase
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -121,7 +156,8 @@ export default function DeFiAuditPage() {
                       <Badge variant="outline">Completed</Badge>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Static analysis with Slither, Mythril, and custom detectors
+                      Static analysis with Slither, Mythril, and custom
+                      detectors
                     </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground mt-1">
                       <span>Duration: 2 days</span>
@@ -139,7 +175,8 @@ export default function DeFiAuditPage() {
                       <Badge variant="outline">Completed</Badge>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Line-by-line review of critical functions and business logic
+                      Line-by-line review of critical functions and business
+                      logic
                     </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground mt-1">
                       <span>Duration: 5 days</span>
@@ -157,7 +194,8 @@ export default function DeFiAuditPage() {
                       <Badge variant="secondary">In Progress</Badge>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Analysis of economic incentives, game theory, and potential attack vectors
+                      Analysis of economic incentives, game theory, and
+                      potential attack vectors
                     </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground mt-1">
                       <span>Progress: 60%</span>
@@ -171,11 +209,14 @@ export default function DeFiAuditPage() {
                   <Clock className="h-5 w-5 text-muted-foreground" />
                   <div className="flex-1">
                     <div className="flex items-center justify-between">
-                      <span className="font-medium">4. Integration Testing</span>
+                      <span className="font-medium">
+                        4. Integration Testing
+                      </span>
                       <Badge variant="outline">Pending</Badge>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Testing protocol interactions with other DeFi protocols and edge cases
+                      Testing protocol interactions with other DeFi protocols
+                      and edge cases
                     </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground mt-1">
                       <span>Est. duration: 3 days</span>
@@ -192,7 +233,8 @@ export default function DeFiAuditPage() {
                       <Badge variant="outline">Pending</Badge>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Compilation of findings, recommendations, and remediation guidance
+                      Compilation of findings, recommendations, and remediation
+                      guidance
                     </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground mt-1">
                       <span>Est. duration: 2 days</span>
@@ -211,7 +253,9 @@ export default function DeFiAuditPage() {
                 <AlertTriangle className="h-5 w-5 text-red-500" />
                 Critical Findings
               </CardTitle>
-              <CardDescription>High-priority security issues requiring immediate attention</CardDescription>
+              <CardDescription>
+                High-priority security issues requiring immediate attention
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -220,11 +264,14 @@ export default function DeFiAuditPage() {
                   <div className="flex-1 space-y-1">
                     <div className="flex items-center gap-2">
                       <Badge variant="destructive">Critical</Badge>
-                      <span className="font-medium">Price Oracle Manipulation</span>
+                      <span className="font-medium">
+                        Price Oracle Manipulation
+                      </span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      The protocol relies on a single price oracle without sufficient validation, making it vulnerable
-                      to flash loan attacks that could manipulate asset prices.
+                      The protocol relies on a single price oracle without
+                      sufficient validation, making it vulnerable to flash loan
+                      attacks that could manipulate asset prices.
                     </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
                       <span>File: PriceOracle.sol:45</span>
@@ -240,11 +287,14 @@ export default function DeFiAuditPage() {
                   <div className="flex-1 space-y-1">
                     <div className="flex items-center gap-2">
                       <Badge variant="destructive">Critical</Badge>
-                      <span className="font-medium">Reentrancy in Liquidation</span>
+                      <span className="font-medium">
+                        Reentrancy in Liquidation
+                      </span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      The liquidation function makes external calls before updating internal state, allowing for
-                      reentrancy attacks that could drain protocol funds.
+                      The liquidation function makes external calls before
+                      updating internal state, allowing for reentrancy attacks
+                      that could drain protocol funds.
                     </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
                       <span>File: Liquidator.sol:123</span>
@@ -263,8 +313,9 @@ export default function DeFiAuditPage() {
                       <span className="font-medium">Access Control Bypass</span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Administrative functions lack proper access control checks, potentially allowing unauthorized
-                      users to modify critical protocol parameters.
+                      Administrative functions lack proper access control
+                      checks, potentially allowing unauthorized users to modify
+                      critical protocol parameters.
                     </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
                       <span>File: Governance.sol:67</span>
@@ -283,7 +334,9 @@ export default function DeFiAuditPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Audit Team</CardTitle>
-                <CardDescription>Security researchers assigned to this project</CardDescription>
+                <CardDescription>
+                  Security researchers assigned to this project
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-center gap-3">
@@ -292,7 +345,9 @@ export default function DeFiAuditPage() {
                   </div>
                   <div>
                     <p className="font-medium">Alex Chen</p>
-                    <p className="text-sm text-muted-foreground">Lead Security Researcher</p>
+                    <p className="text-sm text-muted-foreground">
+                      Lead Security Researcher
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -301,7 +356,9 @@ export default function DeFiAuditPage() {
                   </div>
                   <div>
                     <p className="font-medium">Sarah Martinez</p>
-                    <p className="text-sm text-muted-foreground">Smart Contract Auditor</p>
+                    <p className="text-sm text-muted-foreground">
+                      Smart Contract Auditor
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -310,7 +367,9 @@ export default function DeFiAuditPage() {
                   </div>
                   <div>
                     <p className="font-medium">David Johnson</p>
-                    <p className="text-sm text-muted-foreground">Economic Security Analyst</p>
+                    <p className="text-sm text-muted-foreground">
+                      Economic Security Analyst
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -319,7 +378,9 @@ export default function DeFiAuditPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Project Timeline</CardTitle>
-                <CardDescription>Key milestones and deliverables</CardDescription>
+                <CardDescription>
+                  Key milestones and deliverables
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-center gap-3">
@@ -333,21 +394,27 @@ export default function DeFiAuditPage() {
                   <CheckCircle className="h-4 w-4 text-green-500" />
                   <div className="flex-1">
                     <p className="font-medium">Initial Findings Report</p>
-                    <p className="text-sm text-muted-foreground">Jan 15, 2024</p>
+                    <p className="text-sm text-muted-foreground">
+                      Jan 15, 2024
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="h-4 w-4 text-blue-500" />
                   <div className="flex-1">
                     <p className="font-medium">Draft Report Review</p>
-                    <p className="text-sm text-muted-foreground">Jan 20, 2024</p>
+                    <p className="text-sm text-muted-foreground">
+                      Jan 20, 2024
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="h-4 w-4 text-muted-foreground" />
                   <div className="flex-1">
                     <p className="font-medium">Final Report Delivery</p>
-                    <p className="text-sm text-muted-foreground">Jan 22, 2024</p>
+                    <p className="text-sm text-muted-foreground">
+                      Jan 22, 2024
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -356,5 +423,5 @@ export default function DeFiAuditPage() {
         </div>
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar } from "@/components/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,14 +6,32 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { Bookmark, Clock, Eye, Filter, Search, Star, Trash2 } from "lucide-react"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/breadcrumb";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import {
+  Bookmark,
+  Clock,
+  Eye,
+  Filter,
+  Search,
+  Star,
+  Trash2,
+} from "lucide-react";
+import { Input } from "@/components/ui/input";
 
 export default function BookmarksPage() {
   return (
@@ -41,15 +59,19 @@ export default function BookmarksPage() {
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="flex items-center justify-between mt-4">
             <div>
-              <h1 className="text-2xl font-bold">Saved Research & Resources</h1>
+              <h1 className="text-sm font-bold">Saved Research & Resources</h1>
               <p className="text-muted-foreground">
-                Your bookmarked vulnerabilities, research papers, and security resources
+                Your bookmarked vulnerabilities, research papers, and security
+                resources
               </p>
             </div>
             <div className="flex items-center gap-2">
               <div className="relative">
                 <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-                <Input placeholder="Search bookmarks..." className="pl-8 w-64" />
+                <Input
+                  placeholder="Search bookmarks..."
+                  className="pl-8 w-64"
+                />
               </div>
               <Button variant="outline" size="sm">
                 <Filter className="h-4 w-4 mr-2" />
@@ -76,8 +98,13 @@ export default function BookmarksPage() {
                     </Button>
                   </div>
                 </div>
-                <CardTitle className="text-lg">Uniswap V4 Hook Vulnerability</CardTitle>
-                <CardDescription>Reentrancy attack vector in custom hooks allowing fund drainage</CardDescription>
+                <CardTitle className="text-sm">
+                  Uniswap V4 Hook Vulnerability
+                </CardTitle>
+                <CardDescription>
+                  Reentrancy attack vector in custom hooks allowing fund
+                  drainage
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -118,9 +145,12 @@ export default function BookmarksPage() {
                     </Button>
                   </div>
                 </div>
-                <CardTitle className="text-lg">Advanced MEV Protection Mechanisms</CardTitle>
+                <CardTitle className="text-sm">
+                  Advanced MEV Protection Mechanisms
+                </CardTitle>
                 <CardDescription>
-                  Comprehensive analysis of MEV protection strategies and their effectiveness
+                  Comprehensive analysis of MEV protection strategies and their
+                  effectiveness
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -162,8 +192,13 @@ export default function BookmarksPage() {
                     </Button>
                   </div>
                 </div>
-                <CardTitle className="text-lg">Slither Static Analysis</CardTitle>
-                <CardDescription>Smart contract static analysis tool for vulnerability detection</CardDescription>
+                <CardTitle className="text-sm">
+                  Slither Static Analysis
+                </CardTitle>
+                <CardDescription>
+                  Smart contract static analysis tool for vulnerability
+                  detection
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -204,8 +239,13 @@ export default function BookmarksPage() {
                     </Button>
                   </div>
                 </div>
-                <CardTitle className="text-lg">Wormhole Bridge Exploit Analysis</CardTitle>
-                <CardDescription>Detailed post-mortem analysis of the $320M Wormhole bridge hack</CardDescription>
+                <CardTitle className="text-sm">
+                  Wormhole Bridge Exploit Analysis
+                </CardTitle>
+                <CardDescription>
+                  Detailed post-mortem analysis of the $320M Wormhole bridge
+                  hack
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -232,5 +272,5 @@ export default function BookmarksPage() {
         </div>
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }

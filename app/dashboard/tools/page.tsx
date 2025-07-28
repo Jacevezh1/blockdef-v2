@@ -90,7 +90,9 @@ export default function ToolsPage() {
                     </div>
                     <Badge variant="secondary">Active</Badge>
                   </div>
-                  <Button className="w-full">Access Tools</Button>
+                  <Button className="w-full" size="sm">
+                    Access Tools
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -126,7 +128,9 @@ export default function ToolsPage() {
                     </div>
                     <Badge variant="secondary">Live</Badge>
                   </div>
-                  <Button className="w-full">Launch Scanner</Button>
+                  <Button className="w-full" size="sm">
+                    Launch Scanner
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -163,7 +167,9 @@ export default function ToolsPage() {
                     </div>
                     <Badge variant="secondary">Visual</Badge>
                   </div>
-                  <Button className="w-full">Start Tracing</Button>
+                  <Button className="w-full" size="sm">
+                    Start Tracing
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -200,7 +206,9 @@ export default function ToolsPage() {
                     </div>
                     <Badge variant="secondary">Premium</Badge>
                   </div>
-                  <Button className="w-full">View Documentation</Button>
+                  <Button className="w-full" size="sm">
+                    View Documentation
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -221,7 +229,7 @@ export default function ToolsPage() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <Shield className="h-5 w-5 text-blue-500" />
-                      <span className="font-medium">Slither</span>
+                      <span className="font-medium text-sm">Slither</span>
                     </div>
                     <Badge variant="outline">Static Analysis</Badge>
                   </div>
@@ -243,7 +251,7 @@ export default function ToolsPage() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <Zap className="h-5 w-5 text-purple-500" />
-                      <span className="font-medium">Mythril</span>
+                      <span className="font-medium text-sm">Mythril</span>
                     </div>
                     <Badge variant="outline">Symbolic Execution</Badge>
                   </div>
@@ -265,7 +273,7 @@ export default function ToolsPage() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <Code className="h-5 w-5 text-green-500" />
-                      <span className="font-medium">Echidna</span>
+                      <span className="font-medium text-sm">Echidna</span>
                     </div>
                     <Badge variant="outline">Fuzzing</Badge>
                   </div>
@@ -289,15 +297,21 @@ export default function ToolsPage() {
           <div className="grid gap-4 md:grid-cols-2">
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">Quick Analysis</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-sm">Quick Analysis</CardTitle>
+                <CardDescription className="text-sm">
                   Analyze a smart contract or transaction instantly
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex gap-2">
-                  <Button className="flex-1">Analyze Contract</Button>
-                  <Button variant="outline" className="flex-1 bg-transparent">
+                  <Button className="flex-1" size="sm">
+                    Analyze Contract
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="flex-1 bg-transparent"
+                    size="sm"
+                  >
                     Trace Transaction
                   </Button>
                 </div>
@@ -309,15 +323,21 @@ export default function ToolsPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">Batch Processing</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-sm">Batch Processing</CardTitle>
+                <CardDescription className="text-sm">
                   Run analysis on multiple contracts or addresses
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex gap-2">
-                  <Button className="flex-1">Upload CSV</Button>
-                  <Button variant="outline" className="flex-1 bg-transparent">
+                  <Button className="flex-1" size="sm">
+                    Upload CSV
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="flex-1 bg-transparent"
+                    size="sm"
+                  >
                     API Integration
                   </Button>
                 </div>

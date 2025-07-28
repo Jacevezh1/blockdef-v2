@@ -8,8 +8,7 @@ import {
   Frame,
   LifeBuoy,
   Map,
-  PieChart,
-  Send,
+  Search,
   Settings2,
   SquareTerminal,
 } from "lucide-react";
@@ -26,7 +25,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-/* import { SidebarOptInForm } from "@/components/sidebar-form"; */
+import { NavUser } from "./nav-user";
 
 const data = {
   navMain: [
@@ -48,6 +47,29 @@ const data = {
           title: "Bookmarks",
           url: "/dashboard/bookmarks",
         }, */
+      ],
+    },
+    {
+      title: "News",
+      url: "/dashboard/news",
+      icon: BookOpen,
+      items: [
+        {
+          title: "Latest News",
+          url: "/dashboard/news",
+        },
+        {
+          title: "Security Alerts",
+          url: "/dashboard/news?category=security",
+        },
+        {
+          title: "Research Updates",
+          url: "/dashboard/news?category=research",
+        },
+        {
+          title: "Tool Releases",
+          url: "/dashboard/news?category=tools",
+        },
       ],
     },
     {
@@ -91,14 +113,9 @@ const data = {
   ],
   navSecondary: [
     {
-      title: "Documentation",
+      title: "Search",
       url: "/dashboard/docs",
-      icon: LifeBuoy,
-    },
-    {
-      title: "Report Issue",
-      url: "/dashboard/report",
-      icon: Send,
+      icon: Search,
     },
   ],
   projects: [
@@ -121,8 +138,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
               <a href="/dashboard">
-                <Frame className="!size-4" />
-                <span className="text-SM font-semibold">BLOCKDEF</span>
+                <span className="text-SM font-semibold">BlockDef</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -133,9 +149,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavProjects projects={data.projects} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
-      {/*   <SidebarFooter>
-        <SidebarOptInForm />
-      </SidebarFooter> */}
+      <SidebarFooter>
+        <NavUser />
+      </SidebarFooter>
     </Sidebar>
   );
 }

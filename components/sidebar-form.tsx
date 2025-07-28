@@ -20,10 +20,14 @@ export function SidebarOptInForm() {
       <CardContent className="px-4">
         <form>
           <div className="grid gap-2.5">
-            <SidebarInput type="email" placeholder="Email" />
+            <SidebarInput
+              type="email"
+              placeholder="Email"
+              className="text-xs"
+            />
             <Button
               className="bg-sidebar-primary text-xs text-sidebar-primary-foreground w-full shadow-none"
-              size="icon"
+              size="sm"
             >
               Subscribe
             </Button>

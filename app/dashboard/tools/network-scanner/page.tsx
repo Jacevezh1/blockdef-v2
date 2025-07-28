@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar } from "@/components/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,14 +6,31 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { Input } from "@/components/ui/input"
-import { Network, Activity, AlertTriangle, Eye, Play, Settings } from "lucide-react"
+} from "@/components/ui/breadcrumb";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import { Input } from "@/components/ui/input";
+import {
+  Network,
+  Activity,
+  AlertTriangle,
+  Eye,
+  Play,
+  Settings,
+} from "lucide-react";
 
 export default function NetworkScannerPage() {
   return (
@@ -31,7 +48,9 @@ export default function NetworkScannerPage() {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="/dashboard/tools">Research Tools</BreadcrumbLink>
+                  <BreadcrumbLink href="/dashboard/tools">
+                    Research Tools
+                  </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
@@ -45,17 +64,18 @@ export default function NetworkScannerPage() {
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="flex items-center justify-between mt-4">
             <div>
-              <h1 className="text-2xl font-bold">Blockchain Network Scanner</h1>
+              <h1 className="text-sm font-bold">Blockchain Network Scanner</h1>
               <p className="text-muted-foreground">
-                Real-time monitoring and anomaly detection across multiple blockchain networks
+                Real-time monitoring and anomaly detection across multiple
+                blockchain networks
               </p>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="outline">
+              <Button variant="outline" size="sm">
                 <Settings className="h-4 w-4 mr-2" />
                 Configure
               </Button>
-              <Button>
+              <Button size="sm">
                 <Play className="h-4 w-4 mr-2" />
                 Start Scan
               </Button>
@@ -70,8 +90,10 @@ export default function NetworkScannerPage() {
                 <Network className="h-4 w-4 text-blue-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-green-600">Online</div>
-                <p className="text-xs text-muted-foreground">Block: 18,945,123</p>
+                <div className="text-sm font-bold text-green-600">Online</div>
+                <p className="text-xs text-muted-foreground">
+                  Block: 18,945,123
+                </p>
               </CardContent>
             </Card>
 
@@ -81,8 +103,10 @@ export default function NetworkScannerPage() {
                 <Network className="h-4 w-4 text-yellow-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-green-600">Online</div>
-                <p className="text-xs text-muted-foreground">Block: 34,567,890</p>
+                <div className="text-sm font-bold text-green-600">Online</div>
+                <p className="text-xs text-muted-foreground">
+                  Block: 34,567,890
+                </p>
               </CardContent>
             </Card>
 
@@ -92,8 +116,10 @@ export default function NetworkScannerPage() {
                 <Network className="h-4 w-4 text-purple-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-green-600">Online</div>
-                <p className="text-xs text-muted-foreground">Block: 51,234,567</p>
+                <div className="text-sm font-bold text-green-600">Online</div>
+                <p className="text-xs text-muted-foreground">
+                  Block: 51,234,567
+                </p>
               </CardContent>
             </Card>
 
@@ -103,8 +129,10 @@ export default function NetworkScannerPage() {
                 <Network className="h-4 w-4 text-blue-400" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-green-600">Online</div>
-                <p className="text-xs text-muted-foreground">Block: 156,789,012</p>
+                <div className="text-sm font-bold text-green-600">Online</div>
+                <p className="text-xs text-muted-foreground">
+                  Block: 156,789,012
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -114,15 +142,21 @@ export default function NetworkScannerPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Scan Configuration</CardTitle>
-                <CardDescription>Configure network scanning parameters</CardDescription>
+                <CardDescription>
+                  Configure network scanning parameters
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Target Address/Contract</label>
+                  <label className="text-sm font-medium">
+                    Target Address/Contract
+                  </label>
                   <Input placeholder="0x... or leave empty for network-wide scan" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Scan Depth (blocks)</label>
+                  <label className="text-sm font-medium">
+                    Scan Depth (blocks)
+                  </label>
                   <Input type="number" placeholder="1000" defaultValue="100" />
                 </div>
                 <div className="space-y-2">
@@ -152,7 +186,9 @@ export default function NetworkScannerPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Detection Rules</CardTitle>
-                <CardDescription>Configure what anomalies to detect</CardDescription>
+                <CardDescription>
+                  Configure what anomalies to detect
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-center justify-between p-3 border rounded-lg">
@@ -160,7 +196,9 @@ export default function NetworkScannerPage() {
                     <input type="checkbox" defaultChecked />
                     <span className="font-medium">Large Transactions</span>
                   </div>
-                  <span className="text-sm text-muted-foreground">{">"}$1M</span>
+                  <span className="text-sm text-muted-foreground">
+                    {">"}$1M
+                  </span>
                 </div>
 
                 <div className="flex items-center justify-between p-3 border rounded-lg">
@@ -168,7 +206,9 @@ export default function NetworkScannerPage() {
                     <input type="checkbox" defaultChecked />
                     <span className="font-medium">Suspicious Contracts</span>
                   </div>
-                  <span className="text-sm text-muted-foreground">Pattern matching</span>
+                  <span className="text-sm text-muted-foreground">
+                    Pattern matching
+                  </span>
                 </div>
 
                 <div className="flex items-center justify-between p-3 border rounded-lg">
@@ -176,7 +216,9 @@ export default function NetworkScannerPage() {
                     <input type="checkbox" />
                     <span className="font-medium">MEV Activity</span>
                   </div>
-                  <span className="text-sm text-muted-foreground">Sandwich attacks</span>
+                  <span className="text-sm text-muted-foreground">
+                    Sandwich attacks
+                  </span>
                 </div>
 
                 <div className="flex items-center justify-between p-3 border rounded-lg">
@@ -184,7 +226,9 @@ export default function NetworkScannerPage() {
                     <input type="checkbox" />
                     <span className="font-medium">Flash Loans</span>
                   </div>
-                  <span className="text-sm text-muted-foreground">Large borrows</span>
+                  <span className="text-sm text-muted-foreground">
+                    Large borrows
+                  </span>
                 </div>
               </CardContent>
             </Card>
@@ -197,7 +241,9 @@ export default function NetworkScannerPage() {
                 <Activity className="h-5 w-5" />
                 Live Network Alerts
               </CardTitle>
-              <CardDescription>Real-time suspicious activity detection</CardDescription>
+              <CardDescription>
+                Real-time suspicious activity detection
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -207,10 +253,13 @@ export default function NetworkScannerPage() {
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
                         <Badge variant="destructive">Critical</Badge>
-                        <span className="font-medium">Large ETH Transfer Detected</span>
+                        <span className="font-medium">
+                          Large ETH Transfer Detected
+                        </span>
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Transfer of 10,000 ETH from 0x1234...5678 to 0xabcd...efgh
+                        Transfer of 10,000 ETH from 0x1234...5678 to
+                        0xabcd...efgh
                       </p>
                       <div className="flex items-center gap-4 text-xs text-muted-foreground">
                         <span>Ethereum</span>
@@ -231,10 +280,13 @@ export default function NetworkScannerPage() {
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
                         <Badge variant="secondary">High</Badge>
-                        <span className="font-medium">Suspicious Contract Deployment</span>
+                        <span className="font-medium">
+                          Suspicious Contract Deployment
+                        </span>
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        New contract with similar bytecode to known malicious contracts
+                        New contract with similar bytecode to known malicious
+                        contracts
                       </p>
                       <div className="flex items-center gap-4 text-xs text-muted-foreground">
                         <span>BSC</span>
@@ -255,10 +307,13 @@ export default function NetworkScannerPage() {
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
                         <Badge variant="outline">Info</Badge>
-                        <span className="font-medium">High Gas Price Activity</span>
+                        <span className="font-medium">
+                          High Gas Price Activity
+                        </span>
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Multiple transactions with gas price {">"} 100 gwei detected
+                        Multiple transactions with gas price {">"} 100 gwei
+                        detected
                       </p>
                       <div className="flex items-center gap-4 text-xs text-muted-foreground">
                         <span>Ethereum</span>
@@ -277,5 +332,5 @@ export default function NetworkScannerPage() {
         </div>
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }

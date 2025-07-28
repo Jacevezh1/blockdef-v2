@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar } from "@/components/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,14 +6,33 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { Input } from "@/components/ui/input"
-import { AlertTriangle, Calendar, ExternalLink, Filter, Search, Shield, TrendingDown, TrendingUp } from "lucide-react"
+} from "@/components/ui/breadcrumb";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import { Input } from "@/components/ui/input";
+import {
+  AlertTriangle,
+  Calendar,
+  ExternalLink,
+  Filter,
+  Search,
+  Shield,
+  TrendingDown,
+  TrendingUp,
+} from "lucide-react";
 
 export default function CVEsPage() {
   return (
@@ -31,7 +50,9 @@ export default function CVEsPage() {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="/dashboard/vulnerabilities">Vulnerabilities</BreadcrumbLink>
+                  <BreadcrumbLink href="/dashboard/vulnerabilities">
+                    Vulnerabilities
+                  </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
@@ -45,9 +66,10 @@ export default function CVEsPage() {
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="flex items-center justify-between mt-4">
             <div>
-              <h1 className="text-2xl font-bold">Critical CVEs Database</h1>
+              <h1 className="text-sm font-bold">Critical CVEs Database</h1>
               <p className="text-muted-foreground">
-                Common Vulnerabilities and Exposures affecting blockchain infrastructure and protocols
+                Common Vulnerabilities and Exposures affecting blockchain
+                infrastructure and protocols
               </p>
             </div>
             <div className="flex items-center gap-2">
@@ -66,11 +88,13 @@ export default function CVEsPage() {
           <div className="grid gap-4 md:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Critical (9.0-10.0)</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Critical (9.0-10.0)
+                </CardTitle>
                 <AlertTriangle className="h-4 w-4 text-red-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-red-600">23</div>
+                <div className="text-sm font-bold text-red-600">23</div>
                 <p className="text-xs text-muted-foreground flex items-center gap-1">
                   <TrendingUp className="h-3 w-3" />
                   +3 this month
@@ -80,11 +104,13 @@ export default function CVEsPage() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">High (7.0-8.9)</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  High (7.0-8.9)
+                </CardTitle>
                 <Shield className="h-4 w-4 text-orange-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-orange-600">67</div>
+                <div className="text-sm font-bold text-orange-600">67</div>
                 <p className="text-xs text-muted-foreground flex items-center gap-1">
                   <TrendingUp className="h-3 w-3" />
                   +12 this month
@@ -98,7 +124,7 @@ export default function CVEsPage() {
                 <Shield className="h-4 w-4 text-green-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-green-600">1,247</div>
+                <div className="text-sm font-bold text-green-600">1,247</div>
                 <p className="text-xs text-muted-foreground flex items-center gap-1">
                   <TrendingDown className="h-3 w-3" />
                   -5% unpatched
@@ -112,7 +138,7 @@ export default function CVEsPage() {
                 <AlertTriangle className="h-4 w-4 text-purple-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-purple-600">7</div>
+                <div className="text-sm font-bold text-purple-600">7</div>
                 <p className="text-xs text-muted-foreground">Active threats</p>
               </CardContent>
             </Card>
@@ -130,10 +156,12 @@ export default function CVEsPage() {
                       <Badge variant="outline">CVSS 9.8</Badge>
                       <Badge variant="secondary">Ethereum</Badge>
                     </div>
-                    <CardTitle className="text-lg">Geth Client Remote Code Execution</CardTitle>
+                    <CardTitle className="text-sm">
+                      Geth Client Remote Code Execution
+                    </CardTitle>
                     <CardDescription>
-                      Critical vulnerability in Go Ethereum client allowing remote code execution through malformed P2P
-                      messages
+                      Critical vulnerability in Go Ethereum client allowing
+                      remote code execution through malformed P2P messages
                     </CardDescription>
                   </div>
                   <div className="flex items-center gap-2">
@@ -194,9 +222,12 @@ export default function CVEsPage() {
                       <Badge variant="outline">CVSS 9.1</Badge>
                       <Badge variant="secondary">Solidity</Badge>
                     </div>
-                    <CardTitle className="text-lg">Solidity Compiler Storage Collision</CardTitle>
+                    <CardTitle className="text-sm">
+                      Solidity Compiler Storage Collision
+                    </CardTitle>
                     <CardDescription>
-                      Critical bug in Solidity compiler causing storage layout collisions in contracts with inheritance
+                      Critical bug in Solidity compiler causing storage layout
+                      collisions in contracts with inheritance
                     </CardDescription>
                   </div>
                   <div className="flex items-center gap-2">
@@ -255,9 +286,12 @@ export default function CVEsPage() {
                       <Badge variant="outline">CVSS 8.2</Badge>
                       <Badge variant="secondary">Chainlink</Badge>
                     </div>
-                    <CardTitle className="text-lg">Chainlink Oracle Price Manipulation</CardTitle>
+                    <CardTitle className="text-sm">
+                      Chainlink Oracle Price Manipulation
+                    </CardTitle>
                     <CardDescription>
-                      High-severity vulnerability allowing price feed manipulation through aggregator contract flaws
+                      High-severity vulnerability allowing price feed
+                      manipulation through aggregator contract flaws
                     </CardDescription>
                   </div>
                   <div className="flex items-center gap-2">
@@ -309,5 +343,5 @@ export default function CVEsPage() {
         </div>
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }

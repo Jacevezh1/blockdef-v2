@@ -66,7 +66,7 @@ export default function VulnerabilitiesPage() {
                 <AlertTriangle className="h-4 w-4 text-red-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-lg font-bold text-red-600">23</div>
+                <div className="text-sm font-bold text-red-600">23</div>
                 <p className="text-xs text-muted-foreground">+3 this week</p>
               </CardContent>
             </Card>
@@ -79,7 +79,7 @@ export default function VulnerabilitiesPage() {
                 <TrendingUp className="h-4 w-4 text-orange-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-lg font-bold text-orange-600">67</div>
+                <div className="text-sm font-bold text-orange-600">67</div>
                 <p className="text-xs text-muted-foreground">+12 this week</p>
               </CardContent>
             </Card>
@@ -90,7 +90,7 @@ export default function VulnerabilitiesPage() {
                 <Shield className="h-4 w-4 text-green-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-lg font-bold text-green-600">1,247</div>
+                <div className="text-sm font-bold text-green-600">1,247</div>
                 <p className="text-xs text-muted-foreground">+89 this month</p>
               </CardContent>
             </Card>
@@ -103,7 +103,7 @@ export default function VulnerabilitiesPage() {
                 <Activity className="h-4 w-4 text-blue-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-lg font-bold text-blue-600">34</div>
+                <div className="text-sm font-bold text-blue-600">34</div>
                 <p className="text-xs text-muted-foreground">
                   Active investigations
                 </p>
@@ -127,12 +127,12 @@ export default function VulnerabilitiesPage() {
               <CardContent>
                 <div className="flex items-center justify-between">
                   <div className="space-y-1">
-                    <p className="text-lg font-bold text-red-600">23</p>
+                    <p className="text-sm font-bold text-red-600">23</p>
                     <p className="text-xs text-muted-foreground">
                       Active critical issues
                     </p>
                   </div>
-                  <Button>View All</Button>
+                  <Button size="sm">View All</Button>
                 </div>
               </CardContent>
             </Card>
@@ -150,12 +150,12 @@ export default function VulnerabilitiesPage() {
               <CardContent>
                 <div className="flex items-center justify-between">
                   <div className="space-y-1">
-                    <p className="text-lg font-bold text-blue-600">156</p>
+                    <p className="text-sm font-bold text-blue-600">156</p>
                     <p className="text-xs text-muted-foreground">
                       Documented patterns
                     </p>
                   </div>
-                  <Button>Explore</Button>
+                  <Button size="sm">Explore</Button>
                 </div>
               </CardContent>
             </Card>
@@ -174,12 +174,12 @@ export default function VulnerabilitiesPage() {
               <CardContent>
                 <div className="flex items-center justify-between">
                   <div className="space-y-1">
-                    <p className="text-lg font-bold text-orange-600">89</p>
+                    <p className="text-sm font-bold text-orange-600">89</p>
                     <p className="text-xs text-muted-foreground">
                       Analyzed exploits
                     </p>
                   </div>
-                  <Button>Analyze</Button>
+                  <Button size="sm">Analyze</Button>
                 </div>
               </CardContent>
             </Card>

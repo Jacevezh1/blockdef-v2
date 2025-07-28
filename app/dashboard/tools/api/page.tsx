@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar } from "@/components/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,14 +6,24 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { Input } from "@/components/ui/input"
-import { Code, Copy, Key, Book, Activity, Zap } from "lucide-react"
+} from "@/components/ui/breadcrumb";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import { Input } from "@/components/ui/input";
+import { Code, Copy, Key, Book, Activity, Zap } from "lucide-react";
 
 export default function APIPage() {
   return (
@@ -31,7 +41,9 @@ export default function APIPage() {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="/dashboard/tools">Research Tools</BreadcrumbLink>
+                  <BreadcrumbLink href="/dashboard/tools">
+                    Research Tools
+                  </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
@@ -45,17 +57,18 @@ export default function APIPage() {
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="flex items-center justify-between mt-4">
             <div>
-              <h1 className="text-2xl font-bold">BlockDef API Documentation</h1>
+              <h1 className="text-sm font-bold">BlockDef API Documentation</h1>
               <p className="text-muted-foreground">
-                Programmatic access to security data, vulnerability feeds, and analysis tools
+                Programmatic access to security data, vulnerability feeds, and
+                analysis tools
               </p>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="outline">
+              <Button variant="outline" className="text-sm">
                 <Book className="h-4 w-4 mr-2" />
                 Full Docs
               </Button>
-              <Button>
+              <Button className="text-sm">
                 <Key className="h-4 w-4 mr-2" />
                 Get API Key
               </Button>
@@ -69,11 +82,17 @@ export default function APIPage() {
                 <Key className="h-5 w-5" />
                 API Key Management
               </CardTitle>
-              <CardDescription>Manage your API keys and access tokens</CardDescription>
+              <CardDescription>
+                Manage your API keys and access tokens
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center gap-2">
-                <Input value="bd_sk_1234567890abcdef1234567890abcdef" readOnly className="font-mono text-sm flex-1" />
+                <Input
+                  value="bd_sk_1234567890abcdef1234567890abcdef"
+                  readOnly
+                  className="font-mono text-sm flex-1"
+                />
                 <Button variant="outline" size="sm">
                   <Copy className="h-4 w-4" />
                 </Button>
@@ -84,11 +103,15 @@ export default function APIPage() {
               <div className="flex items-center justify-between text-sm">
                 <div className="space-y-1">
                   <p className="font-medium">Current Plan: Professional</p>
-                  <p className="text-muted-foreground">10,000 requests/hour • 100,000 requests/month</p>
+                  <p className="text-muted-foreground">
+                    10,000 requests/hour • 100,000 requests/month
+                  </p>
                 </div>
                 <div className="text-right space-y-1">
                   <p className="font-medium">Usage This Month</p>
-                  <p className="text-muted-foreground">23,456 / 100,000 requests</p>
+                  <p className="text-muted-foreground">
+                    23,456 / 100,000 requests
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -102,31 +125,45 @@ export default function APIPage() {
                   <Activity className="h-5 w-5 text-red-500" />
                   Vulnerability Data
                 </CardTitle>
-                <CardDescription>Access CVE database and vulnerability information</CardDescription>
+                <CardDescription>
+                  Access CVE database and vulnerability information
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <code className="text-sm bg-muted px-2 py-1 rounded">GET /api/v1/cves</code>
+                    <code className="text-sm bg-muted px-2 py-1 rounded">
+                      GET /api/v1/cves
+                    </code>
                     <Badge variant="outline">REST</Badge>
                   </div>
-                  <p className="text-sm text-muted-foreground">Retrieve all CVE records with filtering</p>
+                  <p className="text-sm text-muted-foreground">
+                    Retrieve all CVE records with filtering
+                  </p>
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <code className="text-sm bg-muted px-2 py-1 rounded">GET /api/v1/vulnerabilities</code>
+                    <code className="text-sm bg-muted px-2 py-1 rounded">
+                      GET /api/v1/vulnerabilities
+                    </code>
                     <Badge variant="outline">REST</Badge>
                   </div>
-                  <p className="text-sm text-muted-foreground">Smart contract vulnerability patterns</p>
+                  <p className="text-sm text-muted-foreground">
+                    Smart contract vulnerability patterns
+                  </p>
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <code className="text-sm bg-muted px-2 py-1 rounded">GET /api/v1/exploits</code>
+                    <code className="text-sm bg-muted px-2 py-1 rounded">
+                      GET /api/v1/exploits
+                    </code>
                     <Badge variant="outline">REST</Badge>
                   </div>
-                  <p className="text-sm text-muted-foreground">Protocol exploit database</p>
+                  <p className="text-sm text-muted-foreground">
+                    Protocol exploit database
+                  </p>
                 </div>
 
                 <Button size="sm" className="w-full">
@@ -141,31 +178,45 @@ export default function APIPage() {
                   <Code className="h-5 w-5 text-blue-500" />
                   Analysis Tools
                 </CardTitle>
-                <CardDescription>Programmatic access to security analysis tools</CardDescription>
+                <CardDescription>
+                  Programmatic access to security analysis tools
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <code className="text-sm bg-muted px-2 py-1 rounded">POST /api/v1/analyze</code>
+                    <code className="text-sm bg-muted px-2 py-1 rounded">
+                      POST /api/v1/analyze
+                    </code>
                     <Badge variant="outline">REST</Badge>
                   </div>
-                  <p className="text-sm text-muted-foreground">Submit contract for static analysis</p>
+                  <p className="text-sm text-muted-foreground">
+                    Submit contract for static analysis
+                  </p>
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <code className="text-sm bg-muted px-2 py-1 rounded">GET /api/v1/scan</code>
+                    <code className="text-sm bg-muted px-2 py-1 rounded">
+                      GET /api/v1/scan
+                    </code>
                     <Badge variant="outline">REST</Badge>
                   </div>
-                  <p className="text-sm text-muted-foreground">Network scanning and monitoring</p>
+                  <p className="text-sm text-muted-foreground">
+                    Network scanning and monitoring
+                  </p>
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <code className="text-sm bg-muted px-2 py-1 rounded">POST /api/v1/trace</code>
+                    <code className="text-sm bg-muted px-2 py-1 rounded">
+                      POST /api/v1/trace
+                    </code>
                     <Badge variant="outline">REST</Badge>
                   </div>
-                  <p className="text-sm text-muted-foreground">Transaction flow tracing</p>
+                  <p className="text-sm text-muted-foreground">
+                    Transaction flow tracing
+                  </p>
                 </div>
 
                 <Button size="sm" className="w-full">
@@ -182,7 +233,9 @@ export default function APIPage() {
                 <Code className="h-5 w-5" />
                 Quick Start Examples
               </CardTitle>
-              <CardDescription>Get started with common API usage patterns</CardDescription>
+              <CardDescription>
+                Get started with common API usage patterns
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -235,11 +288,15 @@ const data = await response.json();`}
                   <Zap className="h-5 w-5 text-yellow-500" />
                   Rate Limits
                 </CardTitle>
-                <CardDescription>API usage limits and best practices</CardDescription>
+                <CardDescription>
+                  API usage limits and best practices
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">Requests per minute</span>
+                  <span className="text-sm font-medium">
+                    Requests per minute
+                  </span>
                   <span className="text-sm">1,000</span>
                 </div>
                 <div className="flex items-center justify-between">
@@ -251,7 +308,9 @@ const data = await response.json();`}
                   <span className="text-sm">100,000</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">Concurrent requests</span>
+                  <span className="text-sm font-medium">
+                    Concurrent requests
+                  </span>
                   <span className="text-sm">50</span>
                 </div>
                 <Button size="sm" className="w-full">
@@ -263,7 +322,9 @@ const data = await response.json();`}
             <Card>
               <CardHeader>
                 <CardTitle>Response Format</CardTitle>
-                <CardDescription>Standard API response structure</CardDescription>
+                <CardDescription>
+                  Standard API response structure
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="bg-muted p-3 rounded-lg">
@@ -289,5 +350,5 @@ const data = await response.json();`}
         </div>
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }

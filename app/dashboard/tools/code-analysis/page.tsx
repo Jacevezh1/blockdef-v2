@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar } from "@/components/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,14 +6,32 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { Textarea } from "@/components/ui/textarea"
-import { Code, Play, Upload, FileText, AlertTriangle, CheckCircle, XCircle } from "lucide-react"
+} from "@/components/ui/breadcrumb";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Code,
+  Play,
+  Upload,
+  FileText,
+  AlertTriangle,
+  CheckCircle,
+  XCircle,
+} from "lucide-react";
 
 export default function CodeAnalysisPage() {
   return (
@@ -31,7 +49,9 @@ export default function CodeAnalysisPage() {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="/dashboard/tools">Research Tools</BreadcrumbLink>
+                  <BreadcrumbLink href="/dashboard/tools">
+                    Research Tools
+                  </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
@@ -44,9 +64,10 @@ export default function CodeAnalysisPage() {
 
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="mt-4">
-            <h1 className="text-2xl font-bold">Smart Contract Code Analysis</h1>
+            <h1 className="text-sm font-bold">Smart Contract Code Analysis</h1>
             <p className="text-muted-foreground">
-              Comprehensive static and dynamic analysis tools for smart contract security
+              Comprehensive static and dynamic analysis tools for smart contract
+              security
             </p>
           </div>
 
@@ -58,22 +79,26 @@ export default function CodeAnalysisPage() {
                   <Code className="h-5 w-5" />
                   Contract Analysis
                 </CardTitle>
-                <CardDescription>Paste your Solidity code or contract address for analysis</CardDescription>
+                <CardDescription>
+                  Paste your Solidity code or contract address for analysis
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Contract Address or Code</label>
+                  <label className="text-sm font-medium">
+                    Contract Address or Code
+                  </label>
                   <Textarea
                     placeholder="0x... or paste Solidity code here"
                     className="min-h-[120px] font-mono text-sm"
                   />
                 </div>
                 <div className="flex gap-2">
-                  <Button className="flex-1">
+                  <Button className="flex-1 text-sm">
                     <Play className="h-4 w-4 mr-2" />
                     Analyze
                   </Button>
-                  <Button variant="outline">
+                  <Button variant="outline" className="text-sm">
                     <Upload className="h-4 w-4 mr-2" />
                     Upload File
                   </Button>
@@ -84,7 +109,9 @@ export default function CodeAnalysisPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Analysis Tools</CardTitle>
-                <CardDescription>Select which tools to run on your contract</CardDescription>
+                <CardDescription>
+                  Select which tools to run on your contract
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-center justify-between p-3 border rounded-lg">
@@ -95,7 +122,9 @@ export default function CodeAnalysisPage() {
                       Static
                     </Badge>
                   </div>
-                  <span className="text-sm text-muted-foreground">70+ detectors</span>
+                  <span className="text-sm text-muted-foreground">
+                    70+ detectors
+                  </span>
                 </div>
 
                 <div className="flex items-center justify-between p-3 border rounded-lg">
@@ -106,7 +135,9 @@ export default function CodeAnalysisPage() {
                       Symbolic
                     </Badge>
                   </div>
-                  <span className="text-sm text-muted-foreground">Deep analysis</span>
+                  <span className="text-sm text-muted-foreground">
+                    Deep analysis
+                  </span>
                 </div>
 
                 <div className="flex items-center justify-between p-3 border rounded-lg">
@@ -117,7 +148,9 @@ export default function CodeAnalysisPage() {
                       Fuzzing
                     </Badge>
                   </div>
-                  <span className="text-sm text-muted-foreground">Property testing</span>
+                  <span className="text-sm text-muted-foreground">
+                    Property testing
+                  </span>
                 </div>
               </CardContent>
             </Card>
@@ -127,7 +160,9 @@ export default function CodeAnalysisPage() {
           <Card>
             <CardHeader>
               <CardTitle>Analysis Results</CardTitle>
-              <CardDescription>Latest analysis of contract 0x1234...5678</CardDescription>
+              <CardDescription>
+                Latest analysis of contract 0x1234...5678
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -137,11 +172,14 @@ export default function CodeAnalysisPage() {
                   <div className="flex-1 space-y-1">
                     <div className="flex items-center gap-2">
                       <Badge variant="destructive">Critical</Badge>
-                      <span className="font-medium">Reentrancy Vulnerability</span>
+                      <span className="font-medium">
+                        Reentrancy Vulnerability
+                      </span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Function `withdraw()` at line 45 is vulnerable to reentrancy attacks. External call to
-                      `msg.sender.call()` before state update.
+                      Function `withdraw()` at line 45 is vulnerable to
+                      reentrancy attacks. External call to `msg.sender.call()`
+                      before state update.
                     </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
                       <span>Line 45-52</span>
@@ -160,10 +198,13 @@ export default function CodeAnalysisPage() {
                   <div className="flex-1 space-y-1">
                     <div className="flex items-center gap-2">
                       <Badge variant="secondary">High</Badge>
-                      <span className="font-medium">Unchecked Return Value</span>
+                      <span className="font-medium">
+                        Unchecked Return Value
+                      </span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      Return value of external call at line 67 is not checked. This could lead to silent failures.
+                      Return value of external call at line 67 is not checked.
+                      This could lead to silent failures.
                     </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
                       <span>Line 67</span>
@@ -185,7 +226,8 @@ export default function CodeAnalysisPage() {
                       <span className="font-medium">Access Control</span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      All administrative functions properly protected with access control modifiers.
+                      All administrative functions properly protected with
+                      access control modifiers.
                     </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
                       <span>Multiple functions</span>
@@ -197,17 +239,21 @@ export default function CodeAnalysisPage() {
               </div>
 
               <div className="flex gap-2 mt-4">
-                <Button>
+                <Button size="sm">
                   <FileText className="h-4 w-4 mr-2" />
                   Download Report
                 </Button>
-                <Button variant="outline">Share Results</Button>
-                <Button variant="outline">Run Again</Button>
+                <Button variant="outline" size="sm">
+                  Share Results
+                </Button>
+                <Button variant="outline" size="sm">
+                  Run Again
+                </Button>
               </div>
             </CardContent>
           </Card>
         </div>
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }
