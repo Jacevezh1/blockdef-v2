@@ -31,7 +31,7 @@ import {
   Shield,
   Code,
 } from "lucide-react";
-
+import { SiteFunctionsHeader } from "@/components/site-functions-header";
 export default function NewsDetailPage() {
   return (
     <SidebarProvider>
@@ -57,6 +57,7 @@ export default function NewsDetailPage() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
+          <SiteFunctionsHeader />
         </header>
 
         <div className="flex flex-1 flex-col">

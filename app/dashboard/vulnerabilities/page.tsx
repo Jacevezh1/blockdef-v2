@@ -23,6 +23,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { AlertTriangle, TrendingUp, Shield, Activity } from "lucide-react";
+import { SiteFunctionsHeader } from "@/components/site-functions-header";
 
 export default function VulnerabilitiesPage() {
   return (
@@ -45,6 +46,7 @@ export default function VulnerabilitiesPage() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
+          <SiteFunctionsHeader />
         </header>
 
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">

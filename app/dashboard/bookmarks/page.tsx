@@ -32,7 +32,7 @@ import {
   Trash2,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
-
+import { SiteFunctionsHeader } from "@/components/site-functions-header";
 export default function BookmarksPage() {
   return (
     <SidebarProvider>
@@ -54,6 +54,7 @@ export default function BookmarksPage() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
+          <SiteFunctionsHeader />
         </header>
 
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">

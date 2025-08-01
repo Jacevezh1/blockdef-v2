@@ -36,7 +36,7 @@ import {
   Plus,
   Settings,
 } from "lucide-react";
-
+import { SiteFunctionsHeader } from "@/components/site-functions-header";
 export default function DashboardUpdatesPage() {
   const recentUpdates = [
     {
@@ -253,6 +253,7 @@ export default function DashboardUpdatesPage() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
+          <SiteFunctionsHeader />
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="flex items-center justify-between mt-4">

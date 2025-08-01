@@ -23,8 +23,8 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { AlertTriangle, Clock, Eye, Filter, Search } from "lucide-react";
-import { Input } from "@/components/ui/input";
-
+import { ModeSwitcher } from "@/components/mode-switcher";
+import { SiteFunctionsHeader } from "@/components/site-functions-header";
 export default function AlertsPage() {
   return (
     <SidebarProvider>
@@ -46,6 +46,7 @@ export default function AlertsPage() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
+          <SiteFunctionsHeader />
         </header>
 
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">

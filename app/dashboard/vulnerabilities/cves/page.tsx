@@ -33,6 +33,7 @@ import {
   TrendingDown,
   TrendingUp,
 } from "lucide-react";
+import { SiteFunctionsHeader } from "@/components/site-functions-header";
 
 export default function CVEsPage() {
   return (
@@ -61,6 +62,7 @@ export default function CVEsPage() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
+          <SiteFunctionsHeader />
         </header>
 
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">

@@ -33,7 +33,7 @@ import {
   RefreshCw,
   Lock,
 } from "lucide-react";
-
+import { SiteFunctionsHeader } from "@/components/site-functions-header";
 export default function SmartContractBugsPage() {
   return (
     <SidebarProvider>
@@ -61,6 +61,7 @@ export default function SmartContractBugsPage() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
+          <SiteFunctionsHeader />
         </header>
 
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">

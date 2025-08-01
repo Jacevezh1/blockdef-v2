@@ -33,7 +33,7 @@ import {
   TrendingUp,
   User,
 } from "lucide-react";
-
+import { SiteFunctionsHeader } from "@/components/site-functions-header";
 export default function NewsPage() {
   return (
     <SidebarProvider>
@@ -55,6 +55,7 @@ export default function NewsPage() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
+          <SiteFunctionsHeader />
         </header>
 
         <div className="flex flex-1 flex-col gap-6 p-6">

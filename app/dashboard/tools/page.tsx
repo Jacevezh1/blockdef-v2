@@ -23,6 +23,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { Code, Network, Search, Settings, Shield, Zap } from "lucide-react";
+import { SiteFunctionsHeader } from "@/components/site-functions-header";
 
 export default function ToolsPage() {
   return (
@@ -45,6 +46,7 @@ export default function ToolsPage() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
+          <SiteFunctionsHeader />
         </header>
 
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">

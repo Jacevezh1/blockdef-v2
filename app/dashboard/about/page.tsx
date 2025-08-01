@@ -33,8 +33,8 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { ModeSwitcher } from "@/components/mode-switcher";
-import { CommandDialogView } from "@/components/command-menu";
-
+import { CommandMenu } from "@/components/command-menu";
+import { SiteFunctionsHeader } from "@/components/site-functions-header";
 export default function AboutPage() {
   const features = [
     {
@@ -129,9 +129,7 @@ export default function AboutPage() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
-          <div className="flex items-center md:flex-1 md:justify-end">
-            <ModeSwitcher />
-          </div>
+          <SiteFunctionsHeader />
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="flex items-center justify-between mt-4">
