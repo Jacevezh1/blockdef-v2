@@ -22,8 +22,89 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { Code, Network, Search, Settings, Shield, Zap } from "lucide-react";
+import {
+  Bot,
+  Building2,
+  Code,
+  ExternalLink,
+  Eye,
+  Network,
+  Search,
+  Settings,
+  Shield,
+  Zap,
+} from "lucide-react";
 import { SiteFunctionsHeader } from "@/components/site-functions-header";
+import Link from "next/link";
+
+const thirdPartyServices = [
+  {
+    name: "Blockaid",
+    category: "Transaction Security",
+    categoryColor: "bg-blue-100 text-blue-700 border-blue-200",
+    description:
+      "Blockaid provides an end-to-end solution that can help any company building in the space keep their users safe - including tools like smart contract monitoring, transaction simulation, dApp scanning, token security tools, on-chain and off-chain threat hunting capabilities, and more.",
+    icon: Shield,
+    status: "Active",
+    website: "blockaid.io",
+    externalLink: "https://www.blockaid.io",
+  },
+  {
+    name: "Cyfrin",
+    category: "Smart Contract Auditing",
+    categoryColor: "bg-green-100 text-green-700 border-green-200",
+    description:
+      "Cyfrin offers a full-stack smart contract security solution, combining expert audits, automated analysis tools, and comprehensive blockchain education to help teams build, review, and maintain secure contracts across multiple ecosystems worldwide.",
+    icon: Code,
+    status: "Active",
+    website: "cyfrin.io",
+    externalLink: "https://www.octane.security",
+  },
+  {
+    name: "Forta",
+    category: "Runtime Monitoring",
+    categoryColor: "bg-purple-100 text-purple-700 border-purple-200",
+    description:
+      "Forta is a decentralized real-time monitoring network that uses AI and machine learning to detect threats, anomalies, and scams across multiple blockchains. It enables protocols to proactively secure smart contracts and transactions through detection bots and alerts.",
+    icon: Eye,
+    status: "Active",
+    website: "forta.org",
+    externalLink: "https://www.octane.security",
+  },
+  {
+    name: "Octane",
+    category: "Security Tool",
+    categoryColor: "bg-orange-100 text-orange-700 border-orange-200",
+    description:
+      "Octane is a developer-first platform designed to battle-test smart contracts using cutting-edge machine learning. Its powerful engines analyze your source code, pinpoint critical issues, and provide clear, actionable insights on what matters most and how to fix it effectively.",
+    icon: Zap,
+    status: "Active",
+    website: "octane.security",
+    externalLink: "https://www.octane.security",
+  },
+  {
+    name: "Spearbit",
+    category: "Blockchain Auditing Companies",
+    categoryColor: "bg-red-100 text-red-700 border-red-200",
+    description:
+      "Spearbit is a decentralized network of elite security researchers offering comprehensive Web3 security assessments. Their services include smart contract audits, penetration testing, threat modeling, and advanced security reviews for complex protocols.",
+    icon: Search,
+    status: "Active",
+    website: "cantina.xyz",
+    externalLink: "https://cantina.xyz/solutions/spearbit",
+  },
+  {
+    name: "BlockSec",
+    category: "Security Analysis",
+    categoryColor: "bg-indigo-100 text-indigo-700 border-indigo-200",
+    description:
+      "BlockSec is a full-stack blockchain security provider offering smart contract audits, real-time attack monitoring, and automated blocking through its Phalcon platform. Trusted by over 300 clients, including Uniswap and MetaMask, to safeguard Web3 protocols and assets.",
+    icon: Bot,
+    status: "Active",
+    website: "blocksec.com",
+    externalLink: "https://blocksec.com/",
+  },
+];
 
 export default function ToolsPage() {
   return (
@@ -58,164 +139,6 @@ export default function ToolsPage() {
             </p>
           </div>
 
-          {/* Tool Categories */}
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
-            {/* Code Analysis */}
-            <Card className="cursor-pointer hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-sm">
-                  <Code className="h-6 w-6 text-blue-500" />
-                  Code Analysis Suite
-                </CardTitle>
-                <CardDescription className="text-sm">
-                  Static and dynamic analysis tools for smart contract
-                  vulnerability detection
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium">Available Tools</p>
-                      <p className="text-xs text-muted-foreground">
-                        Slither, MythX, Echidna, Manticore
-                      </p>
-                    </div>
-                    <Badge variant="outline">12 Tools</Badge>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium">Detection Coverage</p>
-                      <p className="text-xs text-muted-foreground">
-                        70+ vulnerability patterns
-                      </p>
-                    </div>
-                    <Badge variant="secondary">Active</Badge>
-                  </div>
-                  <Button className="w-full" size="sm">
-                    Access Tools
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Network Scanner */}
-            <Card className="cursor-pointer hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-sm">
-                  <Network className="h-6 w-6 text-green-500" />
-                  Network Scanner
-                </CardTitle>
-                <CardDescription className="text-sm">
-                  Real-time blockchain network monitoring and anomaly detection
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium">Networks Monitored</p>
-                      <p className="text-xs text-muted-foreground">
-                        Ethereum, BSC, Polygon, Arbitrum
-                      </p>
-                    </div>
-                    <Badge variant="outline">15 Networks</Badge>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium">Real-time Alerts</p>
-                      <p className="text-xs text-muted-foreground">
-                        Suspicious transactions & contracts
-                      </p>
-                    </div>
-                    <Badge variant="secondary">Live</Badge>
-                  </div>
-                  <Button className="w-full" size="sm">
-                    Launch Scanner
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Transaction Tracer */}
-            <Card className="cursor-pointer hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-sm">
-                  <Search className="h-6 w-6 text-purple-500" />
-                  Transaction Tracer
-                </CardTitle>
-                <CardDescription className="text-sm">
-                  Advanced transaction analysis and fund flow tracking
-                  capabilities
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium">Trace Depth</p>
-                      <p className="text-xs text-muted-foreground">
-                        Multi-hop transaction analysis
-                      </p>
-                    </div>
-                    <Badge variant="outline">∞ Hops</Badge>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium">Visualization</p>
-                      <p className="text-xs text-muted-foreground">
-                        Interactive flow diagrams
-                      </p>
-                    </div>
-                    <Badge variant="secondary">Visual</Badge>
-                  </div>
-                  <Button className="w-full" size="sm">
-                    Start Tracing
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* API Access */}
-            <Card className="cursor-pointer hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-sm">
-                  <Settings className="h-6 w-6 text-orange-500" />
-                  API Access Hub
-                </CardTitle>
-                <CardDescription className="text-sm">
-                  Programmatic access to security data, vulnerability feeds, and
-                  analysis tools
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium">API Endpoints</p>
-                      <p className="text-xs text-muted-foreground">
-                        RESTful & GraphQL interfaces
-                      </p>
-                    </div>
-                    <Badge variant="outline">50+ Endpoints</Badge>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium">Rate Limits</p>
-                      <p className="text-xs text-muted-foreground">
-                        10,000 requests/hour
-                      </p>
-                    </div>
-                    <Badge variant="secondary">Premium</Badge>
-                  </div>
-                  <Button className="w-full" size="sm">
-                    View Documentation
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
           {/* Featured Tools */}
           <Card>
             <CardHeader>
@@ -243,8 +166,14 @@ export default function ToolsPage() {
                     <span>• Reentrancy detection</span>
                     <span>• Gas optimization</span>
                   </div>
-                  <Button size="sm" className="w-full">
-                    Launch Slither
+                  <Button size="sm" variant="default" className="w-full">
+                    <Link
+                      href="https://github.com/crytic/slither"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Launch Slither
+                    </Link>
                   </Button>
                 </div>
 
@@ -265,8 +194,14 @@ export default function ToolsPage() {
                     <span>• Integer overflows</span>
                     <span>• Access control</span>
                   </div>
-                  <Button size="sm" className="w-full">
-                    Launch Mythril
+                  <Button size="sm" variant="default" className="w-full">
+                    <Link
+                      href="https://github.com/ConsenSysDiligence/mythril"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Launch Mythril
+                    </Link>
                   </Button>
                 </div>
 
@@ -287,16 +222,98 @@ export default function ToolsPage() {
                     <span>• Property testing</span>
                     <span>• Invariant checking</span>
                   </div>
-                  <Button size="sm" className="w-full">
-                    Launch Echidna
+                  <Button size="sm" variant="default" className="w-full">
+                    <Link
+                      href="https://github.com/crytic/echidna"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Launch Echidna
+                    </Link>
                   </Button>
                 </div>
               </div>
             </CardContent>
           </Card>
 
+          {/* Tool Categories */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Building2 className="h-5 w-5" />
+                Third-Party Security Services
+              </CardTitle>
+              <CardDescription>
+                Here are some leading third-party providers offering blockchain
+                security services. These companies are independent and not
+                affiliated with or sponsored by us — we’re simply sharing
+                examples to help you explore available options.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                {thirdPartyServices.map((service, index) => (
+                  <Card
+                    key={index}
+                    className="group relative hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="p-2 rounded-lg border bg-muted/50">
+                          <service.icon className="h-5 w-5 text-muted-foreground" />
+                        </div>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="h-8 w-8 p-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          <Link
+                            href={service.externalLink as string}
+                            target="_blank"
+                            referrerPolicy="no-referrer"
+                          >
+                            <ExternalLink className="h-4 w-4" />
+                          </Link>
+                        </Button>
+                      </div>
+
+                      <div className="space-y-3">
+                        <div>
+                          <h3 className="font-semibold text-sm">
+                            {service.name}
+                          </h3>
+                          <div
+                            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border mt-1 ${service.categoryColor}`}
+                          >
+                            {service.category}
+                          </div>
+                        </div>
+
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {service.description}
+                        </p>
+
+                        <div className="flex items-center justify-between pt-2 border-t">
+                          <div className="flex items-center gap-2">
+                            <div className="h-2 w-2 rounded-full bg-green-500" />
+                            <span className="text-xs text-muted-foreground">
+                              {service.status}
+                            </span>
+                          </div>
+                          <span className="text-xs text-muted-foreground font-mono">
+                            {service.website}
+                          </span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Quick Actions */}
-          <div className="grid gap-4 md:grid-cols-2">
+          {/* <div className="grid gap-4 md:grid-cols-2">
             <Card>
               <CardHeader>
                 <CardTitle className="text-sm">Quick Analysis</CardTitle>
@@ -348,7 +365,7 @@ export default function ToolsPage() {
                 </div>
               </CardContent>
             </Card>
-          </div>
+          </div> */}
         </div>
       </SidebarInset>
     </SidebarProvider>
