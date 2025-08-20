@@ -31,14 +31,14 @@ const data = {
       icon: SquareTerminal,
       isActive: true,
       items: [
-        {
+        /* {
           title: "Overview",
           url: "/dashboard",
-        },
-        {
+        }, */
+        /*         {
           title: "Recent Alerts",
           url: "/dashboard/alerts",
-        },
+        }, */
         /*         {
           title: "Bookmarks",
           url: "/dashboard/bookmarks",
@@ -46,11 +46,30 @@ const data = {
       ],
     },
     {
-      title: "News",
-      url: "/dashboard/news",
+      title: "Vulnerabilities",
+      url: "/dashboard/vulnerabilities",
+      icon: Bot,
+      items: [
+        /*   {
+          title: "Critical CVEs",
+          url: "/dashboard/vulnerabilities/cves",
+        }, */
+        {
+          title: "Smart Contract Bugs",
+          url: "/dashboard/vulnerabilities/smart-contracts",
+        },
+        {
+          title: "Protocol Exploits",
+          url: "/dashboard/vulnerabilities/exploits",
+        },
+      ],
+    },
+    {
+      title: "Blog",
+      url: "/dashboard/blog",
       icon: BookOpen,
       items: [
-        {
+        /*  {
           title: "Latest News",
           url: "/dashboard/news",
         },
@@ -65,26 +84,7 @@ const data = {
         {
           title: "Tool Releases",
           url: "/dashboard/news?category=tools",
-        },
-      ],
-    },
-    {
-      title: "Vulnerabilities",
-      url: "/dashboard/vulnerabilities",
-      icon: Bot,
-      items: [
-        {
-          title: "Critical CVEs",
-          url: "/dashboard/vulnerabilities/cves",
-        },
-        {
-          title: "Smart Contract Bugs",
-          url: "/dashboard/vulnerabilities/smart-contracts",
-        },
-        {
-          title: "Protocol Exploits",
-          url: "/dashboard/vulnerabilities/exploits",
-        },
+        }, */
       ],
     },
     {
@@ -92,7 +92,7 @@ const data = {
       url: "/dashboard/tools",
       icon: Settings2,
       items: [
-        {
+        /* {
           title: "Code Analysis",
           url: "/dashboard/tools/code-analysis",
         },
@@ -103,7 +103,7 @@ const data = {
         {
           title: "Transaction Tracer",
           url: "/dashboard/tools/transaction-tracer",
-        },
+        }, */
       ],
     },
   ],
@@ -116,8 +116,8 @@ const data = {
   ],
   projects: [
     {
-      name: "MEV Attack Analysis",
-      url: "/dashboard/projects/mev-analysis",
+      name: "Coming Soon",
+      url: "/dashboard",
       icon: Map,
     },
   ],

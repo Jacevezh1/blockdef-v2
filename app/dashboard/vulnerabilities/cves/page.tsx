@@ -69,7 +69,7 @@ export default function CVEsPage() {
           <div className="flex items-center justify-between mt-4">
             <div>
               <h1 className="text-sm font-bold">Critical CVEs Database</h1>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 Common Vulnerabilities and Exposures affecting blockchain
                 infrastructure and protocols
               </p>

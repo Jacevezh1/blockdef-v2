@@ -76,27 +76,21 @@ export function NavUser() {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="/dashboard/data-sources">
-                  <CreditCard />
-                  Data Sources & Coverage
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
                 <Link href="/dashboard/updates">
                   <Bell />
                   Dashboard Updates
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
+            {/* <DropdownMenuSeparator /> */}
+            {/*   <DropdownMenuGroup>
               <DropdownMenuItem asChild>
                 <Link href="/dashboard/report-vulnerability">
                   <LogOut />
                   Report a Vulnerability
                 </Link>
               </DropdownMenuItem>
-            </DropdownMenuGroup>
+            </DropdownMenuGroup> */}
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>

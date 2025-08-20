@@ -42,46 +42,24 @@ export default function DashboardUpdatesPage() {
     {
       id: 1,
       type: "feature",
-      title: "Enhanced Multi-Chain Analysis",
+      title: "Added Technical Blog",
       description:
-        "Added support for cross-chain vulnerability correlation across 5 new networks including Base and Linea.",
-      date: "2024-01-15",
-      version: "v2.4.0",
+        "Launched a dedicated blog section for sharing technical articles, tutorials, and engineering insights.",
+      date: "2025-07-15",
+      version: "v1.1.0",
       status: "released",
       impact: "high",
     },
     {
       id: 2,
-      type: "security",
-      title: "Critical Security Patch",
+      type: "feature",
+      title: "Research Tools Integration",
       description:
-        "Fixed vulnerability in API authentication that could allow unauthorized access to sensitive data.",
-      date: "2024-01-12",
-      version: "v2.3.2",
-      status: "released",
-      impact: "critical",
-    },
-    {
-      id: 3,
-      type: "improvement",
-      title: "Dashboard Performance Optimization",
-      description:
-        "Improved loading times by 40% and reduced memory usage for large datasets.",
-      date: "2024-01-10",
-      version: "v2.3.1",
+        "Introduced a set of research-focused tools for tracking industry trends, analyzing data, and exploring emerging technologies.",
+      date: "2025-07-15",
+      version: "v1.1.0",
       status: "released",
       impact: "medium",
-    },
-    {
-      id: 4,
-      type: "feature",
-      title: "AI-Powered Threat Detection",
-      description:
-        "Introduced machine learning models for automated vulnerability pattern recognition.",
-      date: "2024-01-08",
-      version: "v2.3.0",
-      status: "released",
-      impact: "high",
     },
   ];
 
@@ -90,68 +68,53 @@ export default function DashboardUpdatesPage() {
       title: "Real-time Collaboration Tools",
       description:
         "Team workspaces with shared vulnerability tracking and analysis",
-      eta: "Q1 2024",
+      eta: "Q4 2025",
       status: "in-development",
     },
     {
       title: "Advanced API Integration",
       description:
         "GraphQL API with real-time subscriptions for vulnerability feeds",
-      eta: "Q1 2024",
-      status: "planning",
-    },
-    {
-      title: "Mobile Application",
-      description:
-        "Native iOS and Android apps for on-the-go security monitoring",
-      eta: "Q2 2024",
+      eta: "Q4 2025",
       status: "planning",
     },
     {
       title: "Custom Alert Rules",
       description:
         "User-defined alert conditions with advanced filtering options",
-      eta: "Q1 2024",
+      eta: "Q4 2025",
       status: "in-development",
     },
   ];
 
   const systemStatus = [
-    {
+    /*     {
       service: "Vulnerability Scanner",
       status: "operational",
       uptime: "99.9%",
     },
     { service: "Real-time Alerts", status: "operational", uptime: "99.8%" },
-    { service: "API Gateway", status: "operational", uptime: "99.9%" },
+    { service: "API Gateway", status: "operational", uptime: "99.9%" }, */
     { service: "Data Pipeline", status: "maintenance", uptime: "99.5%" },
     { service: "Web Dashboard", status: "operational", uptime: "99.9%" },
   ];
 
   const changelog = [
     {
-      version: "v2.4.0",
-      date: "2024-01-15",
+      version: "v1.0.3",
+      date: "2024-07-15",
       changes: [
-        { type: "added", description: "Multi-chain vulnerability correlation" },
-        { type: "added", description: "Support for Base and Linea networks" },
         { type: "improved", description: "Enhanced search functionality" },
         { type: "fixed", description: "Minor UI inconsistencies in dark mode" },
       ],
     },
     {
-      version: "v2.3.2",
+      version: "v1.0.2",
       date: "2024-01-12",
-      changes: [
-        {
-          type: "security",
-          description: "Fixed API authentication vulnerability",
-        },
-        { type: "improved", description: "Enhanced rate limiting" },
-      ],
+      changes: [{ type: "improved", description: "Enhanced rate limiting" }],
     },
     {
-      version: "v2.3.1",
+      version: "v1.0.1",
       date: "2024-01-10",
       changes: [
         { type: "improved", description: "40% faster dashboard loading" },

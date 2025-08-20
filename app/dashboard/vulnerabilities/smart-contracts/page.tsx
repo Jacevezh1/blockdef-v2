@@ -22,18 +22,22 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { Input } from "@/components/ui/input";
 import {
   AlertTriangle,
   Code,
-  Filter,
-  Search,
   Shield,
   Zap,
   RefreshCw,
   Lock,
 } from "lucide-react";
 import { SiteFunctionsHeader } from "@/components/site-functions-header";
+import {
+  vulnerabilities,
+  vulnerabilityStats,
+  detectionTools,
+} from "@/data/vulnerabilities";
+import Link from "next/link";
+
 export default function SmartContractBugsPage() {
   return (
     <SidebarProvider>
@@ -70,20 +74,10 @@ export default function SmartContractBugsPage() {
               <h1 className="text-sm font-bold">
                 Smart Contract Vulnerability Patterns
               </h1>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 Common vulnerability patterns and anti-patterns in smart
                 contract development
               </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="relative">
-                <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-                <Input placeholder="Search patterns..." className="pl-8 w-64" />
-              </div>
-              <Button variant="outline" size="sm">
-                <Filter className="h-4 w-4 mr-2" />
-                Filter
-              </Button>
             </div>
           </div>
 
@@ -97,7 +91,9 @@ export default function SmartContractBugsPage() {
                 <AlertTriangle className="h-4 w-4 text-red-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold text-red-600">12</div>
+                <div className="text-sm font-bold text-red-600">
+                  {vulnerabilityStats.critical}
+                </div>
                 <p className="text-xs text-muted-foreground">
                   High-impact vulnerabilities
                 </p>
@@ -112,7 +108,9 @@ export default function SmartContractBugsPage() {
                 <Code className="h-4 w-4 text-orange-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold text-orange-600">47</div>
+                <div className="text-sm font-bold text-orange-600">
+                  {vulnerabilityStats.common}
+                </div>
                 <p className="text-xs text-muted-foreground">
                   Frequently seen bugs
                 </p>
@@ -127,7 +125,9 @@ export default function SmartContractBugsPage() {
                 <Shield className="h-4 w-4 text-green-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold text-green-600">89</div>
+                <div className="text-sm font-bold text-green-600">
+                  {vulnerabilityStats.bestPractices}
+                </div>
                 <p className="text-xs text-muted-foreground">
                   Prevention techniques
                 </p>
@@ -142,7 +142,9 @@ export default function SmartContractBugsPage() {
                 <Zap className="h-4 w-4 text-blue-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold text-blue-600">23</div>
+                <div className="text-sm font-bold text-blue-600">
+                  {vulnerabilityStats.tools}
+                </div>
                 <p className="text-xs text-muted-foreground">Detection tools</p>
               </CardContent>
             </Card>
@@ -150,242 +152,145 @@ export default function SmartContractBugsPage() {
 
           {/* Vulnerability Categories */}
           <div className="grid gap-4 md:grid-cols-2">
-            {/* Reentrancy */}
-            <Card className="border-red-200 dark:border-red-800">
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <RefreshCw className="h-5 w-5 text-red-500" />
-                      <Badge variant="destructive">Critical</Badge>
-                      <Badge variant="outline">SWC-107</Badge>
-                    </div>
-                    <CardTitle className="text-sm">
-                      Reentrancy Attacks
-                    </CardTitle>
-                    <CardDescription>
-                      Vulnerability where external calls can recursively call
-                      back into the contract before state changes are finalized
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="text-sm">
-                    <span className="font-medium">Common in:</span> DeFi
-                    protocols, token contracts, withdrawal functions
-                  </div>
-                  <div className="text-sm">
-                    <span className="font-medium">Famous Cases:</span> The DAO
-                    (2016), Cream Finance (2021)
-                  </div>
-                  <div className="text-sm">
-                    <span className="font-medium">Prevention:</span>{" "}
-                    Checks-Effects-Interactions pattern, ReentrancyGuard
-                  </div>
-                  <div className="flex gap-2">
-                    <Button size="sm">View Examples</Button>
-                    <Button variant="outline" size="sm">
-                      Prevention Guide
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            {vulnerabilities.map((vulnerability) => {
+              const iconMap = {
+                RefreshCw,
+                AlertTriangle,
+                Lock,
+                Zap,
+              };
+              const IconComponent =
+                iconMap[vulnerability.icon as keyof typeof iconMap];
 
-            {/* Integer Overflow/Underflow */}
-            <Card className="border-orange-200 dark:border-orange-800">
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <AlertTriangle className="h-5 w-5 text-orange-500" />
-                      <Badge variant="secondary">High</Badge>
-                      <Badge variant="outline">SWC-101</Badge>
+              return (
+                <Card
+                  key={vulnerability.id}
+                  className={`border-${
+                    vulnerability.severity === "Critical"
+                      ? "red"
+                      : vulnerability.severity === "High"
+                      ? "orange"
+                      : vulnerability.severity === "Medium"
+                      ? "yellow"
+                      : "blue"
+                  }-200 dark:border-${
+                    vulnerability.severity === "Critical"
+                      ? "red"
+                      : vulnerability.severity === "High"
+                      ? "orange"
+                      : vulnerability.severity === "Medium"
+                      ? "yellow"
+                      : "blue"
+                  }-800`}
+                >
+                  <CardHeader>
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-2">
+                          <IconComponent
+                            className={`h-5 w-5 text-${
+                              vulnerability.severity === "Critical"
+                                ? "red"
+                                : vulnerability.severity === "High"
+                                ? "orange"
+                                : vulnerability.severity === "Medium"
+                                ? "yellow"
+                                : "blue"
+                            }-500`}
+                          />
+                          <Badge
+                            variant={
+                              vulnerability.severity === "Critical"
+                                ? "destructive"
+                                : "secondary"
+                            }
+                          >
+                            {vulnerability.severity}
+                          </Badge>
+                          <Badge variant="outline">{vulnerability.swcId}</Badge>
+                        </div>
+                        <CardTitle className="text-sm pt-3">
+                          {vulnerability.title}
+                        </CardTitle>
+                        <CardDescription className="text-sm">
+                          {vulnerability.description}
+                        </CardDescription>
+                      </div>
                     </div>
-                    <CardTitle className="text-sm">
-                      Integer Overflow/Underflow
-                    </CardTitle>
-                    <CardDescription>
-                      Arithmetic operations that exceed the maximum or minimum
-                      values for integer types
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="text-sm">
-                    <span className="font-medium">Common in:</span> Token
-                    transfers, balance calculations, timestamp operations
-                  </div>
-                  <div className="text-sm">
-                    <span className="font-medium">Famous Cases:</span>{" "}
-                    BeautyChain (BEC), SMT Token
-                  </div>
-                  <div className="text-sm">
-                    <span className="font-medium">Prevention:</span> SafeMath
-                    library, Solidity 0.8+ built-in checks
-                  </div>
-                  <div className="flex gap-2">
-                    <Button size="sm">View Examples</Button>
-                    <Button variant="outline" size="sm">
-                      SafeMath Guide
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Access Control */}
-            <Card className="border-yellow-200 dark:border-yellow-800">
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <Lock className="h-5 w-5 text-yellow-500" />
-                      <Badge variant="outline">Medium</Badge>
-                      <Badge variant="outline">SWC-115</Badge>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="text-sm">
+                        <span className="font-medium">Common in:</span>{" "}
+                        {vulnerability.commonIn.join(", ")}
+                      </div>
+                      <div className="text-sm">
+                        <span className="font-medium">Famous Cases:</span>{" "}
+                        {vulnerability.famousCases.join(", ")}
+                      </div>
+                      <div className="text-sm">
+                        <span className="font-medium">Prevention:</span>{" "}
+                        {vulnerability.prevention.join(", ")}
+                      </div>
+                      <div className="flex gap-2">
+                        <Link
+                          href={`/dashboard/vulnerabilities/smart-contracts/${vulnerability.id}`}
+                        >
+                          <Button size="sm">View Details</Button>
+                        </Link>
+                      </div>
                     </div>
-                    <CardTitle className="text-sm">
-                      Access Control Issues
-                    </CardTitle>
-                    <CardDescription>
-                      Improper implementation of authorization checks allowing
-                      unauthorized access to functions
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="text-sm">
-                    <span className="font-medium">Common in:</span> Admin
-                    functions, ownership transfers, privileged operations
-                  </div>
-                  <div className="text-sm">
-                    <span className="font-medium">Famous Cases:</span> Parity
-                    Wallet, Akropolis
-                  </div>
-                  <div className="text-sm">
-                    <span className="font-medium">Prevention:</span>{" "}
-                    OpenZeppelin AccessControl, proper modifier usage
-                  </div>
-                  <div className="flex gap-2">
-                    <Button size="sm">View Examples</Button>
-                    <Button variant="outline" size="sm">
-                      Access Patterns
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Front-Running */}
-            <Card className="border-blue-200 dark:border-blue-800">
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <Zap className="h-5 w-5 text-blue-500" />
-                      <Badge variant="outline">Medium</Badge>
-                      <Badge variant="outline">MEV</Badge>
-                    </div>
-                    <CardTitle className="text-sm">
-                      Front-Running Vulnerabilities
-                    </CardTitle>
-                    <CardDescription>
-                      Transactions can be observed in mempool and exploited by
-                      miners or bots before execution
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="text-sm">
-                    <span className="font-medium">Common in:</span> DEX trades,
-                    auctions, lottery contracts
-                  </div>
-                  <div className="text-sm">
-                    <span className="font-medium">Impact:</span> MEV extraction,
-                    sandwich attacks, transaction ordering
-                  </div>
-                  <div className="text-sm">
-                    <span className="font-medium">Prevention:</span>{" "}
-                    Commit-reveal schemes, private mempools, batch auctions
-                  </div>
-                  <div className="flex gap-2">
-                    <Button size="sm">MEV Analysis</Button>
-                    <Button variant="outline" size="sm">
-                      Protection Methods
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
 
           {/* Detection Tools */}
           <Card>
             <CardHeader>
-              <CardTitle>Automated Detection Tools</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-sm">
+                Automated Detection Tools
+              </CardTitle>
+              <CardDescription className="text-sm">
                 Static and dynamic analysis tools for smart contract
                 vulnerability detection
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid gap-4 md:grid-cols-3">
-                <div className="space-y-2 p-3 border rounded-lg">
-                  <div className="flex items-center gap-2">
-                    <Code className="h-4 w-4 text-blue-500" />
-                    <span className="font-medium">Slither</span>
-                    <Badge variant="outline" className="text-xs">
-                      Static
-                    </Badge>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    Python-based static analysis framework with 70+ detectors
-                  </p>
-                  <Button size="sm" className="w-full">
-                    Use Tool
-                  </Button>
-                </div>
+                {detectionTools.map((tool) => {
+                  const toolIconMap = {
+                    Code,
+                    Shield,
+                    Zap,
+                  };
+                  const ToolIconComponent =
+                    toolIconMap[tool.icon as keyof typeof toolIconMap];
 
-                <div className="space-y-2 p-3 border rounded-lg">
-                  <div className="flex items-center gap-2">
-                    <Shield className="h-4 w-4 text-green-500" />
-                    <span className="font-medium">MythX</span>
-                    <Badge variant="outline" className="text-xs">
-                      Hybrid
-                    </Badge>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    Professional security analysis platform with symbolic
-                    execution
-                  </p>
-                  <Button size="sm" className="w-full">
-                    Use Tool
-                  </Button>
-                </div>
-
-                <div className="space-y-2 p-3 border rounded-lg">
-                  <div className="flex items-center gap-2">
-                    <Zap className="h-4 w-4 text-purple-500" />
-                    <span className="font-medium">Echidna</span>
-                    <Badge variant="outline" className="text-xs">
-                      Fuzzing
-                    </Badge>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    Property-based fuzzing tool for Ethereum smart contracts
-                  </p>
-                  <Button size="sm" className="w-full">
-                    Use Tool
-                  </Button>
-                </div>
+                  return (
+                    <div
+                      key={tool.id}
+                      className="space-y-2 p-3 border rounded-lg"
+                    >
+                      <div className="flex items-center gap-2">
+                        <ToolIconComponent
+                          className={`h-4 w-4 text-${tool.color}-500`}
+                        />
+                        <span className="font-medium text-sm">{tool.name}</span>
+                        <Badge variant="outline" className="text-xs">
+                          {tool.type}
+                        </Badge>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        {tool.description}
+                      </p>
+                      <Button size="sm" className="w-full">
+                        Use Tool
+                      </Button>
+                    </div>
+                  );
+                })}
               </div>
             </CardContent>
           </Card>

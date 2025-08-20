@@ -75,12 +75,10 @@ export default function AboutPage() {
     },
   ];
 
-  const stats = [
-    { label: "Vulnerabilities Tracked", value: "50,000+", icon: Target },
-    { label: "Blockchain Networks", value: "20+", icon: Globe },
-    { label: "Security Researchers", value: "5,000+", icon: Users },
-    { label: "Daily Scans", value: "1M+", icon: Zap },
-  ];
+  /*  const stats = [
+    { label: "Vulnerabilities Tracked", value: "50+", icon: Target },
+    { label: "Blockchain Networks", value: "7+", icon: Globe },
+  ]; */
 
   const timeline = [
     {
@@ -142,7 +140,7 @@ export default function AboutPage() {
           </div>
 
           {/* Hero Section */}
-          <Card className="border-0 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20">
+          <Card className="border ">
             <CardContent className="p-8">
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-12 w-12 rounded-lg bg-blue-600 flex items-center justify-center">
@@ -170,7 +168,7 @@ export default function AboutPage() {
           </Card>
 
           {/* Stats */}
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {/* <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
             {stats.map((stat, index) => (
               <Card key={index}>
                 <CardContent className="p-6">
@@ -188,7 +186,7 @@ export default function AboutPage() {
                 </CardContent>
               </Card>
             ))}
-          </div>
+          </div> */}
 
           {/* Mission & Vision */}
           <div className="grid gap-6 md:grid-cols-2">
