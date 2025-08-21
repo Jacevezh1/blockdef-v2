@@ -15,9 +15,16 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { Calendar, Clock, Eye, TrendingUp, User } from "lucide-react";
+import {
+  Calendar,
+  Clock,
+  Eye,
+  NewspaperIcon,
+  TrendingUp,
+  User,
+} from "lucide-react";
 import { SiteFunctionsHeader } from "@/components/site-functions-header";
-import { blogPosts, getFeaturedPosts, categories } from "@/data/news";
+import { blogPosts, getFeaturedPosts, categories } from "@/data/blog";
 import type { BlogPost, Category } from "@/types/blog";
 import Link from "next/link";
 
@@ -108,9 +115,9 @@ export default function NewsPage() {
           <SiteFunctionsHeader />
         </header>
 
-        <div className="flex flex-1 flex-col gap-8 p-6 max-w-6xl mx-auto">
+        <div className="flex flex-1 flex-col gap-4 p-4">
           {/* Header Section */}
-          <div className="space-y-2">
+          <div>
             <h1 className="text-sm font-semibold tracking-tight">
               Blockchain Security News
             </h1>
@@ -121,7 +128,7 @@ export default function NewsPage() {
           </div>
 
           {/* Featured Stories */}
-          <div className="space-y-6">
+          <div className="space-y-3">
             <div className="flex items-center gap-2">
               <TrendingUp className="h-4 w-4 text-orange-500" />
               <h2 className="text-sm font-medium">Featured Stories</h2>
@@ -134,7 +141,7 @@ export default function NewsPage() {
                   (c: Category) => c.id === post.category
                 )?.name;
                 return (
-                  <Link key={post.id} href={`/dashboard/news/${post.id}`}>
+                  <Link key={post.id} href={`/dashboard/blog/${post.id}`}>
                     <Card
                       className={`group cursor-pointer transition-all duration-200 hover:shadow-lg ${getCategoryColorClass(
                         categoryColor
@@ -215,7 +222,10 @@ export default function NewsPage() {
 
           {/* Recent News */}
           <div className="space-y-6">
-            <h2 className="text-sm font-medium">Latest Updates</h2>
+            <h2 className="flex text-sm font-medium mt-4">
+              <NewspaperIcon className="h-4 w-4 mr-2 text-orange-500" />
+              Latest Updates
+            </h2>
 
             <div className="space-y-4">
               {recentPosts.map((post: BlogPost) => {
@@ -224,7 +234,7 @@ export default function NewsPage() {
                   (c: Category) => c.id === post.category
                 )?.name;
                 return (
-                  <Link key={post.id} href={`/dashboard/news/${post.id}`}>
+                  <Link key={post.id} href={`/dashboard/blog/${post.id}`}>
                     <Card
                       className={`group cursor-pointer transition-all duration-200 hover:shadow-md ${getCategoryColorClass(
                         categoryColor
