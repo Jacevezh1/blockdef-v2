@@ -1,10 +1,10 @@
 import type { Vulnerability, VulnerabilityStats, DetectionTool } from "@/types/vulnerability"
 
 export const vulnerabilityStats: VulnerabilityStats = {
-  critical: 12,
-  common: 47,
-  bestPractices: 89,
-  tools: 23,
+  critical: 1,
+  common: 2,
+  bestPractices: 1,
+  tools: 0,
 }
 
 export const vulnerabilities: Vulnerability[] = [
@@ -70,7 +70,7 @@ function withdraw(uint amount) public nonReentrant {
   {
     id: "integer-overflow",
     title: "Integer Overflow/Underflow",
-    description: "Arithmetic operations that exceed the maximum or minimum values for integer types",
+    description: "Happens on arithmetic operations that exceed the maximum or minimum values for integer types",
     severity: "High",
     category: "Arithmetic",
     swcId: "SWC-101",

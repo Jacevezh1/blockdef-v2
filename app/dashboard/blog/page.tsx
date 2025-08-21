@@ -8,33 +8,83 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { Input } from "@/components/ui/input";
-import {
-  Calendar,
-  Clock,
-  Eye,
-  Filter,
-  Plus,
-  Search,
-  TrendingUp,
-  User,
-} from "lucide-react";
+import { Calendar, Clock, Eye, TrendingUp, User } from "lucide-react";
 import { SiteFunctionsHeader } from "@/components/site-functions-header";
+import { blogPosts, getFeaturedPosts, categories } from "@/data/news";
+import type { BlogPost, Category } from "@/types/blog";
+import Link from "next/link";
+
+function getStatusColor(
+  status: string
+): "destructive" | "secondary" | "outline" {
+  switch (status) {
+    case "breaking":
+    case "security-alert":
+    case "exploit":
+      return "destructive";
+    case "research":
+    case "analysis":
+      return "secondary";
+    case "tool-release":
+    default:
+      return "outline";
+  }
+}
+
+function getCategoryColor(categoryId: string): string {
+  const category: Category | undefined = categories.find(
+    (c: Category) => c.id === categoryId
+  );
+  return category?.color || "gray";
+}
+
+function getCategoryColorClass(color: string): string {
+  switch (color) {
+    case "blue":
+      return "border-blue-200 dark:border-blue-800 hover:border-blue-300 dark:hover:border-blue-700";
+    case "red":
+      return "border-red-200 dark:border-red-800 hover:border-red-300 dark:hover:border-red-700";
+    case "green":
+      return "border-green-200 dark:border-green-800 hover:border-green-300 dark:hover:border-green-700";
+    case "purple":
+      return "border-purple-200 dark:border-purple-800 hover:border-purple-300 dark:hover:border-purple-700";
+    case "orange":
+      return "border-orange-200 dark:border-orange-800 hover:border-orange-300 dark:hover:border-orange-700";
+    default:
+      return "border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700";
+  }
+}
+
+function getTitleColorClass(color: string): string {
+  switch (color) {
+    case "blue":
+      return "group-hover:text-blue-600 dark:group-hover:text-blue-400";
+    case "red":
+      return "group-hover:text-red-600 dark:group-hover:text-red-400";
+    case "green":
+      return "group-hover:text-green-600 dark:group-hover:text-green-400";
+    case "purple":
+      return "group-hover:text-purple-600 dark:group-hover:text-purple-400";
+    case "orange":
+      return "group-hover:text-orange-600 dark:group-hover:text-orange-400";
+    default:
+      return "group-hover:text-gray-600 dark:group-hover:text-gray-400";
+  }
+}
+
 export default function NewsPage() {
+  const featuredPosts: BlogPost[] = getFeaturedPosts();
+  const recentPosts: BlogPost[] = blogPosts
+    .filter((post: BlogPost) => !post.featured)
+    .slice(0, 4);
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -58,336 +108,234 @@ export default function NewsPage() {
           <SiteFunctionsHeader />
         </header>
 
-        <div className="flex flex-1 flex-col gap-6 p-6">
+        <div className="flex flex-1 flex-col gap-8 p-6 max-w-6xl mx-auto">
           {/* Header Section */}
-          <div className="flex items-center justify-between">
-            <div className="space-y-1">
-              <h1 className="text-sm font-bold tracking-tight">
-                Blockchain Security News
-              </h1>
-              <p className="text-muted-foreground text-sm">
-                Latest updates, vulnerabilities, and security developments in
-                the blockchain space
-              </p>
-            </div>
-            {/* <div className="flex items-center gap-3">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                <Input placeholder="Search news..." className="pl-9 w-80" />
-              </div>
-              <Button variant="outline" size="sm">
-                <Filter className="h-4 w-4 mr-2" />
-                Filter
-              </Button>
-              <Button>
-                <Plus className="h-4 w-4 mr-2" />
-                Add News
-              </Button>
-            </div> */}
+          <div className="space-y-2">
+            <h1 className="text-sm font-semibold tracking-tight">
+              Blockchain Security News
+            </h1>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Latest updates, vulnerabilities, and security developments in the
+              blockchain space
+            </p>
           </div>
 
-          {/* Featured News */}
-          <div className="space-y-4">
+          {/* Featured Stories */}
+          <div className="space-y-6">
             <div className="flex items-center gap-2">
-              <TrendingUp className="h-5 w-5 text-orange-500" />
-              <h2 className="text-sm font-semibold">Featured Stories</h2>
+              <TrendingUp className="h-4 w-4 text-orange-500" />
+              <h2 className="text-sm font-medium">Featured Stories</h2>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
-              {/* Main Featured Article */}
-              <Card className="group cursor-pointer transition-all hover:shadow-lg">
-                <CardHeader className="pb-4">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Badge variant="destructive" className="font-medium">
-                      Breaking
-                    </Badge>
-                    <Badge variant="outline">Critical</Badge>
-                  </div>
-                  <CardTitle className="text-sm leading-tight group-hover:text-blue-600 transition-colors">
-                    Major Vulnerability Discovered in Popular DeFi Protocol
-                    Leads to $50M Exploit
-                  </CardTitle>
-                  <CardDescription className="text-base leading-relaxed text-sm">
-                    Security researchers have identified a critical reentrancy
-                    vulnerability in a leading DeFi lending protocol, resulting
-                    in one of the largest exploits of 2024. The attack vector
-                    exploited a flaw in the protocol's liquidation mechanism.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex items-center justify-between text-sm text-muted-foreground">
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-1">
-                        <User className="h-3 w-3" />
-                        <span>Alex Chen</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-3 w-3" />
-                        <span>Jan 15, 2024</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Clock className="h-3 w-3" />
-                        <span>5 min read</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Eye className="h-3 w-3" />
-                      <span>2.3k views</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Secondary Featured */}
-              <Card className="group cursor-pointer transition-all hover:shadow-lg">
-                <CardHeader className="pb-4">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Badge variant="secondary">Research</Badge>
-                    <Badge variant="outline">Analysis</Badge>
-                  </div>
-                  <CardTitle className="text-sm leading-tight group-hover:text-green-600 transition-colors">
-                    New Zero-Knowledge Proof Vulnerability Pattern Identified in
-                    Layer 2 Solutions
-                  </CardTitle>
-                  <CardDescription className="text-base leading-relaxed text-sm">
-                    Comprehensive analysis reveals a systematic vulnerability in
-                    ZK-proof implementations across multiple Layer 2 scaling
-                    solutions, potentially affecting millions of users.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex items-center justify-between text-sm text-muted-foreground">
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-1">
-                        <User className="h-3 w-3" />
-                        <span>Sarah Martinez</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-3 w-3" />
-                        <span>Jan 14, 2024</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Clock className="h-3 w-3" />
-                        <span>8 min read</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Eye className="h-3 w-3" />
-                      <span>1.8k views</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              {featuredPosts.map((post: BlogPost) => {
+                const categoryColor: string = getCategoryColor(post.category);
+                const categoryName: string | undefined = categories.find(
+                  (c: Category) => c.id === post.category
+                )?.name;
+                return (
+                  <Link key={post.id} href={`/dashboard/news/${post.id}`}>
+                    <Card
+                      className={`group cursor-pointer transition-all duration-200 hover:shadow-lg ${getCategoryColorClass(
+                        categoryColor
+                      )}`}
+                    >
+                      <CardHeader className="pb-4">
+                        <div className="flex items-center gap-2 mb-3">
+                          <Badge
+                            variant={getStatusColor(post.status)}
+                            className="text-xs font-medium"
+                          >
+                            {post.status === "breaking"
+                              ? "Breaking"
+                              : post.status === "security-alert"
+                              ? "Security Alert"
+                              : post.status === "research"
+                              ? "Research"
+                              : post.status === "analysis"
+                              ? "Analysis"
+                              : post.status === "tool-release"
+                              ? "Tool Release"
+                              : post.status === "exploit"
+                              ? "Exploit"
+                              : "News"}
+                          </Badge>
+                          <Badge variant="outline" className="text-xs">
+                            {categoryName}
+                          </Badge>
+                        </div>
+                        <CardTitle
+                          className={`text-sm leading-tight transition-colors ${getTitleColorClass(
+                            categoryColor
+                          )}`}
+                        >
+                          {post.title}
+                        </CardTitle>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {post.excerpt}
+                        </p>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex items-center justify-between text-xs text-muted-foreground">
+                          <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-1">
+                              <User className="h-3 w-3" />
+                              <span>{post.author.name}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <Calendar className="h-3 w-3" />
+                              <span>
+                                {new Date(post.publishedAt).toLocaleDateString(
+                                  "en-US",
+                                  {
+                                    month: "short",
+                                    day: "numeric",
+                                    year: "numeric",
+                                  }
+                                )}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <Clock className="h-3 w-3" />
+                              <span>{post.readTime} min read</span>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Eye className="h-3 w-3" />
+                            <span>{post.views.toLocaleString()} views</span>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
           {/* Recent News */}
-          <div className="space-y-4">
-            <h2 className="text-sm font-semibold">Latest Updates</h2>
+          <div className="space-y-6">
+            <h2 className="text-sm font-medium">Latest Updates</h2>
 
             <div className="space-y-4">
-              {/* News Item 1 */}
-              <Card className="group cursor-pointer transition-all hover:shadow-md hover:border-blue-200 dark:hover:border-blue-800">
-                <CardContent className="p-6">
-                  <div className="flex gap-6">
-                    <div className="flex-1 space-y-3">
-                      <div className="flex items-center gap-2">
-                        <Badge variant="outline">Security Alert</Badge>
-                        <Badge variant="secondary">Ethereum</Badge>
-                      </div>
-                      <div className="space-y-2">
-                        <h3 className="text-sm font-semibold leading-tight group-hover:text-blue-600 transition-colors">
-                          Ethereum Foundation Releases Security Advisory for
-                          Upcoming Shanghai Upgrade
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed text-sm">
-                          The Ethereum Foundation has published a comprehensive
-                          security advisory detailing potential risks and
-                          mitigation strategies for the upcoming Shanghai
-                          upgrade, including validator withdrawal mechanisms and
-                          smart contract compatibility issues.
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-6 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <User className="h-3 w-3" />
-                          <span>David Johnson</span>
+              {recentPosts.map((post: BlogPost) => {
+                const categoryColor: string = getCategoryColor(post.category);
+                const categoryName: string | undefined = categories.find(
+                  (c: Category) => c.id === post.category
+                )?.name;
+                return (
+                  <Link key={post.id} href={`/dashboard/news/${post.id}`}>
+                    <Card
+                      className={`group cursor-pointer transition-all duration-200 hover:shadow-md ${getCategoryColorClass(
+                        categoryColor
+                      )}`}
+                    >
+                      <CardContent className="p-6">
+                        <div className="flex gap-6">
+                          <div className="flex-1 space-y-3">
+                            <div className="flex items-center gap-2">
+                              <Badge
+                                variant={getStatusColor(post.status)}
+                                className="text-xs"
+                              >
+                                {post.status === "breaking"
+                                  ? "Breaking"
+                                  : post.status === "security-alert"
+                                  ? "Security Alert"
+                                  : post.status === "research"
+                                  ? "Research"
+                                  : post.status === "analysis"
+                                  ? "Analysis"
+                                  : post.status === "tool-release"
+                                  ? "Tool Release"
+                                  : post.status === "exploit"
+                                  ? "Exploit"
+                                  : "News"}
+                              </Badge>
+                              <Badge variant="secondary" className="text-xs">
+                                {categoryName}
+                              </Badge>
+                            </div>
+                            <div className="space-y-2">
+                              <h3
+                                className={`text-sm font-medium leading-tight transition-colors ${getTitleColorClass(
+                                  categoryColor
+                                )}`}
+                              >
+                                {post.title}
+                              </h3>
+                              <p className="text-muted-foreground text-sm leading-relaxed">
+                                {post.excerpt}
+                              </p>
+                            </div>
+                            <div className="flex items-center gap-6 text-xs text-muted-foreground">
+                              <div className="flex items-center gap-1">
+                                <User className="h-3 w-3" />
+                                <span>{post.author.name}</span>
+                              </div>
+                              <div className="flex items-center gap-1">
+                                <Calendar className="h-3 w-3" />
+                                <span>
+                                  {new Date(
+                                    post.publishedAt
+                                  ).toLocaleDateString("en-US", {
+                                    month: "short",
+                                    day: "numeric",
+                                    year: "numeric",
+                                  })}
+                                </span>
+                              </div>
+                              <div className="flex items-center gap-1">
+                                <Clock className="h-3 w-3" />
+                                <span>{post.readTime} min read</span>
+                              </div>
+                              <div className="flex items-center gap-1">
+                                <Eye className="h-3 w-3" />
+                                <span>{post.views.toLocaleString()} views</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            className={`w-24 h-16 bg-gradient-to-br rounded-lg flex items-center justify-center ${
+                              categoryColor === "blue"
+                                ? "from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900"
+                                : categoryColor === "red"
+                                ? "from-red-50 to-red-100 dark:from-red-950 dark:to-red-900"
+                                : categoryColor === "green"
+                                ? "from-green-50 to-green-100 dark:from-green-950 dark:to-green-900"
+                                : categoryColor === "purple"
+                                ? "from-purple-50 to-purple-100 dark:from-purple-950 dark:to-purple-900"
+                                : categoryColor === "orange"
+                                ? "from-orange-50 to-orange-100 dark:from-orange-950 dark:to-orange-900"
+                                : "from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900"
+                            }`}
+                          >
+                            <div
+                              className={`font-mono text-xs font-medium ${
+                                categoryColor === "blue"
+                                  ? "text-blue-600 dark:text-blue-400"
+                                  : categoryColor === "red"
+                                  ? "text-red-600 dark:text-red-400"
+                                  : categoryColor === "green"
+                                  ? "text-green-600 dark:text-green-400"
+                                  : categoryColor === "purple"
+                                  ? "text-purple-600 dark:text-purple-400"
+                                  : categoryColor === "orange"
+                                  ? "text-orange-600 dark:text-orange-400"
+                                  : "text-gray-600 dark:text-gray-400"
+                              }`}
+                            >
+                              {post.category.toUpperCase().slice(0, 4)}
+                            </div>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
-                          <span>Jan 13, 2024</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Clock className="h-3 w-3" />
-                          <span>6 min read</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Eye className="h-3 w-3" />
-                          <span>1.2k views</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="w-32 h-24 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 rounded-lg flex items-center justify-center">
-                      <div className="text-blue-600 dark:text-blue-300 font-mono text-sm">
-                        ETH
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* News Item 2 */}
-              <Card className="group cursor-pointer transition-all hover:shadow-md hover:border-orange-200 dark:hover:border-orange-800">
-                <CardContent className="p-6">
-                  <div className="flex gap-6">
-                    <div className="flex-1 space-y-3">
-                      <div className="flex items-center gap-2">
-                        <Badge variant="destructive">Exploit</Badge>
-                        <Badge variant="secondary">Cross-Chain</Badge>
-                      </div>
-                      <div className="space-y-2">
-                        <h3 className="text-sm font-semibold leading-tight group-hover:text-orange-600 transition-colors">
-                          Cross-Chain Bridge Suffers $15M Attack Due to
-                          Signature Verification Flaw
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed text-sm">
-                          A popular cross-chain bridge protocol has been
-                          exploited for $15 million due to a critical flaw in
-                          its multi-signature verification system. The attack
-                          highlights ongoing security challenges in cross-chain
-                          infrastructure.
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-6 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <User className="h-3 w-3" />
-                          <span>Emily Rodriguez</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
-                          <span>Jan 12, 2024</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Clock className="h-3 w-3" />
-                          <span>4 min read</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Eye className="h-3 w-3" />
-                          <span>3.1k views</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="w-32 h-24 bg-gradient-to-br from-orange-100 to-red-200 dark:from-orange-900 dark:to-red-800 rounded-lg flex items-center justify-center">
-                      <div className="text-orange-600 dark:text-orange-300 font-mono text-sm">
-                        BRIDGE
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* News Item 3 */}
-              <Card className="group cursor-pointer transition-all hover:shadow-md hover:border-green-200 dark:hover:border-green-800">
-                <CardContent className="p-6">
-                  <div className="flex gap-6">
-                    <div className="flex-1 space-y-3">
-                      <div className="flex items-center gap-2">
-                        <Badge variant="outline">Tool Release</Badge>
-                        <Badge variant="secondary">Open Source</Badge>
-                      </div>
-                      <div className="space-y-2">
-                        <h3 className="text-sm font-semibold leading-tight group-hover:text-green-600 transition-colors">
-                          New Open-Source Smart Contract Fuzzing Tool Achieves
-                          95% Bug Detection Rate
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed text-sm">
-                          Researchers have released a new fuzzing tool
-                          specifically designed for smart contract vulnerability
-                          detection, demonstrating superior performance compared
-                          to existing solutions in comprehensive benchmarks.
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-6 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <User className="h-3 w-3" />
-                          <span>Michael Chang</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
-                          <span>Jan 11, 2024</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Clock className="h-3 w-3" />
-                          <span>7 min read</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Eye className="h-3 w-3" />
-                          <span>892 views</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="w-32 h-24 bg-gradient-to-br from-green-100 to-emerald-200 dark:from-green-900 dark:to-emerald-800 rounded-lg flex items-center justify-center">
-                      <div className="text-green-600 dark:text-green-300 font-mono text-sm">
-                        TOOL
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* News Item 4 */}
-              <Card className="group cursor-pointer transition-all hover:shadow-md hover:border-purple-200 dark:hover:border-purple-800">
-                <CardContent className="p-6">
-                  <div className="flex gap-6">
-                    <div className="flex-1 space-y-3">
-                      <div className="flex items-center gap-2">
-                        <Badge variant="outline">Research</Badge>
-                        <Badge variant="secondary">MEV</Badge>
-                      </div>
-                      <div className="space-y-2">
-                        <h3 className="text-sm font-semibold leading-tight group-hover:text-purple-600 transition-colors">
-                          Study Reveals MEV Extraction Has Cost Users Over $1.2B
-                          in 2023
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed text-sm">
-                          A comprehensive analysis of Maximum Extractable Value
-                          (MEV) activities shows that users have lost over $1.2
-                          billion to sandwich attacks and front-running in 2023,
-                          with new protection mechanisms showing promising
-                          results.
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-6 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <User className="h-3 w-3" />
-                          <span>Lisa Park</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
-                          <span>Jan 10, 2024</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Clock className="h-3 w-3" />
-                          <span>9 min read</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Eye className="h-3 w-3" />
-                          <span>1.5k views</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="w-32 h-24 bg-gradient-to-br from-purple-100 to-violet-200 dark:from-purple-900 dark:to-violet-800 rounded-lg flex items-center justify-center">
-                      <div className="text-purple-600 dark:text-purple-300 font-mono text-sm">
-                        MEV
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                );
+              })}
             </div>
           </div>
-
-          {/* Load More */}
         </div>
       </SidebarInset>
     </SidebarProvider>

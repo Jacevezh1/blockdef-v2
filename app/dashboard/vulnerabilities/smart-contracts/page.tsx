@@ -31,11 +31,7 @@ import {
   Lock,
 } from "lucide-react";
 import { SiteFunctionsHeader } from "@/components/site-functions-header";
-import {
-  vulnerabilities,
-  vulnerabilityStats,
-  detectionTools,
-} from "@/data/vulnerabilities";
+import { vulnerabilities, vulnerabilityStats } from "@/data/vulnerabilities";
 import Link from "next/link";
 
 export default function SmartContractBugsPage() {
@@ -85,14 +81,27 @@ export default function SmartContractBugsPage() {
           <div className="grid gap-4 md:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  Critical Patterns
-                </CardTitle>
+                <CardTitle className="text-sm font-medium">Critical</CardTitle>
                 <AlertTriangle className="h-4 w-4 text-red-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold text-red-600">
+                <div className="text-md font-bold text-red-600">
                   {vulnerabilityStats.critical}
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Critical-impact vulnerabilities
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">High</CardTitle>
+                <Code className="h-4 w-4 text-orange-500" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-sm font-bold text-orange-600">
+                  {vulnerabilityStats.common}
                 </div>
                 <p className="text-xs text-muted-foreground">
                   High-impact vulnerabilities
@@ -102,26 +111,7 @@ export default function SmartContractBugsPage() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  Common Issues
-                </CardTitle>
-                <Code className="h-4 w-4 text-orange-500" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-sm font-bold text-orange-600">
-                  {vulnerabilityStats.common}
-                </div>
-                <p className="text-xs text-muted-foreground">
-                  Frequently seen bugs
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  Best Practices
-                </CardTitle>
+                <CardTitle className="text-sm font-medium">Medium</CardTitle>
                 <Shield className="h-4 w-4 text-green-500" />
               </CardHeader>
               <CardContent>
@@ -129,23 +119,23 @@ export default function SmartContractBugsPage() {
                   {vulnerabilityStats.bestPractices}
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  Prevention techniques
+                  Medium-impact vulnerabilities
                 </p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  Tools Available
-                </CardTitle>
+                <CardTitle className="text-sm font-medium">Low</CardTitle>
                 <Zap className="h-4 w-4 text-blue-500" />
               </CardHeader>
               <CardContent>
                 <div className="text-sm font-bold text-blue-600">
                   {vulnerabilityStats.tools}
                 </div>
-                <p className="text-xs text-muted-foreground">Detection tools</p>
+                <p className="text-xs text-muted-foreground">
+                  Low-impact vulnerabilities
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -235,8 +225,11 @@ export default function SmartContractBugsPage() {
                       <div className="flex gap-2">
                         <Link
                           href={`/dashboard/vulnerabilities/smart-contracts/${vulnerability.id}`}
+                          className="w-full text-center"
                         >
-                          <Button size="sm">View Details</Button>
+                          <Button size="sm" className="w-full text-center">
+                            View Details
+                          </Button>
                         </Link>
                       </div>
                     </div>
@@ -245,55 +238,6 @@ export default function SmartContractBugsPage() {
               );
             })}
           </div>
-
-          {/* Detection Tools */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-sm">
-                Automated Detection Tools
-              </CardTitle>
-              <CardDescription className="text-sm">
-                Static and dynamic analysis tools for smart contract
-                vulnerability detection
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-4 md:grid-cols-3">
-                {detectionTools.map((tool) => {
-                  const toolIconMap = {
-                    Code,
-                    Shield,
-                    Zap,
-                  };
-                  const ToolIconComponent =
-                    toolIconMap[tool.icon as keyof typeof toolIconMap];
-
-                  return (
-                    <div
-                      key={tool.id}
-                      className="space-y-2 p-3 border rounded-lg"
-                    >
-                      <div className="flex items-center gap-2">
-                        <ToolIconComponent
-                          className={`h-4 w-4 text-${tool.color}-500`}
-                        />
-                        <span className="font-medium text-sm">{tool.name}</span>
-                        <Badge variant="outline" className="text-xs">
-                          {tool.type}
-                        </Badge>
-                      </div>
-                      <p className="text-sm text-muted-foreground">
-                        {tool.description}
-                      </p>
-                      <Button size="sm" className="w-full">
-                        Use Tool
-                      </Button>
-                    </div>
-                  );
-                })}
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </SidebarInset>
     </SidebarProvider>
