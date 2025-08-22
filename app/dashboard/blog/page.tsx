@@ -236,7 +236,7 @@ export default function NewsPage() {
                 return (
                   <Link key={post.id} href={`/dashboard/blog/${post.id}`}>
                     <Card
-                      className={`group cursor-pointer transition-all duration-200 hover:shadow-md ${getCategoryColorClass(
+                      className={`group cursor-pointer transition-all duration-200 hover:shadow-md my-3 ${getCategoryColorClass(
                         categoryColor
                       )}`}
                     >
@@ -299,10 +299,10 @@ export default function NewsPage() {
                                 <Clock className="h-3 w-3" />
                                 <span>{post.readTime} min read</span>
                               </div>
-                              <div className="flex items-center gap-1">
+                              {/*  <div className="flex items-center gap-1">
                                 <Eye className="h-3 w-3" />
                                 <span>{post.views.toLocaleString()} views</span>
-                              </div>
+                              </div> */}
                             </div>
                           </div>
                           <div

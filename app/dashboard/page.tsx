@@ -1,3 +1,4 @@
+import type React from "react";
 import { AppSidebar } from "@/components/app-sidebar";
 import {
   Breadcrumb,
@@ -25,14 +26,61 @@ import {
 import {
   AlertTriangle,
   Shield,
-  TrendingUp,
-  Users,
   Eye,
   Clock,
   Star,
+  FileText,
+  BookOpen,
+  Wrench,
 } from "lucide-react";
 import { SiteFunctionsHeader } from "@/components/site-functions-header";
+import { vulnerabilities } from "@/data/vulnerabilities";
+import {
+  getNavigationCards,
+  getSecurityTools,
+  getTrendingResearch,
+  getAllBestPractices,
+} from "@/data/dashboard";
+import type {
+  NavigationCard,
+  SecurityTool,
+  ResearchTopic,
+  BestPractice,
+} from "@/types/dashboard";
+import Link from "next/link";
+
+type IconName = "shield-alert" | "book-open" | "wrench" | "file-text";
+
+const getIconComponent = (
+  iconName: string
+): React.ComponentType<{ className?: string }> => {
+  const icons: Record<IconName, React.ComponentType<{ className?: string }>> = {
+    "shield-alert": AlertTriangle,
+    "book-open": BookOpen,
+    wrench: Wrench,
+    "file-text": FileText,
+  };
+  return icons[iconName as IconName] || FileText;
+};
+
+type ColorName = "red" | "blue" | "green" | "purple";
+
+const getColorClasses = (color: string): string => {
+  const colorMap: Record<ColorName, string> = {
+    red: "text-red-500",
+    blue: "text-blue-500",
+    green: "text-green-500",
+    purple: "text-purple-500",
+  };
+  return colorMap[color as ColorName] || "text-gray-500";
+};
+
 export default function Page() {
+  const navigationCards: NavigationCard[] = getNavigationCards();
+  const securityTools: SecurityTool[] = getSecurityTools();
+  const trendingResearch: ResearchTopic[] = getTrendingResearch();
+  const bestPractices: BestPractice[] = getAllBestPractices();
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -57,72 +105,40 @@ export default function Page() {
         </header>
 
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          {/* Stats Overview */}
-          <div className="grid gap-4 md:grid-cols-4 lg:grid-cols-4 mt-4">
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  Critical Vulnerabilities
-                </CardTitle>
-                <AlertTriangle className="h-4 w-4 text-red-500" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-sm font-bold text-red-600">23</div>
-                <p className="text-xs text-muted-foreground">
-                  +3 from last week
-                </p>
-              </CardContent>
-            </Card>
+          {/*  <div className="grid gap-4 md:grid-cols-4 lg:grid-cols-4 mt-4">
+            {navigationCards.map((card: NavigationCard) => {
+              const IconComponent = getIconComponent(card.icon);
+              const colorClass = getColorClasses(card.color);
 
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  Protocols Monitored
-                </CardTitle>
-                <Shield className="h-4 w-4 text-blue-500" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-sm font-bold">3</div>
-                <p className="text-xs text-muted-foreground">
-                  +12% from last month
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  Research Papers
-                </CardTitle>
-                <TrendingUp className="h-4 w-4 text-green-500" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-sm font-bold">2</div>
-                <p className="text-xs text-muted-foreground">
-                  Published this month
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  Active Researchers
-                </CardTitle>
-                <Users className="h-4 w-4 text-purple-500" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-sm font-bold">1</div>
-                <p className="text-xs text-muted-foreground">
-                  +0 new this week
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+              return (
+                <Link key={card.id} href={card.href}>
+                  <Card
+                    className={`cursor-pointer hover:shadow-md transition-shadow duration-200`}
+                  >
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+                      <CardTitle className="text-sm font-semibold">
+                        {card.title}
+                      </CardTitle>
+                      <div className="p-2 rounded-lg bg-gray-50">
+                        <IconComponent className={`h-4 w-4 ${colorClass}`} />
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-sm font-bold mb-1">
+                        {card.count} Items
+                      </div>
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        {card.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
+          </div> */}
 
           {/* Main Content Grid */}
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {/* Recent Vulnerabilities */}
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-4">
             <Card className="md:col-span-2">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-sm">
@@ -134,87 +150,60 @@ export default function Page() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex items-center justify-between p-3 border rounded-lg">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <Badge variant="destructive">Critical</Badge>
-                      <span className="font-medium text-sm">
-                        Uniswap V4 Hook Vulnerability
-                      </span>
+                {vulnerabilities.slice(0, 3).map((vulnerability) => (
+                  <div
+                    key={vulnerability.id}
+                    className="flex items-center justify-between p-3 border rounded-lg"
+                  >
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2">
+                        <Badge
+                          variant={
+                            vulnerability.severity === "Critical"
+                              ? "destructive"
+                              : "secondary"
+                          }
+                        >
+                          {vulnerability.severity}
+                        </Badge>
+                        <span className="font-medium text-sm">
+                          {vulnerability.title}
+                        </span>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        {vulnerability.description}
+                      </p>
+                      <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                        <span className="flex items-center gap-1">
+                          <Clock className="h-3 w-3" />
+                          {vulnerability.severity === "Critical"
+                            ? "2 hours ago"
+                            : vulnerability.severity === "High"
+                            ? "5 hours ago"
+                            : "1 day ago"}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Eye className="h-3 w-3" />
+                          {vulnerability.severity === "Critical"
+                            ? "41 views"
+                            : vulnerability.severity === "High"
+                            ? "23 views"
+                            : "15 views"}
+                        </span>
+                      </div>
                     </div>
-                    <p className="text-sm text-muted-foreground">
-                      Reentrancy attack vector in custom hooks allowing fund
-                      drainage
-                    </p>
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-3 w-3" />2 hours ago
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Eye className="h-3 w-3" />
-                        41 views
-                      </span>
-                    </div>
+                    <Link
+                      href={`/dashboard/vulnerabilities/smart-contracts/${vulnerability.id}`}
+                    >
+                      <Button variant="outline" size="sm">
+                        View Details
+                      </Button>
+                    </Link>
                   </div>
-                  <Button variant="outline" size="sm">
-                    View Details
-                  </Button>
-                </div>
-
-                <div className="flex items-center justify-between p-3 border rounded-lg">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <Badge variant="destructive">Critical</Badge>
-                      <span className="font-medium text-sm">
-                        Compound V3 Oracle Manipulation
-                      </span>
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      Price oracle can be manipulated through flash loan attacks
-                    </p>
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-3 w-3" />5 hours ago
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Eye className="h-3 w-3" />3 views
-                      </span>
-                    </div>
-                  </div>
-                  <Button variant="outline" size="sm">
-                    View Details
-                  </Button>
-                </div>
-
-                <div className="flex items-center justify-between p-3 border rounded-lg">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <Badge variant="secondary">High</Badge>
-                      <span className="font-medium text-sm">
-                        Arbitrum Bridge DoS Vector
-                      </span>
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      Denial of service attack on cross-chain message passing
-                    </p>
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-3 w-3" />1 day ago
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Eye className="h-3 w-3" />
-                        20 views
-                      </span>
-                    </div>
-                  </div>
-                  <Button variant="outline" size="sm">
-                    View Details
-                  </Button>
-                </div>
+                ))}
               </CardContent>
             </Card>
 
-            {/* Trending Research */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-sm">
@@ -225,70 +214,33 @@ export default function Page() {
                   Most viewed security research this week
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <div className="flex items-start gap-2">
-                    <Badge variant="outline" className="text-xs">
-                      MEV
-                    </Badge>
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium leading-tight">
-                        Advanced MEV Protection Mechanisms
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        3 views • 2 days ago
-                      </p>
+              <CardContent className="space-y-6">
+                {trendingResearch.map((research: ResearchTopic, index) => (
+                  <div key={research.id}>
+                    <div className="flex items-start gap-3">
+                      <Badge variant="outline" className="text-xs mt-0.5">
+                        {research.category}
+                      </Badge>
+                      <div className="space-y-2 flex-1">
+                        <Link
+                          href={research.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <p className="text-sm font-medium leading-tight hover:text-blue-600 cursor-pointer">
+                            {research.title}
+                          </p>
+                        </Link>
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          {research.description}
+                        </p>
+                      </div>
                     </div>
+                    {index < trendingResearch.length - 1 && (
+                      <Separator className="mt-4" />
+                    )}
                   </div>
-                </div>
-
-                <div className="space-y-2">
-                  <div className="flex items-start gap-2">
-                    <Badge variant="outline" className="text-xs">
-                      ZK
-                    </Badge>
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium leading-tight">
-                        Zero-Knowledge Proof Vulnerabilities
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        6 views • 3 days ago
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <div className="flex items-start gap-2">
-                    <Badge variant="outline" className="text-xs">
-                      DeFi
-                    </Badge>
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium leading-tight">
-                        Cross-Chain Bridge Security Analysis
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        2.1k views • 4 days ago
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <div className="flex items-start gap-2">
-                    <Badge variant="outline" className="text-xs">
-                      L2
-                    </Badge>
-                    <div className="space-y-1">
-                      <p className="text-sm font-medium leading-tight">
-                        Layer 2 Sequencer Centralization Risks
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        1.9k views • 5 days ago
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </CardContent>
             </Card>
           </div>
@@ -298,49 +250,41 @@ export default function Page() {
             <Card>
               <CardHeader>
                 <CardTitle className="text-sm">
-                  Threat Intelligence Feed
+                  Blockchain Security Tools
                 </CardTitle>
                 <CardDescription className="text-sm">
-                  Real-time security alerts and threat indicators
+                  Essential tools for smart contract security analysis
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3 p-2 bg-red-50 dark:bg-red-950/20 rounded-lg">
-                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <div className="flex-1">
-                      <p className="text-sm font-medium">
-                        Suspicious transaction pattern detected
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        Ethereum mainnet • 15 minutes ago
-                      </p>
+                  {securityTools.map((tool: SecurityTool) => (
+                    <div
+                      key={tool.id}
+                      className="flex items-center gap-3 p-3 border rounded-lg hover:bg-muted/50 transition-colors"
+                    >
+                      <div
+                        className={`w-2 h-2 ${tool.textColor.replace(
+                          "text-",
+                          "bg-"
+                        )} rounded-full`}
+                      ></div>
+                      <div>
+                        <Link
+                          href={tool.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <p className="text-sm font-medium hover:text-blue-600 cursor-pointer">
+                            {tool.name} - {tool.category}
+                          </p>
+                        </Link>
+                        <p className="text-xs text-muted-foreground">
+                          {tool.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 p-2 bg-yellow-50 dark:bg-yellow-950/20 rounded-lg">
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                    <div className="flex-1">
-                      <p className="text-sm font-medium">
-                        New malicious contract deployed
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        BSC • 1 hour ago
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 p-2 bg-blue-50 dark:bg-blue-950/20 rounded-lg">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <div className="flex-1">
-                      <p className="text-sm font-medium">
-                        Protocol upgrade scheduled
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        Polygon • 3 hours ago
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
@@ -355,54 +299,26 @@ export default function Page() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <Shield className="h-4 w-4 text-green-500 mt-0.5" />
-                    <div>
-                      <p className="text-sm font-medium">
-                        Multi-signature wallet implementation
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        Essential for protocol governance
-                      </p>
+                <div className="space-y-4">
+                  {bestPractices.map((practice: BestPractice) => (
+                    <div key={practice.id} className="flex items-start gap-3">
+                      <Shield className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                      <div className="space-y-1">
+                        <Link
+                          href={practice.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <p className="text-sm font-medium hover:text-blue-600 cursor-pointer">
+                            {practice.title}
+                          </p>
+                        </Link>
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          {practice.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Shield className="h-4 w-4 text-green-500 mt-0.5" />
-                    <div>
-                      <p className="text-sm font-medium">
-                        Time-locked contract upgrades
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        Prevent malicious instant changes
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Shield className="h-4 w-4 text-green-500 mt-0.5" />
-                    <div>
-                      <p className="text-sm font-medium">
-                        Comprehensive audit coverage
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        Multiple independent security reviews
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Shield className="h-4 w-4 text-green-500 mt-0.5" />
-                    <div>
-                      <p className="text-sm font-medium">
-                        Emergency pause mechanisms
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        Circuit breakers for critical functions
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>

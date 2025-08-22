@@ -95,7 +95,7 @@ The convergence of regulatory clarity, technological maturity, and market demand
     id: "defi-protocol-exploit-50m",
     title: "Major DeFi Protocol Suffers $50M Exploit Through Reentrancy Attack",
     excerpt:
-      "A critical reentrancy vulnerability in a leading DeFi lending protocol resulted in one of the largest exploits of 2024, highlighting the importance of proper security audits.",
+      "A critical reentrancy vulnerability in a leading DeFi lending protocol resulted in one of the largest exploits of 2025, highlighting the importance of proper security audits and adhering to best practices",
     content: `# Major DeFi Protocol Suffers $50M Exploit Through Reentrancy Attack
 
 In a devastating security breach that shook the DeFi ecosystem, a prominent lending protocol lost $50 million to a sophisticated reentrancy attack, marking one of the most significant exploits of 2024.

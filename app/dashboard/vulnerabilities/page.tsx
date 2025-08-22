@@ -24,8 +24,20 @@ import {
 } from "@/components/ui/sidebar";
 import { AlertTriangle, TrendingUp, Shield, Activity } from "lucide-react";
 import { SiteFunctionsHeader } from "@/components/site-functions-header";
+import { vulnerabilities, detectionTools } from "@/data/vulnerabilities";
+import { exploits, exploitStats } from "@/data/exploits";
+import Link from "next/link";
 
 export default function VulnerabilitiesPage() {
+  const criticalVulns = vulnerabilities.filter(
+    (v) => v.severity === "Critical"
+  ).length;
+  const highVulns = vulnerabilities.filter((v) => v.severity === "High").length;
+  const mediumVulns = vulnerabilities.filter(
+    (v) => v.severity === "Medium"
+  ).length;
+  const totalVulns = vulnerabilities.length;
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -68,8 +80,12 @@ export default function VulnerabilitiesPage() {
                 <AlertTriangle className="h-4 w-4 text-red-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold text-red-600">23</div>
-                <p className="text-xs text-muted-foreground">+3 this week</p>
+                <div className="text-sm font-bold text-red-600">
+                  {criticalVulns}
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Active critical issues
+                </p>
               </CardContent>
             </Card>
 
@@ -81,110 +97,130 @@ export default function VulnerabilitiesPage() {
                 <TrendingUp className="h-4 w-4 text-orange-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold text-orange-600">67</div>
-                <p className="text-xs text-muted-foreground">+12 this week</p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Patched</CardTitle>
-                <Shield className="h-4 w-4 text-green-500" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-sm font-bold text-green-600">1,247</div>
-                <p className="text-xs text-muted-foreground">+89 this month</p>
+                <div className="text-sm font-bold text-orange-600">
+                  {highVulns}
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  High severity issues
+                </p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
-                  Under Review
+                  Total Exploits
+                </CardTitle>
+                <Shield className="h-4 w-4 text-green-500" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-sm font-bold text-green-600">
+                  {exploitStats.totalExploits}
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Documented exploits
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">
+                  Detection Tools
                 </CardTitle>
                 <Activity className="h-4 w-4 text-blue-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold text-blue-600">34</div>
-                <p className="text-xs text-muted-foreground">
-                  Active investigations
-                </p>
+                <div className="text-sm font-bold text-blue-600">
+                  {detectionTools.length}
+                </div>
+                <p className="text-xs text-muted-foreground">Available tools</p>
               </CardContent>
             </Card>
           </div>
 
           {/* Quick Access Cards */}
           <div className="grid gap-4 md:grid-cols-3">
-            <Card className="cursor-pointer hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-sm">
-                  <AlertTriangle className="h-5 w-5 text-red-500" />
-                  Critical CVEs
-                </CardTitle>
-                <CardDescription>
-                  High-severity Common Vulnerabilities and Exposures affecting
-                  blockchain protocols
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div className="space-y-1">
-                    <p className="text-sm font-bold text-red-600">23</p>
-                    <p className="text-xs text-muted-foreground">
-                      Active critical issues
-                    </p>
+            <Link href="/dashboard/vulnerabilities/smart-contracts">
+              <Card className="cursor-pointer hover:shadow-md transition-shadow">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-sm">
+                    <AlertTriangle className="h-5 w-5 text-red-500" />
+                    Smart Contract Vulnerabilities
+                  </CardTitle>
+                  <CardDescription>
+                    Common vulnerabilities found in smart contract
+                    implementations
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <div className="space-y-1">
+                      <p className="text-sm font-bold text-orange-600">List</p>
+                      <p className="text-xs text-muted-foreground">
+                        Of documented patterns
+                      </p>
+                    </div>
+                    <Button size="sm">Explore</Button>
                   </div>
-                  <Button size="sm">View All</Button>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
 
-            <Card className="cursor-pointer hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-sm">
-                  <Shield className="h-5 w-5 text-blue-500" />
-                  Smart Contract Bugs
-                </CardTitle>
-                <CardDescription>
-                  Common vulnerabilities found in smart contract implementations
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div className="space-y-1">
-                    <p className="text-sm font-bold text-blue-600">156</p>
-                    <p className="text-xs text-muted-foreground">
-                      Documented patterns
-                    </p>
+            <Link href="/dashboard/exploits">
+              <Card className="cursor-pointer hover:shadow-md transition-shadow">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-sm">
+                    <TrendingUp className="h-5 w-5 text-orange-500" />
+                    Protocol Exploits
+                  </CardTitle>
+                  <CardDescription>
+                    Real-world exploits and attack vectors targeting DeFi
+                    protocols
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <div className="space-y-1">
+                      <p className="text-sm font-bold text-orange-600">
+                        Documentation
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        On major incidents
+                      </p>
+                    </div>
+                    <Button size="sm">Analyze</Button>
                   </div>
-                  <Button size="sm">Explore</Button>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
 
-            <Card className="cursor-pointer hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-sm">
-                  <TrendingUp className="h-5 w-5 text-orange-500" />
-                  Protocol Exploits
-                </CardTitle>
-                <CardDescription>
-                  Real-world exploits and attack vectors targeting DeFi
-                  protocols
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div className="space-y-1">
-                    <p className="text-sm font-bold text-orange-600">89</p>
-                    <p className="text-xs text-muted-foreground">
-                      Analyzed exploits
-                    </p>
+            <Link href="/dashboard/blog">
+              <Card className="cursor-pointer hover:shadow-md transition-shadow">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-sm">
+                    <Shield className="h-5 w-5 text-blue-500" />
+                    Security Research
+                  </CardTitle>
+                  <CardDescription>
+                    The latest research and insights on blockchain security
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <div className="space-y-1">
+                      <p className="text-sm font-bold text-blue-600">
+                        Research
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        Security insights
+                      </p>
+                    </div>
+                    <Button size="sm">Read</Button>
                   </div>
-                  <Button size="sm">Analyze</Button>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
 
           {/* Recent Activity */}
@@ -198,58 +234,32 @@ export default function VulnerabilitiesPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between p-3 border rounded-lg">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <Badge variant="destructive">Critical</Badge>
-                      <span className="font-medium text-sm">
-                        CVE-2024-0123: Uniswap V4 Hook Vulnerability
-                      </span>
+              <div className="">
+                {vulnerabilities.slice(0, 3).map((vuln) => (
+                  <Link
+                    key={vuln.id}
+                    href={`/dashboard/vulnerabilities/smart-contracts/${vuln.id}`}
+                  >
+                    <div className="flex items-center justify-between p-3 border rounded-lg my-3 hover:bg-muted/50 transition-colors">
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-2">
+                          <Badge variant={vuln.badgeVariant as any}>
+                            {vuln.severity}
+                          </Badge>
+                          <span className="font-medium text-sm">
+                            {vuln.title}
+                          </span>
+                        </div>
+                        <p className="text-sm text-muted-foreground">
+                          {vuln.description}
+                        </p>
+                      </div>
+                      <Button variant="outline" size="sm">
+                        View
+                      </Button>
                     </div>
-                    <p className="text-sm text-muted-foreground">
-                      Reentrancy attack vector discovered in custom hook
-                      implementations
-                    </p>
-                  </div>
-                  <Button variant="outline" size="sm">
-                    View
-                  </Button>
-                </div>
-
-                <div className="flex items-center justify-between p-3 border rounded-lg">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <Badge variant="secondary">High</Badge>
-                      <span className="font-medium text-sm">
-                        Compound V3 Oracle Manipulation
-                      </span>
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      Price oracle manipulation through flash loan attacks
-                    </p>
-                  </div>
-                  <Button variant="outline" size="sm">
-                    View
-                  </Button>
-                </div>
-
-                <div className="flex items-center justify-between p-3 border rounded-lg">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <Badge variant="outline">Medium</Badge>
-                      <span className="font-medium text-sm">
-                        Arbitrum Bridge DoS Vector
-                      </span>
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      Denial of service attack on cross-chain message passing
-                    </p>
-                  </div>
-                  <Button variant="outline" size="sm">
-                    View
-                  </Button>
-                </div>
+                  </Link>
+                ))}
               </div>
             </CardContent>
           </Card>

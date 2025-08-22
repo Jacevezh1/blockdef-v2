@@ -88,7 +88,7 @@ const data = {
       ],
     },
     {
-      title: "Research Tools",
+      title: "Tools",
       url: "/dashboard/tools",
       icon: Settings2,
       items: [
