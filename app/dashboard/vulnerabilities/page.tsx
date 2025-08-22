@@ -25,7 +25,7 @@ import {
 import { AlertTriangle, TrendingUp, Shield, Activity } from "lucide-react";
 import { SiteFunctionsHeader } from "@/components/site-functions-header";
 import { vulnerabilities, detectionTools } from "@/data/vulnerabilities";
-import { exploits, exploitStats } from "@/data/exploits";
+import { exploitStats } from "@/data/exploits";
 import Link from "next/link";
 
 export default function VulnerabilitiesPage() {
@@ -33,10 +33,6 @@ export default function VulnerabilitiesPage() {
     (v) => v.severity === "Critical"
   ).length;
   const highVulns = vulnerabilities.filter((v) => v.severity === "High").length;
-  const mediumVulns = vulnerabilities.filter(
-    (v) => v.severity === "Medium"
-  ).length;
-  const totalVulns = vulnerabilities.length;
 
   return (
     <SidebarProvider>

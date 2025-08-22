@@ -4,6 +4,7 @@ import type * as React from "react";
 import {
   BookOpen,
   Bot,
+  Calendar,
   Map,
   Search,
   Settings2,
@@ -26,9 +27,29 @@ import { NavUser } from "./nav-user";
 const data = {
   navMain: [
     {
-      title: "Dashboard",
+      title: "Home",
       url: "/dashboard",
       icon: SquareTerminal,
+      isActive: true,
+      items: [
+        /* {
+          title: "Overview",
+          url: "/dashboard",
+        }, */
+        /*         {
+          title: "Recent Alerts",
+          url: "/dashboard/alerts",
+        }, */
+        /*         {
+          title: "Bookmarks",
+          url: "/dashboard/bookmarks",
+        }, */
+      ],
+    },
+    {
+      title: "Events",
+      url: "/dashboard/events",
+      icon: Calendar,
       isActive: true,
       items: [
         /* {
