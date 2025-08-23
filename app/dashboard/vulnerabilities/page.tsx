@@ -57,17 +57,17 @@ export default function VulnerabilitiesPage() {
           <SiteFunctionsHeader />
         </header>
 
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="mt-4">
+        <div className="flex flex-1 flex-col gap-4 p-6">
+          <div>
             <h1 className="text-sm font-bold">Vulnerability Database</h1>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-muted-foreground text-sm mt-2">
               Comprehensive database of blockchain and smart contract
               vulnerabilities
             </p>
           </div>
 
           {/* Stats Overview */}
-          <div className="grid gap-4 md:grid-cols-4">
+          {/*  <div className="grid gap-4 md:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
@@ -133,7 +133,7 @@ export default function VulnerabilitiesPage() {
                 <p className="text-xs text-muted-foreground">Available tools</p>
               </CardContent>
             </Card>
-          </div>
+          </div> */}
 
           {/* Quick Access Cards */}
           <div className="grid gap-4 md:grid-cols-3">

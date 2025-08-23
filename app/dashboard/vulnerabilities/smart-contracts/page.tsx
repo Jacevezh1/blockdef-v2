@@ -64,8 +64,8 @@ export default function SmartContractBugsPage() {
           <SiteFunctionsHeader />
         </header>
 
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="flex items-center justify-between mt-4">
+        <div className="flex flex-1 flex-col gap-4 p-6">
+          <div className="flex items-center justify-between">
             <div>
               <h1 className="text-sm font-bold">
                 Smart Contract Vulnerability Patterns

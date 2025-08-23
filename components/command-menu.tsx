@@ -33,10 +33,11 @@ import {
 import { Separator } from "@/components/ui/separator";
 
 const navItems = [
-  { href: "/dashboard", label: "Dashboard" },
-  { href: "/dashboard/news", label: "News" },
+  { href: "/dashboard", label: "Home" },
+  { href: "/dashboard/blog", label: "Blog" },
   { href: "/dashboard/vulnerabilities", label: "Vulnerabilities" },
   { href: "/dashboard/tools", label: "Research Tools" },
+  { href: "/dashboard/events", label: "Events" },
 ];
 
 const pageTree = {
@@ -51,25 +52,43 @@ const pageTree = {
           url: "/dashboard",
           name: "Overview",
         },
-        {
+        /*         {
           type: "page",
           url: "/dashboard/alerts",
           name: "Recent Alerts",
-        },
+        }, */
         // Bookmarks was commented out in original data, so omitted here
       ],
     },
     {
-      $id: "news",
-      name: "News",
+      $id: "events",
+      name: "Events",
       type: "folder",
       children: [
         {
           type: "page",
-          url: "/dashboard/news",
-          name: "Latest News",
+          url: "/dashboard/events",
+          name: "Events",
         },
+        /*         {
+          type: "page",
+          url: "/dashboard/alerts",
+          name: "Recent Alerts",
+        }, */
+        // Bookmarks was commented out in original data, so omitted here
+      ],
+    },
+    {
+      $id: "blog",
+      name: "Blogs",
+      type: "folder",
+      children: [
         {
+          type: "page",
+          url: "/dashboard/blog",
+          name: "Latest Blogs",
+        },
+        /*         {
           type: "page",
           url: "/dashboard/news?category=security",
           name: "Security Alerts",
@@ -83,7 +102,7 @@ const pageTree = {
           type: "page",
           url: "/dashboard/news?category=tools",
           name: "Tool Releases",
-        },
+        }, */
       ],
     },
     {
@@ -91,11 +110,11 @@ const pageTree = {
       name: "Vulnerabilities",
       type: "folder",
       children: [
-        {
+        /*         {
           type: "page",
           url: "/dashboard/vulnerabilities/cves",
           name: "Critical CVEs",
-        },
+        }, */
         {
           type: "page",
           url: "/dashboard/vulnerabilities/smart-contracts",
@@ -110,15 +129,15 @@ const pageTree = {
     },
     {
       $id: "tools",
-      name: "Research Tools",
+      name: "Tools",
       type: "folder",
       children: [
         {
           type: "page",
-          url: "/dashboard/tools/code-analysis",
-          name: "Code Analysis",
+          url: "/dashboard/tools",
+          name: "Tooling",
         },
-        {
+        /*  {
           type: "page",
           url: "/dashboard/tools/network-scanner",
           name: "Network Scanner",
@@ -127,7 +146,7 @@ const pageTree = {
           type: "page",
           url: "/dashboard/tools/transaction-tracer",
           name: "Transaction Tracer",
-        },
+        }, */
       ],
     },
   ],
@@ -259,7 +278,7 @@ export function CommandMenu(props: DialogProps) {
           onClick={() => setOpen(true)}
         >
           <span className="hidden lg:inline-flex text-sm font-normal text-muted-foreground">
-            Search documentation...
+            Search...
           </span>
           <span className="inline-flex lg:hidden">Search...</span>
           <div className="absolute top-1.5 right-1.5 hidden gap-1 sm:flex">
@@ -270,7 +289,7 @@ export function CommandMenu(props: DialogProps) {
       </DialogTrigger>
       <DialogContent className="rounded-xl border-none bg-clip-padding p-2 pb-11 shadow-2xl ring-4 ring-neutral-200/80 dark:bg-neutral-900 dark:ring-neutral-800">
         <DialogHeader className="sr-only">
-          <DialogTitle>Search documentation...</DialogTitle>
+          <DialogTitle>Search...</DialogTitle>
           <DialogDescription>Search for a command to run...</DialogDescription>
         </DialogHeader>
         <Command
@@ -355,7 +374,7 @@ export function CommandMenu(props: DialogProps) {
                   })}
               </CommandGroup>
             ))}
-            {blocks.length ? (
+            {/*  {blocks.length ? (
               <CommandGroup
                 heading="Blocks"
                 className="!p-0 [&_[cmdk-group-heading]]:!p-3"
@@ -377,7 +396,7 @@ export function CommandMenu(props: DialogProps) {
                     onSelect={() => {
                       runCommand(() =>
                         router.push(
-                          `/blocks/${block.categories[0]}#${block.name}`
+                          `/dashboard/${block.categories[0]}/${block.name}`
                         )
                       );
                     }}
@@ -390,7 +409,7 @@ export function CommandMenu(props: DialogProps) {
                   </CommandMenuItem>
                 ))}
               </CommandGroup>
-            ) : null}
+            ) : null} */}
           </CommandList>
         </Command>
         <div className="text-muted-foreground absolute inset-x-0 bottom-0 z-20 flex h-10 items-center gap-2 rounded-b-xl border-t border-t-neutral-100 bg-neutral-50 px-4 text-xs font-medium dark:border-t-neutral-700 dark:bg-neutral-800">

@@ -23,16 +23,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import {
-  AlertTriangle,
-  Shield,
-  Eye,
-  Clock,
-  Star,
-  FileText,
-  BookOpen,
-  Wrench,
-} from "lucide-react";
+import { AlertTriangle, Shield, Clock, ArrowUpRight } from "lucide-react";
 import { SiteFunctionsHeader } from "@/components/site-functions-header";
 import { vulnerabilities } from "@/data/vulnerabilities";
 import {
@@ -49,9 +40,9 @@ import type {
 } from "@/types/dashboard";
 import Link from "next/link";
 
-type IconName = "shield-alert" | "book-open" | "wrench" | "file-text";
+/* type IconName = "shield-alert" | "book-open" | "wrench" | "file-text"; */
 
-const getIconComponent = (
+/* const getIconComponent = (
   iconName: string
 ): React.ComponentType<{ className?: string }> => {
   const icons: Record<IconName, React.ComponentType<{ className?: string }>> = {
@@ -61,7 +52,7 @@ const getIconComponent = (
     "file-text": FileText,
   };
   return icons[iconName as IconName] || FileText;
-};
+}; */
 
 type ColorName = "red" | "blue" | "green" | "purple";
 
@@ -86,17 +77,17 @@ export default function Page() {
       <AppSidebar />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 border-b">
-          <div className="flex items-center gap-2 px-4">
+          <div className="flex items-center gap-2 px-6">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="/dashboard">Research</BreadcrumbLink>
+                  <BreadcrumbLink href="/dashboard">Dashboard</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Security Dashboard</BreadcrumbPage>
+                  <BreadcrumbPage>Overview</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
@@ -104,7 +95,7 @@ export default function Page() {
           <SiteFunctionsHeader />
         </header>
 
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+        <div className="flex flex-1 flex-col gap-4 p-6 pt-0">
           {/*  <div className="grid gap-4 md:grid-cols-4 lg:grid-cols-4 mt-4">
             {navigationCards.map((card: NavigationCard) => {
               const IconComponent = getIconComponent(card.icon);
@@ -142,11 +133,11 @@ export default function Page() {
             <Card className="md:col-span-2">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-sm">
-                  <AlertTriangle className="h-5 w-5 text-red-500" />
-                  Recent Critical Vulnerabilities
+                  <AlertTriangle className="size-3.5 text-red-500" />
+                  Recently Added
                 </CardTitle>
                 <CardDescription className="text-sm">
-                  Latest security issues discovered in blockchain protocols
+                  Latest security vulnerabilities newly added to the platform.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -175,28 +166,24 @@ export default function Page() {
                       </p>
                       <div className="flex items-center gap-4 text-xs text-muted-foreground">
                         <span className="flex items-center gap-1">
-                          <Clock className="h-3 w-3" />
-                          {vulnerability.severity === "Critical"
-                            ? "2 hours ago"
-                            : vulnerability.severity === "High"
-                            ? "5 hours ago"
-                            : "1 day ago"}
+                          <Clock className="h-3 w-3" />A few days ago
                         </span>
-                        <span className="flex items-center gap-1">
+                        {/* <span className="flex items-center gap-1">
                           <Eye className="h-3 w-3" />
                           {vulnerability.severity === "Critical"
                             ? "41 views"
                             : vulnerability.severity === "High"
                             ? "23 views"
                             : "15 views"}
-                        </span>
+                        </span> */}
                       </div>
                     </div>
                     <Link
                       href={`/dashboard/vulnerabilities/smart-contracts/${vulnerability.id}`}
+                      target="_blank"
                     >
                       <Button variant="outline" size="sm">
-                        View Details
+                        <ArrowUpRight className="size-4" />
                       </Button>
                     </Link>
                   </div>
@@ -204,49 +191,6 @@ export default function Page() {
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-sm">
-                  <Star className="h-5 w-5 text-yellow-500" />
-                  Trending Research
-                </CardTitle>
-                <CardDescription className="text-sm">
-                  Most viewed security research this week
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                {trendingResearch.map((research: ResearchTopic, index) => (
-                  <div key={research.id}>
-                    <div className="flex items-start gap-3">
-                      <Badge variant="outline" className="text-xs mt-0.5">
-                        {research.category}
-                      </Badge>
-                      <div className="space-y-2 flex-1">
-                        <Link
-                          href={research.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <p className="text-sm font-medium leading-tight hover:text-blue-600 cursor-pointer">
-                            {research.title}
-                          </p>
-                        </Link>
-                        <p className="text-xs text-muted-foreground leading-relaxed">
-                          {research.description}
-                        </p>
-                      </div>
-                    </div>
-                    {index < trendingResearch.length - 1 && (
-                      <Separator className="mt-4" />
-                    )}
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Bottom Section */}
-          <div className="grid gap-4 md:grid-cols-2">
             <Card>
               <CardHeader>
                 <CardTitle className="text-sm">
@@ -286,6 +230,48 @@ export default function Page() {
                     </div>
                   ))}
                 </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Bottom Section */}
+          <div className="grid gap-4 md:grid-cols-2">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-sm">
+                  Trending Research
+                </CardTitle>
+                <CardDescription className="text-sm">
+                  External security research for this week
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {trendingResearch.map((research: ResearchTopic, index) => (
+                  <div key={research.id}>
+                    <div className="flex items-start gap-3">
+                      <Badge variant="outline" className="text-xs mt-0.5">
+                        {research.category}
+                      </Badge>
+                      <div className="space-y-2 flex-1">
+                        <Link
+                          href={research.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <p className="text-sm font-medium leading-tight hover:text-blue-600 cursor-pointer">
+                            {research.title}
+                          </p>
+                        </Link>
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          {research.description}
+                        </p>
+                      </div>
+                    </div>
+                    {index < trendingResearch.length - 1 && (
+                      <Separator className="mt-4" />
+                    )}
+                  </div>
+                ))}
               </CardContent>
             </Card>
 

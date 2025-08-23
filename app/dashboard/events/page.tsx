@@ -124,7 +124,7 @@ export default function EventsPage() {
                     selected={selectedDate}
                     onSelect={setSelectedDate}
                     onMonthChange={setSelectedMonth}
-                    className="rounded-md border w-full p-8"
+                    className="rounded-md border w-full p-10"
                     modifiers={{
                       hasEvents: (date) => hasEventsOnDate(date),
                     }}

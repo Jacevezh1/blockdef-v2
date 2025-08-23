@@ -97,7 +97,7 @@ export default function NewsPage() {
       <AppSidebar />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 border-b">
-          <div className="flex items-center gap-2 px-4">
+          <div className="flex items-center gap-2 px-6">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
             <Breadcrumb>
@@ -115,20 +115,20 @@ export default function NewsPage() {
           <SiteFunctionsHeader />
         </header>
 
-        <div className="flex flex-1 flex-col gap-4 p-4">
+        <div className="flex flex-1 flex-col gap-4 p-6">
           {/* Header Section */}
           <div>
             <h1 className="text-sm font-semibold tracking-tight">
               Blockchain Security News
             </h1>
-            <p className="text-muted-foreground text-sm leading-relaxed">
+            <p className="text-muted-foreground text-sm leading-relaxed mt-2">
               Latest updates, vulnerabilities, and security developments in the
               blockchain space
             </p>
           </div>
 
           {/* Featured Stories */}
-          <div className="space-y-3">
+          <div className="space-y-3 mt-2">
             <div className="flex items-center gap-2">
               <TrendingUp className="h-4 w-4 text-orange-500" />
               <h2 className="text-sm font-medium">Featured Stories</h2>

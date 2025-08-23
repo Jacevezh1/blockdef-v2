@@ -122,7 +122,7 @@ export default function ToolsPage() {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Research Tools</BreadcrumbPage>
+                  <BreadcrumbPage>Tools</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
@@ -130,10 +130,10 @@ export default function ToolsPage() {
           <SiteFunctionsHeader />
         </header>
 
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="mt-4">
-            <h1 className="text-sm font-bold">Security Research Tools</h1>
-            <p className="text-muted-foreground text-sm">
+        <div className="flex flex-1 flex-col gap-4 p-6">
+          <div>
+            <h1 className="text-sm font-bold">Security Tools</h1>
+            <p className="text-muted-foreground text-sm mt-2">
               Comprehensive suite of tools for blockchain security analysis and
               research
             </p>
