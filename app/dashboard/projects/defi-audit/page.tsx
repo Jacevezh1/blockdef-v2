@@ -38,7 +38,7 @@ export default function DeFiAuditPage() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -59,7 +59,7 @@ export default function DeFiAuditPage() {
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="flex items-center justify-between mt-4">
             <div>
-              <h1 className="text-sm font-bold">
+              <h1 className="text-sx font-bold">
                 DeFi Protocol Security Audit
               </h1>
               <p className="text-muted-foreground">
@@ -73,7 +73,7 @@ export default function DeFiAuditPage() {
                 <FileText className="h-4 w-4 mr-2" />
                 Export Report
               </Button>
-              <Button className="text-sm">
+              <Button className="text-sx">
                 <Users className="h-4 w-4 mr-2" />
                 Share
               </Button>
@@ -84,11 +84,11 @@ export default function DeFiAuditPage() {
           <div className="grid gap-4 md:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Progress</CardTitle>
+                <CardTitle className="text-sx font-medium">Progress</CardTitle>
                 <Clock className="h-4 w-4 text-blue-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold">75%</div>
+                <div className="text-sx font-bold">75%</div>
                 <Progress value={75} className="mt-2" />
                 <p className="text-xs text-muted-foreground mt-1">
                   15 of 20 tasks completed
@@ -98,11 +98,11 @@ export default function DeFiAuditPage() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Findings</CardTitle>
+                <CardTitle className="text-sx font-medium">Findings</CardTitle>
                 <AlertTriangle className="h-4 w-4 text-red-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold">23</div>
+                <div className="text-sx font-bold">23</div>
                 <p className="text-xs text-muted-foreground">
                   3 Critical, 8 High, 12 Medium
                 </p>
@@ -111,13 +111,13 @@ export default function DeFiAuditPage() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
+                <CardTitle className="text-sx font-medium">
                   Code Coverage
                 </CardTitle>
                 <Shield className="h-4 w-4 text-green-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold">94%</div>
+                <div className="text-sx font-bold">94%</div>
                 <p className="text-xs text-muted-foreground">
                   Lines of code analyzed
                 </p>
@@ -126,11 +126,11 @@ export default function DeFiAuditPage() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Timeline</CardTitle>
+                <CardTitle className="text-sx font-medium">Timeline</CardTitle>
                 <Calendar className="h-4 w-4 text-purple-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold">5 days</div>
+                <div className="text-sx font-bold">5 days</div>
                 <p className="text-xs text-muted-foreground">
                   Remaining until deadline
                 </p>
@@ -155,7 +155,7 @@ export default function DeFiAuditPage() {
                       <span className="font-medium">1. Automated Analysis</span>
                       <Badge variant="outline">Completed</Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Static analysis with Slither, Mythril, and custom
                       detectors
                     </p>
@@ -174,7 +174,7 @@ export default function DeFiAuditPage() {
                       <span className="font-medium">2. Manual Code Review</span>
                       <Badge variant="outline">Completed</Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Line-by-line review of critical functions and business
                       logic
                     </p>
@@ -193,7 +193,7 @@ export default function DeFiAuditPage() {
                       <span className="font-medium">3. Economic Analysis</span>
                       <Badge variant="secondary">In Progress</Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Analysis of economic incentives, game theory, and
                       potential attack vectors
                     </p>
@@ -214,7 +214,7 @@ export default function DeFiAuditPage() {
                       </span>
                       <Badge variant="outline">Pending</Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Testing protocol interactions with other DeFi protocols
                       and edge cases
                     </p>
@@ -232,7 +232,7 @@ export default function DeFiAuditPage() {
                       <span className="font-medium">5. Final Report</span>
                       <Badge variant="outline">Pending</Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Compilation of findings, recommendations, and remediation
                       guidance
                     </p>
@@ -268,7 +268,7 @@ export default function DeFiAuditPage() {
                         Price Oracle Manipulation
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       The protocol relies on a single price oracle without
                       sufficient validation, making it vulnerable to flash loan
                       attacks that could manipulate asset prices.
@@ -291,7 +291,7 @@ export default function DeFiAuditPage() {
                         Reentrancy in Liquidation
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       The liquidation function makes external calls before
                       updating internal state, allowing for reentrancy attacks
                       that could drain protocol funds.
@@ -312,7 +312,7 @@ export default function DeFiAuditPage() {
                       <Badge variant="destructive">Critical</Badge>
                       <span className="font-medium">Access Control Bypass</span>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Administrative functions lack proper access control
                       checks, potentially allowing unauthorized users to modify
                       critical protocol parameters.
@@ -341,33 +341,33 @@ export default function DeFiAuditPage() {
               <CardContent className="space-y-3">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
-                    <span className="text-sm font-medium">AC</span>
+                    <span className="text-sx font-medium">AC</span>
                   </div>
                   <div>
                     <p className="font-medium">Alex Chen</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Lead Security Researcher
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
-                    <span className="text-sm font-medium">SM</span>
+                    <span className="text-sx font-medium">SM</span>
                   </div>
                   <div>
                     <p className="font-medium">Sarah Martinez</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Smart Contract Auditor
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center">
-                    <span className="text-sm font-medium">DJ</span>
+                    <span className="text-sx font-medium">DJ</span>
                   </div>
                   <div>
                     <p className="font-medium">David Johnson</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Economic Security Analyst
                     </p>
                   </div>
@@ -387,14 +387,14 @@ export default function DeFiAuditPage() {
                   <CheckCircle className="h-4 w-4 text-green-500" />
                   <div className="flex-1">
                     <p className="font-medium">Project Kickoff</p>
-                    <p className="text-sm text-muted-foreground">Jan 8, 2024</p>
+                    <p className="text-sx text-muted-foreground">Jan 8, 2024</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="h-4 w-4 text-green-500" />
                   <div className="flex-1">
                     <p className="font-medium">Initial Findings Report</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Jan 15, 2024
                     </p>
                   </div>
@@ -403,7 +403,7 @@ export default function DeFiAuditPage() {
                   <Clock className="h-4 w-4 text-blue-500" />
                   <div className="flex-1">
                     <p className="font-medium">Draft Report Review</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Jan 20, 2024
                     </p>
                   </div>
@@ -412,7 +412,7 @@ export default function DeFiAuditPage() {
                   <Clock className="h-4 w-4 text-muted-foreground" />
                   <div className="flex-1">
                     <p className="font-medium">Final Report Delivery</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Jan 22, 2024
                     </p>
                   </div>

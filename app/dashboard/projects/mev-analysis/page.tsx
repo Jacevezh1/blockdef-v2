@@ -37,7 +37,7 @@ export default function MEVAnalysisPage() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -59,8 +59,8 @@ export default function MEVAnalysisPage() {
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="flex items-center justify-between mt-4">
             <div>
-              <h1 className="text-sm font-bold">MEV Attack Pattern Analysis</h1>
-              <p className="text-muted-foreground text-sm">
+              <h1 className="text-sx font-bold">MEV Attack Pattern Analysis</h1>
+              <p className="text-muted-foreground text-sx">
                 Comprehensive study of Maximum Extractable Value attacks and
                 protection mechanisms
               </p>
@@ -79,7 +79,7 @@ export default function MEVAnalysisPage() {
           <div className="grid gap-4 md:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
+                <CardTitle className="text-sx font-medium">
                   Total MEV Extracted
                 </CardTitle>
                 <DollarSign className="h-4 w-4 text-green-500" />
@@ -94,7 +94,7 @@ export default function MEVAnalysisPage() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
+                <CardTitle className="text-sx font-medium">
                   Sandwich Attacks
                 </CardTitle>
                 <Zap className="h-4 w-4 text-orange-500" />
@@ -107,7 +107,7 @@ export default function MEVAnalysisPage() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
+                <CardTitle className="text-sx font-medium">
                   Arbitrage Volume
                 </CardTitle>
                 <TrendingUp className="h-4 w-4 text-blue-500" />
@@ -120,7 +120,7 @@ export default function MEVAnalysisPage() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
+                <CardTitle className="text-sx font-medium">
                   Active Bots
                 </CardTitle>
                 <Activity className="h-4 w-4 text-purple-500" />
@@ -137,10 +137,10 @@ export default function MEVAnalysisPage() {
           {/* MEV Attack Types */}
           <Card>
             <CardHeader>
-              <CardTitle className="text-sm">
+              <CardTitle className="text-sx">
                 MEV Attack Vector Analysis
               </CardTitle>
-              <CardDescription className="text-sm">
+              <CardDescription className="text-sx">
                 Breakdown of different MEV extraction strategies and their
                 prevalence
               </CardDescription>
@@ -151,8 +151,8 @@ export default function MEVAnalysisPage() {
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                     <div>
-                      <p className="font-medium text-sm">Sandwich Attacks</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="font-medium text-sx">Sandwich Attacks</p>
+                      <p className="text-sx text-muted-foreground">
                         Front-run and back-run user transactions to extract
                         value
                       </p>
@@ -160,7 +160,7 @@ export default function MEVAnalysisPage() {
                   </div>
                   <div className="text-right">
                     <p className="font-medium">45.2%</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       $1.04B extracted
                     </p>
                   </div>
@@ -170,15 +170,15 @@ export default function MEVAnalysisPage() {
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
                     <div>
-                      <p className="font-medium text-sm">Arbitrage</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="font-medium text-sx">Arbitrage</p>
+                      <p className="text-sx text-muted-foreground">
                         Exploit price differences across DEXs and markets
                       </p>
                     </div>
                   </div>
                   <div className="text-right">
                     <p className="font-medium">32.1%</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       $738M extracted
                     </p>
                   </div>
@@ -188,16 +188,16 @@ export default function MEVAnalysisPage() {
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                     <div>
-                      <p className="font-medium text-sm">Liquidations</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="font-medium text-sx">Liquidations</p>
+                      <p className="text-sx text-muted-foreground">
                         Extract value from liquidating undercollateralized
                         positions
                       </p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="font-medium text-sm">15.7%</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="font-medium text-sx">15.7%</p>
+                    <p className="text-sx text-muted-foreground">
                       $361M extracted
                     </p>
                   </div>
@@ -207,8 +207,8 @@ export default function MEVAnalysisPage() {
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
                     <div>
-                      <p className="font-medium text-sm">Time-bandit Attacks</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="font-medium text-sx">Time-bandit Attacks</p>
+                      <p className="text-sx text-muted-foreground">
                         Reorganize blocks to extract historical MEV
                         opportunities
                       </p>
@@ -216,7 +216,7 @@ export default function MEVAnalysisPage() {
                   </div>
                   <div className="text-right">
                     <p className="font-medium">4.2%</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       $97M extracted
                     </p>
                   </div>
@@ -226,15 +226,15 @@ export default function MEVAnalysisPage() {
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
                     <div>
-                      <p className="font-medium text-sm">Other</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="font-medium text-sx">Other</p>
+                      <p className="text-sx text-muted-foreground">
                         NFT sniping, governance attacks, and novel strategies
                       </p>
                     </div>
                   </div>
                   <div className="text-right">
                     <p className="font-medium">2.8%</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       $64M extracted
                     </p>
                   </div>
@@ -246,11 +246,11 @@ export default function MEVAnalysisPage() {
           {/* Recent MEV Incidents */}
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-sm">
+              <CardTitle className="flex items-center gap-2 text-sx">
                 <AlertTriangle className="h-5 w-5 text-orange-500" />
                 Recent High-Value MEV Incidents
               </CardTitle>
-              <CardDescription className="text-sm">
+              <CardDescription className="text-sx">
                 Notable MEV extraction events from the past 30 days
               </CardDescription>
             </CardHeader>
@@ -261,11 +261,11 @@ export default function MEVAnalysisPage() {
                   <div className="flex-1 space-y-1">
                     <div className="flex items-center gap-2">
                       <Badge variant="secondary">Sandwich</Badge>
-                      <span className="font-medium text-sm">
+                      <span className="font-medium text-sx">
                         $2.3M Uniswap V3 Sandwich Attack
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Large USDC/ETH swap sandwiched by MEV bot, extracting
                       $2.3M in profit through price manipulation
                     </p>
@@ -283,11 +283,11 @@ export default function MEVAnalysisPage() {
                   <div className="flex-1 space-y-1">
                     <div className="flex items-center gap-2">
                       <Badge variant="outline">Arbitrage</Badge>
-                      <span className="font-medium text-sm">
+                      <span className="font-medium text-sx">
                         $1.8M Cross-DEX Arbitrage
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Atomic arbitrage between Uniswap, SushiSwap, and Curve
                       exploiting temporary price discrepancies
                     </p>
@@ -305,11 +305,11 @@ export default function MEVAnalysisPage() {
                   <div className="flex-1 space-y-1">
                     <div className="flex items-center gap-2">
                       <Badge variant="outline">Liquidation</Badge>
-                      <span className="font-medium text-sm">
+                      <span className="font-medium text-sx">
                         $950k Compound Liquidation
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Mass liquidation event during market volatility, with MEV
                       bots competing for liquidation rewards
                     </p>
@@ -329,17 +329,17 @@ export default function MEVAnalysisPage() {
           <div className="grid gap-4 md:grid-cols-2">
             <Card>
               <CardHeader>
-                <CardTitle className="text-sm">
+                <CardTitle className="text-sx">
                   MEV Protection Research
                 </CardTitle>
-                <CardDescription className="text-sm">
+                <CardDescription className="text-sx">
                   Analysis of current and proposed MEV mitigation strategies
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium">
+                    <span className="text-sx font-medium">
                       Private Mempools
                     </span>
                     <Badge variant="outline">Effective</Badge>
@@ -352,7 +352,7 @@ export default function MEVAnalysisPage() {
 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium">
+                    <span className="text-sx font-medium">
                       Commit-Reveal Schemes
                     </span>
                     <Badge variant="outline">Moderate</Badge>
@@ -365,7 +365,7 @@ export default function MEVAnalysisPage() {
 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium">Batch Auctions</span>
+                    <span className="text-sx font-medium">Batch Auctions</span>
                     <Badge variant="outline">Promising</Badge>
                   </div>
                   <Progress value={75} className="h-2" />
@@ -376,7 +376,7 @@ export default function MEVAnalysisPage() {
 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium">MEV-Share</span>
+                    <span className="text-sx font-medium">MEV-Share</span>
                     <Badge variant="secondary">Experimental</Badge>
                   </div>
                   <Progress value={45} className="h-2" />
@@ -389,8 +389,8 @@ export default function MEVAnalysisPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-sm">Research Findings</CardTitle>
-                <CardDescription className="text-sm">
+                <CardTitle className="text-sx">Research Findings</CardTitle>
+                <CardDescription className="text-sx">
                   Key insights from our MEV analysis research
                 </CardDescription>
               </CardHeader>
@@ -398,7 +398,7 @@ export default function MEVAnalysisPage() {
                 <div className="flex items-start gap-2">
                   <div className="w-2 h-2 bg-red-500 rounded-full mt-2"></div>
                   <div>
-                    <p className="text-sm font-medium">
+                    <p className="text-sx font-medium">
                       MEV extraction is becoming more sophisticated
                     </p>
                     <p className="text-xs text-muted-foreground">
@@ -411,7 +411,7 @@ export default function MEVAnalysisPage() {
                 <div className="flex items-start gap-2">
                   <div className="w-2 h-2 bg-orange-500 rounded-full mt-2"></div>
                   <div>
-                    <p className="text-sm font-medium">
+                    <p className="text-sx font-medium">
                       Cross-chain MEV is emerging
                     </p>
                     <p className="text-xs text-muted-foreground">
@@ -424,7 +424,7 @@ export default function MEVAnalysisPage() {
                 <div className="flex items-start gap-2">
                   <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
                   <div>
-                    <p className="text-sm font-medium">
+                    <p className="text-sx font-medium">
                       User losses are significant
                     </p>
                     <p className="text-xs text-muted-foreground">
@@ -436,7 +436,7 @@ export default function MEVAnalysisPage() {
                 <div className="flex items-start gap-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
                   <div>
-                    <p className="text-sm font-medium">
+                    <p className="text-sx font-medium">
                       Protection mechanisms show promise
                     </p>
                     <p className="text-xs text-muted-foreground">

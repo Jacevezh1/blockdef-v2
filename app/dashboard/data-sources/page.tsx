@@ -265,7 +265,7 @@ export default function DataSourcesPage() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -285,7 +285,7 @@ export default function DataSourcesPage() {
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="flex items-center justify-between mt-4">
             <div>
-              <h1 className="text-sm font-bold">Data Sources & Coverage</h1>
+              <h1 className="text-sx font-bold">Data Sources & Coverage</h1>
               <p className="text-muted-foreground">
                 Comprehensive overview of our data collection and analysis
                 capabilities
@@ -300,8 +300,8 @@ export default function DataSourcesPage() {
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-sm font-bold">{stat.value}</div>
-                      <p className="text-sm text-muted-foreground">
+                      <div className="text-sx font-bold">{stat.value}</div>
+                      <p className="text-sx text-muted-foreground">
                         {stat.label}
                       </p>
                     </div>
@@ -360,14 +360,14 @@ export default function DataSourcesPage() {
                                 {blockchain.status}
                               </Badge>
                             </div>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-sx text-muted-foreground">
                               {blockchain.transactions} daily transactions
                               monitored
                             </p>
                           </div>
                         </div>
                         <div className="text-right min-w-[120px]">
-                          <div className="text-sm font-medium mb-1">
+                          <div className="text-sx font-medium mb-1">
                             {blockchain.coverage}% Coverage
                           </div>
                           <Progress
@@ -407,7 +407,7 @@ export default function DataSourcesPage() {
                                   {source.coverage}
                                 </Badge>
                               </div>
-                              <p className="text-sm text-muted-foreground">
+                              <p className="text-sx text-muted-foreground">
                                 {source.description}
                               </p>
                             </div>
@@ -442,21 +442,21 @@ export default function DataSourcesPage() {
                           </div>
                           <div>
                             <h4 className="font-semibold">{tool.name}</h4>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-sx text-muted-foreground">
                               {tool.description}
                             </p>
                           </div>
                         </div>
                         <div className="space-y-3">
                           <div className="flex justify-between items-center">
-                            <span className="text-sm">Accuracy</span>
-                            <span className="text-sm font-medium">
+                            <span className="text-sx">Accuracy</span>
+                            <span className="text-sx font-medium">
                               {tool.accuracy}%
                             </span>
                           </div>
                           <Progress value={tool.accuracy} />
                           <div className="flex justify-between items-center">
-                            <span className="text-sm">Average Speed</span>
+                            <span className="text-sx">Average Speed</span>
                             <Badge variant="secondary">{tool.speed}</Badge>
                           </div>
                         </div>
@@ -479,37 +479,37 @@ export default function DataSourcesPage() {
                   <CardContent className="space-y-6">
                     <div>
                       <div className="flex justify-between items-center mb-2">
-                        <span className="text-sm font-medium">
+                        <span className="text-sx font-medium">
                           Data Accuracy
                         </span>
-                        <span className="text-sm">96.8%</span>
+                        <span className="text-sx">96.8%</span>
                       </div>
                       <Progress value={96.8} />
                     </div>
                     <div>
                       <div className="flex justify-between items-center mb-2">
-                        <span className="text-sm font-medium">
+                        <span className="text-sx font-medium">
                           Data Freshness
                         </span>
-                        <span className="text-sm">98.2%</span>
+                        <span className="text-sx">98.2%</span>
                       </div>
                       <Progress value={98.2} />
                     </div>
                     <div>
                       <div className="flex justify-between items-center mb-2">
-                        <span className="text-sm font-medium">
+                        <span className="text-sx font-medium">
                           Coverage Completeness
                         </span>
-                        <span className="text-sm">94.5%</span>
+                        <span className="text-sx">94.5%</span>
                       </div>
                       <Progress value={94.5} />
                     </div>
                     <div>
                       <div className="flex justify-between items-center mb-2">
-                        <span className="text-sm font-medium">
+                        <span className="text-sx font-medium">
                           Source Reliability
                         </span>
-                        <span className="text-sm">97.1%</span>
+                        <span className="text-sx">97.1%</span>
                       </div>
                       <Progress value={97.1} />
                     </div>
@@ -530,7 +530,7 @@ export default function DataSourcesPage() {
                           <div className="font-medium">
                             Critical Vulnerabilities
                           </div>
-                          <div className="text-sm text-muted-foreground">
+                          <div className="text-sx text-muted-foreground">
                             High-priority security issues
                           </div>
                         </div>
@@ -539,7 +539,7 @@ export default function DataSourcesPage() {
                       <div className="flex justify-between items-center p-3 border rounded-lg">
                         <div>
                           <div className="font-medium">Blockchain Data</div>
-                          <div className="text-sm text-muted-foreground">
+                          <div className="text-sx text-muted-foreground">
                             Transaction and contract data
                           </div>
                         </div>
@@ -548,7 +548,7 @@ export default function DataSourcesPage() {
                       <div className="flex justify-between items-center p-3 border rounded-lg">
                         <div>
                           <div className="font-medium">Security Reports</div>
-                          <div className="text-sm text-muted-foreground">
+                          <div className="text-sx text-muted-foreground">
                             Audit reports and research
                           </div>
                         </div>
@@ -559,7 +559,7 @@ export default function DataSourcesPage() {
                           <div className="font-medium">
                             Community Intelligence
                           </div>
-                          <div className="text-sm text-muted-foreground">
+                          <div className="text-sx text-muted-foreground">
                             Social media and forums
                           </div>
                         </div>

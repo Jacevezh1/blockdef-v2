@@ -1,4 +1,3 @@
-import type React from "react";
 import { AppSidebar } from "@/components/app-sidebar";
 import {
   Breadcrumb,
@@ -23,7 +22,20 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { AlertTriangle, Shield, Clock, ArrowUpRight } from "lucide-react";
+import {
+  AlertTriangle,
+  Shield,
+  Clock,
+  ArrowUpRight,
+  Search,
+  Bug,
+  Zap,
+  Code,
+  FileSearch,
+  Scan,
+  Target,
+  Wrench,
+} from "lucide-react";
 import { SiteFunctionsHeader } from "@/components/site-functions-header";
 import { vulnerabilities } from "@/data/vulnerabilities";
 import {
@@ -40,20 +52,6 @@ import type {
 } from "@/types/dashboard";
 import Link from "next/link";
 
-/* type IconName = "shield-alert" | "book-open" | "wrench" | "file-text"; */
-
-/* const getIconComponent = (
-  iconName: string
-): React.ComponentType<{ className?: string }> => {
-  const icons: Record<IconName, React.ComponentType<{ className?: string }>> = {
-    "shield-alert": AlertTriangle,
-    "book-open": BookOpen,
-    wrench: Wrench,
-    "file-text": FileText,
-  };
-  return icons[iconName as IconName] || FileText;
-}; */
-
 type ColorName = "red" | "blue" | "green" | "purple";
 
 const getColorClasses = (color: string): string => {
@@ -66,6 +64,22 @@ const getColorClasses = (color: string): string => {
   return colorMap[color as ColorName] || "text-gray-500";
 };
 
+const getToolIcon = (toolName: string, category: string) => {
+  const name = toolName.toLowerCase();
+  const cat = category.toLowerCase();
+
+  if (name.includes("slither") || cat.includes("analyzer")) return Search;
+  if (name.includes("mythril") || cat.includes("symbolic")) return Bug;
+  if (name.includes("echidna") || cat.includes("fuzzer")) return Zap;
+  if (name.includes("manticore") || cat.includes("execution")) return Code;
+  if (name.includes("securify") || cat.includes("verification"))
+    return FileSearch;
+  if (name.includes("smartcheck") || cat.includes("scanner")) return Scan;
+  if (name.includes("oyente") || cat.includes("detector")) return Target;
+
+  return Wrench; // default icon
+};
+
 export default function Page() {
   const navigationCards: NavigationCard[] = getNavigationCards();
   const securityTools: SecurityTool[] = getSecurityTools();
@@ -76,7 +90,7 @@ export default function Page() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-6">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -95,48 +109,26 @@ export default function Page() {
           <SiteFunctionsHeader />
         </header>
 
-        <div className="flex flex-1 flex-col gap-4 p-6 pt-0">
-          {/*  <div className="grid gap-4 md:grid-cols-4 lg:grid-cols-4 mt-4">
-            {navigationCards.map((card: NavigationCard) => {
-              const IconComponent = getIconComponent(card.icon);
-              const colorClass = getColorClasses(card.color);
-
-              return (
-                <Link key={card.id} href={card.href}>
-                  <Card
-                    className={`cursor-pointer hover:shadow-md transition-shadow duration-200`}
-                  >
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
-                      <CardTitle className="text-sm font-semibold">
-                        {card.title}
-                      </CardTitle>
-                      <div className="p-2 rounded-lg bg-gray-50">
-                        <IconComponent className={`h-4 w-4 ${colorClass}`} />
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="text-sm font-bold mb-1">
-                        {card.count} Items
-                      </div>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        {card.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </Link>
-              );
-            })}
-          </div> */}
+        <div className="flex flex-1 flex-col gap-4 p-6 pt-2">
+          <div className="space-y-1 mt-4">
+            <h1 className="text-[0.8rem] font-semibold tracking-tight">
+              BlockDef Security Dashboard
+            </h1>
+            <p className="text-xs text-muted-foreground">
+              Monitor smart contract vulnerabilities, security tools, and
+              research insights
+            </p>
+          </div>
 
           {/* Main Content Grid */}
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-4">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             <Card className="md:col-span-2">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-sm">
+                <CardTitle className="flex items-center gap-2 text-sx">
                   <AlertTriangle className="size-3.5 text-red-500" />
                   Recently Added
                 </CardTitle>
-                <CardDescription className="text-sm">
+                <CardDescription className="text-xs">
                   Latest security vulnerabilities newly added to the platform.
                 </CardDescription>
               </CardHeader>
@@ -157,25 +149,17 @@ export default function Page() {
                         >
                           {vulnerability.severity}
                         </Badge>
-                        <span className="font-medium text-sm">
+                        <span className="font-medium text-xs">
                           {vulnerability.title}
                         </span>
                       </div>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-xs text-muted-foreground">
                         {vulnerability.description}
                       </p>
                       <div className="flex items-center gap-4 text-xs text-muted-foreground">
                         <span className="flex items-center gap-1">
                           <Clock className="h-3 w-3" />A few days ago
                         </span>
-                        {/* <span className="flex items-center gap-1">
-                          <Eye className="h-3 w-3" />
-                          {vulnerability.severity === "Critical"
-                            ? "41 views"
-                            : vulnerability.severity === "High"
-                            ? "23 views"
-                            : "15 views"}
-                        </span> */}
                       </div>
                     </div>
                     <Link
@@ -193,42 +177,42 @@ export default function Page() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-sm">
+                <CardTitle className="text-sx">
                   Blockchain Security Tools
                 </CardTitle>
-                <CardDescription className="text-sm">
+                <CardDescription className="text-xs">
                   Essential tools for smart contract security analysis
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
-                  {securityTools.map((tool: SecurityTool) => (
-                    <div
-                      key={tool.id}
-                      className="flex items-center gap-3 p-3 border rounded-lg hover:bg-muted/50 transition-colors"
-                    >
+                  {securityTools.map((tool: SecurityTool) => {
+                    const IconComponent = getToolIcon(tool.name, tool.category);
+                    return (
                       <div
-                        className={`w-2 h-2 ${tool.textColor.replace(
-                          "text-",
-                          "bg-"
-                        )} rounded-full`}
-                      ></div>
-                      <div>
-                        <Link
-                          href={tool.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <p className="text-sm font-medium hover:text-blue-600 cursor-pointer">
-                            {tool.name} - {tool.category}
+                        key={tool.id}
+                        className="flex items-center gap-3 p-3 border rounded-lg hover:bg-muted/50 transition-colors"
+                      >
+                        <IconComponent
+                          className={`w-4 h-4 ${tool.textColor}`}
+                        />
+                        <div>
+                          <Link
+                            href={tool.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <p className="text-xs font-medium hover:text-blue-600 cursor-pointer">
+                              {tool.name} - {tool.category}
+                            </p>
+                          </Link>
+                          <p className="text-xs text-muted-foreground">
+                            {tool.description}
                           </p>
-                        </Link>
-                        <p className="text-xs text-muted-foreground">
-                          {tool.description}
-                        </p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>
@@ -238,10 +222,10 @@ export default function Page() {
           <div className="grid gap-4 md:grid-cols-2">
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-sm">
+                <CardTitle className="flex items-center gap-2 text-sx">
                   Trending Research
                 </CardTitle>
-                <CardDescription className="text-sm">
+                <CardDescription className="text-xs">
                   External security research for this week
                 </CardDescription>
               </CardHeader>
@@ -258,7 +242,7 @@ export default function Page() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <p className="text-sm font-medium leading-tight hover:text-blue-600 cursor-pointer">
+                          <p className="text-xs font-medium leading-tight hover:text-blue-600 cursor-pointer">
                             {research.title}
                           </p>
                         </Link>
@@ -277,10 +261,10 @@ export default function Page() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-sm">
+                <CardTitle className="text-sx">
                   Security Best Practices
                 </CardTitle>
-                <CardDescription className="text-sm">
+                <CardDescription className="text-xs">
                   Recommended security guidelines and practices
                 </CardDescription>
               </CardHeader>
@@ -295,7 +279,7 @@ export default function Page() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <p className="text-sm font-medium hover:text-blue-600 cursor-pointer">
+                          <p className="text-xs font-medium hover:text-blue-600 cursor-pointer">
                             {practice.title}
                           </p>
                         </Link>

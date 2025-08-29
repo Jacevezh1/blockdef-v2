@@ -30,7 +30,7 @@ export default function AlertsPage() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -52,8 +52,8 @@ export default function AlertsPage() {
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="flex items-center justify-between mt-4">
             <div>
-              <h1 className="text-sm font-bold">Recent Security Alerts</h1>
-              <p className="text-muted-foreground text-sm">
+              <h1 className="text-sx font-bold">Recent Security Alerts</h1>
+              <p className="text-muted-foreground text-sx">
                 Real-time security notifications and threat alerts
               </p>
             </div>
@@ -77,23 +77,23 @@ export default function AlertsPage() {
                   <div className="flex items-center gap-2">
                     <AlertTriangle className="h-5 w-5 text-red-500" />
                     <Badge variant="destructive">Critical</Badge>
-                    <CardTitle className="text-sm">
+                    <CardTitle className="text-sx">
                       Flash Loan Attack Detected
                     </CardTitle>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2 text-sx text-muted-foreground">
                     <Clock className="h-4 w-4" />
                     <span>2 minutes ago</span>
                   </div>
                 </div>
-                <CardDescription className="text-sm">
+                <CardDescription className="text-sx">
                   Suspicious flash loan activity detected on Ethereum mainnet
                   targeting DeFi protocol
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <div className="flex items-center gap-4 text-sm">
+                  <div className="flex items-center gap-4 text-sx">
                     <span>
                       <strong>Protocol:</strong> Compound V3
                     </span>
@@ -104,7 +104,7 @@ export default function AlertsPage() {
                       <strong>Amount:</strong> $2.3M
                     </span>
                   </div>
-                  <div className="flex items-center gap-4 text-sm">
+                  <div className="flex items-center gap-4 text-sx">
                     <span>
                       <strong>Transaction:</strong> 0x1234...5678
                     </span>
@@ -130,23 +130,23 @@ export default function AlertsPage() {
                   <div className="flex items-center gap-2">
                     <AlertTriangle className="h-5 w-5 text-orange-500" />
                     <Badge variant="secondary">High</Badge>
-                    <CardTitle className="text-sm">
+                    <CardTitle className="text-sx">
                       Unusual Contract Deployment
                     </CardTitle>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2 text-sx text-muted-foreground">
                     <Clock className="h-4 w-4" />
                     <span>15 minutes ago</span>
                   </div>
                 </div>
-                <CardDescription className="text-sm">
+                <CardDescription className="text-sx">
                   New contract deployed with suspicious code patterns similar to
                   known exploits
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <div className="flex items-center gap-4 text-sm">
+                  <div className="flex items-center gap-4 text-sx">
                     <span>
                       <strong>Network:</strong> BSC
                     </span>
@@ -174,22 +174,22 @@ export default function AlertsPage() {
                   <div className="flex items-center gap-2">
                     <AlertTriangle className="h-5 w-5 text-yellow-500" />
                     <Badge variant="outline">Medium</Badge>
-                    <CardTitle className="text-sm">
+                    <CardTitle className="text-sx">
                       Price Oracle Deviation
                     </CardTitle>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2 text-sx text-muted-foreground">
                     <Clock className="h-4 w-4" />
                     <span>1 hour ago</span>
                   </div>
                 </div>
-                <CardDescription className="text-sm">
+                <CardDescription className="text-sx">
                   Significant price deviation detected in Chainlink oracle feed
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <div className="flex items-center gap-4 text-sm">
+                  <div className="flex items-center gap-4 text-sx">
                     <span>
                       <strong>Asset:</strong> ETH/USD
                     </span>

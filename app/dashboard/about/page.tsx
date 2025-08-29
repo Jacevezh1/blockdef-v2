@@ -111,7 +111,7 @@ export default function AboutPage() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -132,8 +132,8 @@ export default function AboutPage() {
         <div className="flex flex-1 flex-col gap-4 p-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-sm font-bold">About Blockdef</h1>
-              <p className="text-muted-foreground text-sm mt-2">
+              <h1 className="text-sx font-bold">About Blockdef</h1>
+              <p className="text-muted-foreground text-sx mt-2">
                 Leading blockchain security intelligence platform
               </p>
             </div>
@@ -147,16 +147,16 @@ export default function AboutPage() {
                   <Shield className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold">
+                  <h3 className="text-sx font-bold">
                     Securing the Future of Web3
                   </h3>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-muted-foreground text-sx">
                     Protecting billions in digital assets through advanced
                     security intelligence
                   </p>
                 </div>
               </div>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sx leading-relaxed">
                 Blockdef is the world's most comprehensive blockchain security
                 intelligence platform. We provide real-time vulnerability
                 tracking, threat analysis, and security insights across 20+
@@ -178,7 +178,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <div className="text-md font-bold">{stat.value}</div>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sx text-muted-foreground">
                         {stat.label}
                       </p>
                     </div>
@@ -192,13 +192,13 @@ export default function AboutPage() {
           <div className="grid gap-6 md:grid-cols-2">
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-sm">
+                <CardTitle className="flex items-center gap-2 text-sx">
                   <Target className="h-5 w-5" />
                   Our Mission
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="leading-relaxed text-sm">
+                <p className="leading-relaxed text-sx">
                   To democratize blockchain security by providing comprehensive,
                   real-time vulnerability intelligence that empowers developers,
                   auditors, and organizations to build safer Web3 applications
@@ -209,13 +209,13 @@ export default function AboutPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-sm">
+                <CardTitle className="flex items-center gap-2 text-sx">
                   <TrendingUp className="h-5 w-5" />
                   Our Vision
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="leading-relaxed text-sm">
+                <p className="leading-relaxed text-sx">
                   A Web3 ecosystem where security vulnerabilities are
                   identified, analyzed, and mitigated before they can cause
                   harm, creating a safer and more trustworthy blockchain
@@ -228,8 +228,8 @@ export default function AboutPage() {
           {/* Features */}
           <Card>
             <CardHeader>
-              <CardTitle className="text-sm">Platform Features</CardTitle>
-              <CardDescription className="text-sm">
+              <CardTitle className="text-sx">Platform Features</CardTitle>
+              <CardDescription className="text-sx">
                 Comprehensive security intelligence tools and capabilities
               </CardDescription>
             </CardHeader>
@@ -241,10 +241,10 @@ export default function AboutPage() {
                       <feature.icon className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2 text-sm">
+                      <h4 className="font-semibold mb-2 text-sx">
                         {feature.title}
                       </h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-sx text-muted-foreground leading-relaxed">
                         {feature.description}
                       </p>
                     </div>

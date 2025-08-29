@@ -28,9 +28,7 @@ import {
   Code,
   ExternalLink,
   Eye,
-  Network,
   Search,
-  Settings,
   Shield,
   Zap,
 } from "lucide-react";
@@ -111,7 +109,7 @@ export default function ToolsPage() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -130,107 +128,121 @@ export default function ToolsPage() {
           <SiteFunctionsHeader />
         </header>
 
-        <div className="flex flex-1 flex-col gap-4 p-6">
-          <div>
-            <h1 className="text-sm font-bold">Security Tools</h1>
-            <p className="text-muted-foreground text-sm mt-2">
-              Comprehensive suite of tools for blockchain security analysis and
-              research
+        <div className="flex flex-1 flex-col gap-6 p-6">
+          <div className="space-y-1">
+            <h1 className="text-[0.8rem] font-semibold tracking-tight">
+              Security Tools & Services
+            </h1>
+            <p className="text-xs text-muted-foreground">
+              Comprehensive suite of tools and third-party services for
+              blockchain security analysis and research
             </p>
           </div>
 
           {/* Featured Tools */}
           <Card>
             <CardHeader>
-              <CardTitle className="text-sm">Featured Security Tools</CardTitle>
-              <CardDescription className="text-sm">
+              <CardTitle className="text-sx">Featured Security Tools</CardTitle>
+              <CardDescription className="text-xs">
                 Most popular and effective tools in our research arsenal
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid gap-4 md:grid-cols-3">
-                {/* Slither */}
-                <div className="space-y-3 p-4 border rounded-lg">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-blue-500" />
-                      <span className="font-medium text-sm">Slither</span>
+              <div className="grid gap-4 lg:grid-cols-3">
+                <div className="space-y-3 border rounded-lg overflow-hidden">
+                  <div className="h-24 bg-gradient-to-br from-blue-500/20 to-slate-500/20"></div>
+                  <div className="p-4 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Shield className="h-4 w-4 text-blue-500" />
+                        <span className="font-medium text-sx">Slither</span>
+                      </div>
+                      <Badge variant="outline" className="text-xs">
+                        Static Analysis
+                      </Badge>
                     </div>
-                    <Badge variant="outline">Static Analysis</Badge>
+                    <p className="text-xs text-muted-foreground">
+                      Python-based static analysis framework with 70+ built-in
+                      detectors for Solidity smart contracts
+                    </p>
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <span>• Reentrancy detection</span>
+                      <span>• Gas optimization</span>
+                    </div>
+                    <Button size="sm" variant="default" className="w-full">
+                      <Link
+                        href="https://github.com/crytic/slither"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Launch Slither
+                      </Link>
+                    </Button>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    Python-based static analysis framework with 70+ built-in
-                    detectors for Solidity smart contracts
-                  </p>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <span>• Reentrancy detection</span>
-                    <span>• Gas optimization</span>
-                  </div>
-                  <Button size="sm" variant="default" className="w-full">
-                    <Link
-                      href="https://github.com/crytic/slither"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Launch Slither
-                    </Link>
-                  </Button>
                 </div>
 
-                {/* Mythril */}
-                <div className="space-y-3 p-4 border rounded-lg">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Zap className="h-5 w-5 text-purple-500" />
-                      <span className="font-medium text-sm">Mythril</span>
+                <div className="space-y-3 border rounded-lg overflow-hidden">
+                  <div className="h-24 bg-gradient-to-br from-purple-500/20 to-slate-500/20"></div>
+                  <div className="p-4 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Zap className="h-4 w-4 text-purple-500" />
+                        <span className="font-medium text-sx">Mythril</span>
+                      </div>
+                      <Badge variant="outline" className="text-xs">
+                        Symbolic Execution
+                      </Badge>
                     </div>
-                    <Badge variant="outline">Symbolic Execution</Badge>
+                    <p className="text-xs text-muted-foreground">
+                      Security analysis tool using symbolic execution and SMT
+                      solving for deep vulnerability detection
+                    </p>
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <span>• Integer overflows</span>
+                      <span>• Access control</span>
+                    </div>
+                    <Button size="sm" variant="default" className="w-full">
+                      <Link
+                        href="https://github.com/ConsenSysDiligence/mythril"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Launch Mythril
+                      </Link>
+                    </Button>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    Security analysis tool using symbolic execution and SMT
-                    solving for deep vulnerability detection
-                  </p>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <span>• Integer overflows</span>
-                    <span>• Access control</span>
-                  </div>
-                  <Button size="sm" variant="default" className="w-full">
-                    <Link
-                      href="https://github.com/ConsenSysDiligence/mythril"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Launch Mythril
-                    </Link>
-                  </Button>
                 </div>
 
-                {/* Echidna */}
-                <div className="space-y-3 p-4 border rounded-lg">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Code className="h-5 w-5 text-green-500" />
-                      <span className="font-medium text-sm">Echidna</span>
+                <div className="space-y-3 border rounded-lg overflow-hidden">
+                  <div className="h-24 bg-gradient-to-br from-green-500/20 to-slate-500/20"></div>
+                  <div className="p-4 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Code className="h-4 w-4 text-green-500" />
+                        <span className="font-medium text-sx">Echidna</span>
+                      </div>
+                      <Badge variant="outline" className="text-xs">
+                        Fuzzing
+                      </Badge>
                     </div>
-                    <Badge variant="outline">Fuzzing</Badge>
+                    <p className="text-xs text-muted-foreground">
+                      Property-based fuzzing tool that generates random inputs
+                      to test smart contract invariants
+                    </p>
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <span>• Property testing</span>
+                      <span>• Invariant checking</span>
+                    </div>
+                    <Button size="sm" variant="default" className="w-full">
+                      <Link
+                        href="https://github.com/crytic/echidna"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Launch Echidna
+                      </Link>
+                    </Button>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    Property-based fuzzing tool that generates random inputs to
-                    test smart contract invariants
-                  </p>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <span>• Property testing</span>
-                    <span>• Invariant checking</span>
-                  </div>
-                  <Button size="sm" variant="default" className="w-full">
-                    <Link
-                      href="https://github.com/crytic/echidna"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Launch Echidna
-                    </Link>
-                  </Button>
                 </div>
               </div>
             </CardContent>
@@ -239,63 +251,63 @@ export default function ToolsPage() {
           {/* Tool Categories */}
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Building2 className="h-5 w-5" />
+              <CardTitle className="flex items-center gap-2 text-sx">
+                <Building2 className="h-4 w-4" />
                 Third-Party Security Services
               </CardTitle>
-              <CardDescription>
-                Here are some leading third-party providers offering blockchain
-                security services. These companies are independent and not
-                affiliated with or sponsored by us — we’re simply sharing
-                examples to help you explore available options.
+              <CardDescription className="text-xs">
+                Leading third-party providers offering blockchain security
+                services. These companies are independent and not affiliated
+                with us.
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-4 lg:grid-cols-3">
                 {thirdPartyServices.map((service, index) => (
                   <Card
                     key={index}
-                    className="group relative hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
+                    className="group relative hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 overflow-hidden"
                   >
-                    <CardContent className="p-6">
-                      <div className="flex items-start justify-between mb-4">
+                    <div className="h-20 bg-gradient-to-br from-slate-500/10 to-slate-600/20"></div>
+                    <CardContent className="p-4">
+                      <div className="flex items-start justify-between mb-3">
                         <div className="p-2 rounded-lg border bg-muted/50">
-                          <service.icon className="h-5 w-5 text-muted-foreground" />
+                          <service.icon className="h-4 w-4 text-muted-foreground" />
                         </div>
                         <Button
                           variant="ghost"
                           size="sm"
-                          className="h-8 w-8 p-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                          className="h-6 w-6 p-0 opacity-0 group-hover:opacity-100 transition-opacity"
                         >
                           <Link
                             href={service.externalLink as string}
                             target="_blank"
                             referrerPolicy="no-referrer"
                           >
-                            <ExternalLink className="h-4 w-4" />
+                            <ExternalLink className="h-3 w-3" />
                           </Link>
                         </Button>
                       </div>
 
                       <div className="space-y-3">
                         <div>
-                          <h3 className="font-semibold text-sm">
+                          <h3 className="font-semibold text-sx">
                             {service.name}
                           </h3>
                           <div
-                            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border mt-1 ${service.categoryColor}`}
+                            className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border mt-1 ${service.categoryColor}`}
                           >
                             {service.category}
                           </div>
                         </div>
 
-                        <p className="text-sm text-muted-foreground leading-relaxed">
+                        <p className="text-xs text-muted-foreground leading-relaxed">
                           {service.description}
                         </p>
 
                         <div className="flex items-center justify-between pt-2 border-t">
                           <div className="flex items-center gap-2">
-                            <div className="h-2 w-2 rounded-full bg-green-500" />
+                            <div className="h-1.5 w-1.5 rounded-full bg-green-500" />
                             <span className="text-xs text-muted-foreground">
                               {service.status}
                             </span>
@@ -311,61 +323,6 @@ export default function ToolsPage() {
               </div>
             </CardContent>
           </Card>
-
-          {/* Quick Actions */}
-          {/* <div className="grid gap-4 md:grid-cols-2">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-sm">Quick Analysis</CardTitle>
-                <CardDescription className="text-sm">
-                  Analyze a smart contract or transaction instantly
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex gap-2">
-                  <Button className="flex-1" size="sm">
-                    Analyze Contract
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="flex-1 bg-transparent"
-                    size="sm"
-                  >
-                    Trace Transaction
-                  </Button>
-                </div>
-                <div className="text-xs text-muted-foreground text-center">
-                  Paste contract address or transaction hash to get started
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-sm">Batch Processing</CardTitle>
-                <CardDescription className="text-sm">
-                  Run analysis on multiple contracts or addresses
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex gap-2">
-                  <Button className="flex-1" size="sm">
-                    Upload CSV
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="flex-1 bg-transparent"
-                    size="sm"
-                  >
-                    API Integration
-                  </Button>
-                </div>
-                <div className="text-xs text-muted-foreground text-center">
-                  Process up to 1,000 contracts in a single batch
-                </div>
-              </CardContent>
-            </Card>
-          </div> */}
         </div>
       </SidebarInset>
     </SidebarProvider>

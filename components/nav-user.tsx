@@ -41,7 +41,7 @@ export function NavUser() {
               <Avatar className="h-8 w-8 rounded-lg">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-indigo-700" />
               </Avatar>
-              <div className="grid flex-1 text-left text-sm leading-tight">
+              <div className="grid flex-1 text-left text-sx leading-tight">
                 <span className="truncate font-semibold">BlockDef</span>
                 <span className="truncate text-xs">Blockchain Insights</span>
               </div>
@@ -55,11 +55,11 @@ export function NavUser() {
             sideOffset={4}
           >
             <DropdownMenuLabel className="p-0 font-normal">
-              <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+              <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sx">
                 <Avatar className="h-8 w-8 rounded-lg">
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-indigo-700" />
                 </Avatar>
-                <div className="grid flex-1 text-left text-sm leading-tight">
+                <div className="grid flex-1 text-left text-sx leading-tight">
                   <span className="truncate font-semibold">BlockDef</span>
                   <span className="truncate text-xs">
                     Explore Blockchain Insights

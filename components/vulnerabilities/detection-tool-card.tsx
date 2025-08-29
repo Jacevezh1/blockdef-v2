@@ -25,7 +25,7 @@ export function DetectionToolCard({ tool }: DetectionToolCardProps) {
           {tool.type}
         </Badge>
       </div>
-      <p className="text-sm text-muted-foreground leading-relaxed">
+      <p className="text-sx text-muted-foreground leading-relaxed">
         {tool.description}
       </p>
       <Button

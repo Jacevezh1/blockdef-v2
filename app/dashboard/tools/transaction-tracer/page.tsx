@@ -37,7 +37,7 @@ export default function TransactionTracerPage() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -63,7 +63,7 @@ export default function TransactionTracerPage() {
 
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="mt-4">
-            <h1 className="text-sm font-bold">Transaction Flow Tracer</h1>
+            <h1 className="text-sx font-bold">Transaction Flow Tracer</h1>
             <p className="text-muted-foreground">
               Advanced transaction analysis and fund flow tracking across
               multiple hops
@@ -93,7 +93,7 @@ export default function TransactionTracerPage() {
                   Trace
                 </Button>
               </div>
-              <div className="flex items-center gap-4 text-sm">
+              <div className="flex items-center gap-4 text-sx">
                 <div className="flex items-center gap-2">
                   <input type="checkbox" defaultChecked />
                   <label>Include internal transactions</label>
@@ -141,7 +141,7 @@ export default function TransactionTracerPage() {
                 <div className="flex items-center gap-4 p-4 border rounded-lg">
                   <div className="flex flex-col items-center gap-2">
                     <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
-                      <span className="text-sm font-medium">1</span>
+                      <span className="text-sx font-medium">1</span>
                     </div>
                     <Badge variant="outline" className="text-xs">
                       Origin
@@ -149,10 +149,10 @@ export default function TransactionTracerPage() {
                   </div>
                   <div className="flex-1 space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-sm">0x1234...5678</span>
+                      <span className="font-mono text-sx">0x1234...5678</span>
                       <Badge variant="secondary">EOA</Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Initial transaction: 100 ETH
                     </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
@@ -167,7 +167,7 @@ export default function TransactionTracerPage() {
                 <div className="flex items-center gap-4 p-4 border rounded-lg">
                   <div className="flex flex-col items-center gap-2">
                     <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
-                      <span className="text-sm font-medium">2</span>
+                      <span className="text-sx font-medium">2</span>
                     </div>
                     <Badge variant="outline" className="text-xs">
                       Contract
@@ -175,10 +175,10 @@ export default function TransactionTracerPage() {
                   </div>
                   <div className="flex-1 space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-sm">0xabcd...efgh</span>
+                      <span className="font-mono text-sx">0xabcd...efgh</span>
                       <Badge variant="secondary">Uniswap V3</Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Swap: 100 ETH → 150,000 USDC
                     </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
@@ -193,7 +193,7 @@ export default function TransactionTracerPage() {
                 <div className="flex items-center gap-4 p-4 border rounded-lg">
                   <div className="flex flex-col items-center gap-2">
                     <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center">
-                      <span className="text-sm font-medium">3</span>
+                      <span className="text-sx font-medium">3</span>
                     </div>
                     <Badge variant="outline" className="text-xs">
                       Bridge
@@ -201,10 +201,10 @@ export default function TransactionTracerPage() {
                   </div>
                   <div className="flex-1 space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-sm">0x9876...5432</span>
+                      <span className="font-mono text-sx">0x9876...5432</span>
                       <Badge variant="secondary">Arbitrum Bridge</Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Bridge: 150,000 USDC → Arbitrum
                     </p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
@@ -219,7 +219,7 @@ export default function TransactionTracerPage() {
                 <div className="flex items-center gap-4 p-4 border border-orange-200 dark:border-orange-800 rounded-lg">
                   <div className="flex flex-col items-center gap-2">
                     <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center">
-                      <span className="text-sm font-medium">4</span>
+                      <span className="text-sx font-medium">4</span>
                     </div>
                     <Badge variant="destructive" className="text-xs">
                       Suspicious
@@ -227,10 +227,10 @@ export default function TransactionTracerPage() {
                   </div>
                   <div className="flex-1 space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-sm">0xdead...beef</span>
+                      <span className="font-mono text-sx">0xdead...beef</span>
                       <Badge variant="outline">Unknown</Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Multiple small transfers to different addresses (possible
                       mixing)
                     </p>
@@ -260,24 +260,24 @@ export default function TransactionTracerPage() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">Total Hops</span>
-                  <span className="text-sm">4</span>
+                  <span className="text-sx font-medium">Total Hops</span>
+                  <span className="text-sx">4</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">Networks Involved</span>
-                  <span className="text-sm">Ethereum, Arbitrum</span>
+                  <span className="text-sx font-medium">Networks Involved</span>
+                  <span className="text-sx">Ethereum, Arbitrum</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">Total Value</span>
-                  <span className="text-sm">~$150,000</span>
+                  <span className="text-sx font-medium">Total Value</span>
+                  <span className="text-sx">~$150,000</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">Risk Score</span>
+                  <span className="text-sx font-medium">Risk Score</span>
                   <Badge variant="secondary">High (8.2/10)</Badge>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">Time Span</span>
-                  <span className="text-sm">2.5 hours</span>
+                  <span className="text-sx font-medium">Time Span</span>
+                  <span className="text-sx">2.5 hours</span>
                 </div>
               </CardContent>
             </Card>
@@ -290,23 +290,23 @@ export default function TransactionTracerPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="flex items-center gap-2 text-sm">
+                <div className="flex items-center gap-2 text-sx">
                   <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                   <span>Mixing service usage detected</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm">
+                <div className="flex items-center gap-2 text-sx">
                   <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
                   <span>Cross-chain bridge activity</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm">
+                <div className="flex items-center gap-2 text-sx">
                   <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
                   <span>Large transaction volume</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm">
+                <div className="flex items-center gap-2 text-sx">
                   <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                   <span>Multiple output addresses</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm">
+                <div className="flex items-center gap-2 text-sx">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                   <span>Known DEX interaction</span>
                 </div>

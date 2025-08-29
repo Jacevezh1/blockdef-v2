@@ -8,9 +8,9 @@ import {
   Map,
   Search,
   Settings2,
+  SettingsIcon,
   SquareTerminal,
 } from "lucide-react";
-
 import { NavMain } from "@/components/nav-main";
 import { NavProjects } from "@/components/nav-projects";
 import {
@@ -22,7 +22,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { NavUser } from "./nav-user";
+import { NavUser } from "@/components/nav-user";
+import { inter } from "@/app/fonts/font";
+import { GeneralNavigation } from "@/components/general-navigation";
 
 const data = {
   navMain: [
@@ -129,11 +131,11 @@ const data = {
     },
   ],
   navSecondary: [
-    {
-      title: "Search",
-      url: "/dashboard/docs",
-      icon: Search,
-    },
+    /*     {
+      title: "Settings",
+      url: "/dashboard/settings",
+      icon: SettingsIcon,
+    }, */
   ],
   projects: [
     {
@@ -155,7 +157,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
               <a href="/dashboard">
-                <span className="text-SM font-semibold">BlockDef</span>
+                <span
+                  className={`${inter.className} text-[0.85rem] font-bold tracking-normal`}
+                >
+                  BlockDef
+                </span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -167,7 +173,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {/*  <NavSecondary items={data.navSecondary} className="mt-auto" /> */}
       </SidebarContent>
       <SidebarFooter>
-        <NavUser />
+        {/* <NavUser /> */}
+        <GeneralNavigation items={data.navSecondary} />
       </SidebarFooter>
     </Sidebar>
   );

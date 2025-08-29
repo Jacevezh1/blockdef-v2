@@ -30,7 +30,7 @@ export default function APIPage() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -57,18 +57,18 @@ export default function APIPage() {
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="flex items-center justify-between mt-4">
             <div>
-              <h1 className="text-sm font-bold">BlockDef API Documentation</h1>
+              <h1 className="text-sx font-bold">BlockDef API Documentation</h1>
               <p className="text-muted-foreground">
                 Programmatic access to security data, vulnerability feeds, and
                 analysis tools
               </p>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="outline" className="text-sm">
+              <Button variant="outline" className="text-sx">
                 <Book className="h-4 w-4 mr-2" />
                 Full Docs
               </Button>
-              <Button className="text-sm">
+              <Button className="text-sx">
                 <Key className="h-4 w-4 mr-2" />
                 Get API Key
               </Button>
@@ -91,7 +91,7 @@ export default function APIPage() {
                 <Input
                   value="bd_sk_1234567890abcdef1234567890abcdef"
                   readOnly
-                  className="font-mono text-sm flex-1"
+                  className="font-mono text-sx flex-1"
                 />
                 <Button variant="outline" size="sm">
                   <Copy className="h-4 w-4" />
@@ -100,7 +100,7 @@ export default function APIPage() {
                   Regenerate
                 </Button>
               </div>
-              <div className="flex items-center justify-between text-sm">
+              <div className="flex items-center justify-between text-sx">
                 <div className="space-y-1">
                   <p className="font-medium">Current Plan: Professional</p>
                   <p className="text-muted-foreground">
@@ -132,36 +132,36 @@ export default function APIPage() {
               <CardContent className="space-y-3">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <code className="text-sm bg-muted px-2 py-1 rounded">
+                    <code className="text-sx bg-muted px-2 py-1 rounded">
                       GET /api/v1/cves
                     </code>
                     <Badge variant="outline">REST</Badge>
                   </div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sx text-muted-foreground">
                     Retrieve all CVE records with filtering
                   </p>
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <code className="text-sm bg-muted px-2 py-1 rounded">
+                    <code className="text-sx bg-muted px-2 py-1 rounded">
                       GET /api/v1/vulnerabilities
                     </code>
                     <Badge variant="outline">REST</Badge>
                   </div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sx text-muted-foreground">
                     Smart contract vulnerability patterns
                   </p>
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <code className="text-sm bg-muted px-2 py-1 rounded">
+                    <code className="text-sx bg-muted px-2 py-1 rounded">
                       GET /api/v1/exploits
                     </code>
                     <Badge variant="outline">REST</Badge>
                   </div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sx text-muted-foreground">
                     Protocol exploit database
                   </p>
                 </div>
@@ -185,36 +185,36 @@ export default function APIPage() {
               <CardContent className="space-y-3">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <code className="text-sm bg-muted px-2 py-1 rounded">
+                    <code className="text-sx bg-muted px-2 py-1 rounded">
                       POST /api/v1/analyze
                     </code>
                     <Badge variant="outline">REST</Badge>
                   </div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sx text-muted-foreground">
                     Submit contract for static analysis
                   </p>
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <code className="text-sm bg-muted px-2 py-1 rounded">
+                    <code className="text-sx bg-muted px-2 py-1 rounded">
                       GET /api/v1/scan
                     </code>
                     <Badge variant="outline">REST</Badge>
                   </div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sx text-muted-foreground">
                     Network scanning and monitoring
                   </p>
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <code className="text-sm bg-muted px-2 py-1 rounded">
+                    <code className="text-sx bg-muted px-2 py-1 rounded">
                       POST /api/v1/trace
                     </code>
                     <Badge variant="outline">REST</Badge>
                   </div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sx text-muted-foreground">
                     Transaction flow tracing
                   </p>
                 </div>
@@ -242,7 +242,7 @@ export default function APIPage() {
                 <div className="space-y-2">
                   <h4 className="font-medium">Fetch Latest CVEs</h4>
                   <div className="bg-muted p-3 rounded-lg">
-                    <code className="text-sm">
+                    <code className="text-sx">
                       {`curl -H "Authorization: Bearer bd_sk_your_api_key" \\
      -H "Content-Type: application/json" \\
      "https://api.blockdef.io/v1/cves?severity=critical&limit=10"`}
@@ -253,7 +253,7 @@ export default function APIPage() {
                 <div className="space-y-2">
                   <h4 className="font-medium">Analyze Smart Contract</h4>
                   <div className="bg-muted p-3 rounded-lg">
-                    <code className="text-sm">
+                    <code className="text-sx">
                       {`curl -X POST -H "Authorization: Bearer bd_sk_your_api_key" \\
      -H "Content-Type: application/json" \\
      -d '{"address": "0x1234...5678", "tools": ["slither", "mythril"]}' \\
@@ -265,7 +265,7 @@ export default function APIPage() {
                 <div className="space-y-2">
                   <h4 className="font-medium">JavaScript/Node.js Example</h4>
                   <div className="bg-muted p-3 rounded-lg">
-                    <code className="text-sm">
+                    <code className="text-sx">
                       {`const response = await fetch('https://api.blockdef.io/v1/vulnerabilities', {
   headers: {
     'Authorization': 'Bearer bd_sk_your_api_key',
@@ -294,24 +294,24 @@ const data = await response.json();`}
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">
+                  <span className="text-sx font-medium">
                     Requests per minute
                   </span>
-                  <span className="text-sm">1,000</span>
+                  <span className="text-sx">1,000</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">Requests per hour</span>
-                  <span className="text-sm">10,000</span>
+                  <span className="text-sx font-medium">Requests per hour</span>
+                  <span className="text-sx">10,000</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">Monthly limit</span>
-                  <span className="text-sm">100,000</span>
+                  <span className="text-sx font-medium">Monthly limit</span>
+                  <span className="text-sx">100,000</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">
+                  <span className="text-sx font-medium">
                     Concurrent requests
                   </span>
-                  <span className="text-sm">50</span>
+                  <span className="text-sx">50</span>
                 </div>
                 <Button size="sm" className="w-full">
                   Upgrade Plan
@@ -328,7 +328,7 @@ const data = await response.json();`}
               </CardHeader>
               <CardContent>
                 <div className="bg-muted p-3 rounded-lg">
-                  <code className="text-sm">
+                  <code className="text-sx">
                     {`{
   "success": true,
   "data": [...],

@@ -40,7 +40,7 @@ export default function CVEsPage() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -68,8 +68,8 @@ export default function CVEsPage() {
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="flex items-center justify-between mt-4">
             <div>
-              <h1 className="text-sm font-bold">Critical CVEs Database</h1>
-              <p className="text-muted-foreground text-sm">
+              <h1 className="text-sx font-bold">Critical CVEs Database</h1>
+              <p className="text-muted-foreground text-sx">
                 Common Vulnerabilities and Exposures affecting blockchain
                 infrastructure and protocols
               </p>
@@ -90,13 +90,13 @@ export default function CVEsPage() {
           <div className="grid gap-4 md:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
+                <CardTitle className="text-sx font-medium">
                   Critical (9.0-10.0)
                 </CardTitle>
                 <AlertTriangle className="h-4 w-4 text-red-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold text-red-600">23</div>
+                <div className="text-sx font-bold text-red-600">23</div>
                 <p className="text-xs text-muted-foreground flex items-center gap-1">
                   <TrendingUp className="h-3 w-3" />
                   +3 this month
@@ -106,13 +106,13 @@ export default function CVEsPage() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
+                <CardTitle className="text-sx font-medium">
                   High (7.0-8.9)
                 </CardTitle>
                 <Shield className="h-4 w-4 text-orange-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold text-orange-600">67</div>
+                <div className="text-sx font-bold text-orange-600">67</div>
                 <p className="text-xs text-muted-foreground flex items-center gap-1">
                   <TrendingUp className="h-3 w-3" />
                   +12 this month
@@ -122,11 +122,11 @@ export default function CVEsPage() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Patched</CardTitle>
+                <CardTitle className="text-sx font-medium">Patched</CardTitle>
                 <Shield className="h-4 w-4 text-green-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold text-green-600">1,247</div>
+                <div className="text-sx font-bold text-green-600">1,247</div>
                 <p className="text-xs text-muted-foreground flex items-center gap-1">
                   <TrendingDown className="h-3 w-3" />
                   -5% unpatched
@@ -136,11 +136,11 @@ export default function CVEsPage() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Zero-Day</CardTitle>
+                <CardTitle className="text-sx font-medium">Zero-Day</CardTitle>
                 <AlertTriangle className="h-4 w-4 text-purple-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold text-purple-600">7</div>
+                <div className="text-sx font-bold text-purple-600">7</div>
                 <p className="text-xs text-muted-foreground">Active threats</p>
               </CardContent>
             </Card>
@@ -158,7 +158,7 @@ export default function CVEsPage() {
                       <Badge variant="outline">CVSS 9.8</Badge>
                       <Badge variant="secondary">Ethereum</Badge>
                     </div>
-                    <CardTitle className="text-sm">
+                    <CardTitle className="text-sx">
                       Geth Client Remote Code Execution
                     </CardTitle>
                     <CardDescription>
@@ -178,32 +178,32 @@ export default function CVEsPage() {
               <CardContent>
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Affected Versions:</span>
                       <span>Geth v1.13.0 - v1.13.14</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Attack Vector:</span>
                       <span>Network (Remote)</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Complexity:</span>
                       <span>Low</span>
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Published:</span>
                       <Calendar className="h-3 w-3" />
                       <span>2024-01-15</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Status:</span>
                       <Badge variant="destructive" className="text-xs">
                         Unpatched
                       </Badge>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Exploited:</span>
                       <Badge variant="outline" className="text-xs">
                         In the Wild
@@ -224,7 +224,7 @@ export default function CVEsPage() {
                       <Badge variant="outline">CVSS 9.1</Badge>
                       <Badge variant="secondary">Solidity</Badge>
                     </div>
-                    <CardTitle className="text-sm">
+                    <CardTitle className="text-sx">
                       Solidity Compiler Storage Collision
                     </CardTitle>
                     <CardDescription>
@@ -244,32 +244,32 @@ export default function CVEsPage() {
               <CardContent>
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Affected Versions:</span>
                       <span>Solidity 0.8.20 - 0.8.23</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Attack Vector:</span>
                       <span>Local (Compilation)</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Impact:</span>
                       <span>Data Corruption</span>
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Published:</span>
                       <Calendar className="h-3 w-3" />
                       <span>2024-01-10</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Status:</span>
                       <Badge variant="outline" className="text-xs">
                         Patched
                       </Badge>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Fix Version:</span>
                       <span>0.8.24</span>
                     </div>
@@ -288,7 +288,7 @@ export default function CVEsPage() {
                       <Badge variant="outline">CVSS 8.2</Badge>
                       <Badge variant="secondary">Chainlink</Badge>
                     </div>
-                    <CardTitle className="text-sm">
+                    <CardTitle className="text-sx">
                       Chainlink Oracle Price Manipulation
                     </CardTitle>
                     <CardDescription>
@@ -308,32 +308,32 @@ export default function CVEsPage() {
               <CardContent>
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Affected Versions:</span>
                       <span>Aggregator v3.0.0 - v3.2.1</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Attack Vector:</span>
                       <span>Network (DeFi Integration)</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Complexity:</span>
                       <span>Medium</span>
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Published:</span>
                       <Calendar className="h-3 w-3" />
                       <span>2023-12-08</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Status:</span>
                       <Badge variant="outline" className="text-xs">
                         Patched
                       </Badge>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
+                    <div className="flex items-center gap-2 text-sx">
                       <span className="font-medium">Bounty:</span>
                       <span>$50,000</span>
                     </div>

@@ -38,7 +38,7 @@ export default function CodeAnalysisPage() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -64,7 +64,7 @@ export default function CodeAnalysisPage() {
 
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="mt-4">
-            <h1 className="text-sm font-bold">Smart Contract Code Analysis</h1>
+            <h1 className="text-sx font-bold">Smart Contract Code Analysis</h1>
             <p className="text-muted-foreground">
               Comprehensive static and dynamic analysis tools for smart contract
               security
@@ -85,20 +85,20 @@ export default function CodeAnalysisPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">
+                  <label className="text-sx font-medium">
                     Contract Address or Code
                   </label>
                   <Textarea
                     placeholder="0x... or paste Solidity code here"
-                    className="min-h-[120px] font-mono text-sm"
+                    className="min-h-[120px] font-mono text-sx"
                   />
                 </div>
                 <div className="flex gap-2">
-                  <Button className="flex-1 text-sm">
+                  <Button className="flex-1 text-sx">
                     <Play className="h-4 w-4 mr-2" />
                     Analyze
                   </Button>
-                  <Button variant="outline" className="text-sm">
+                  <Button variant="outline" className="text-sx">
                     <Upload className="h-4 w-4 mr-2" />
                     Upload File
                   </Button>
@@ -122,7 +122,7 @@ export default function CodeAnalysisPage() {
                       Static
                     </Badge>
                   </div>
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-sx text-muted-foreground">
                     70+ detectors
                   </span>
                 </div>
@@ -135,7 +135,7 @@ export default function CodeAnalysisPage() {
                       Symbolic
                     </Badge>
                   </div>
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-sx text-muted-foreground">
                     Deep analysis
                   </span>
                 </div>
@@ -148,7 +148,7 @@ export default function CodeAnalysisPage() {
                       Fuzzing
                     </Badge>
                   </div>
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-sx text-muted-foreground">
                     Property testing
                   </span>
                 </div>
@@ -176,7 +176,7 @@ export default function CodeAnalysisPage() {
                         Reentrancy Vulnerability
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Function `withdraw()` at line 45 is vulnerable to
                       reentrancy attacks. External call to `msg.sender.call()`
                       before state update.
@@ -202,7 +202,7 @@ export default function CodeAnalysisPage() {
                         Unchecked Return Value
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       Return value of external call at line 67 is not checked.
                       This could lead to silent failures.
                     </p>
@@ -225,7 +225,7 @@ export default function CodeAnalysisPage() {
                       <Badge variant="outline">Passed</Badge>
                       <span className="font-medium">Access Control</span>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sx text-muted-foreground">
                       All administrative functions properly protected with
                       access control modifiers.
                     </p>

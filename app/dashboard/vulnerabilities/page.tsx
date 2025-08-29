@@ -22,10 +22,9 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { AlertTriangle, TrendingUp, Shield, Activity } from "lucide-react";
+import { AlertTriangle, TrendingUp, Shield } from "lucide-react";
 import { SiteFunctionsHeader } from "@/components/site-functions-header";
-import { vulnerabilities, detectionTools } from "@/data/vulnerabilities";
-import { exploitStats } from "@/data/exploits";
+import { vulnerabilities } from "@/data/vulnerabilities";
 import Link from "next/link";
 
 export default function VulnerabilitiesPage() {
@@ -38,7 +37,7 @@ export default function VulnerabilitiesPage() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -59,8 +58,10 @@ export default function VulnerabilitiesPage() {
 
         <div className="flex flex-1 flex-col gap-4 p-6">
           <div>
-            <h1 className="text-sm font-bold">Vulnerability Database</h1>
-            <p className="text-muted-foreground text-sm mt-2">
+            <h1 className="text-[0.8rem] font-semibold tracking-tight">
+              Vulnerability Database
+            </h1>
+            <p className="text-muted-foreground text-xs mt-1">
               Comprehensive database of blockchain and smart contract
               vulnerabilities
             </p>
@@ -70,13 +71,13 @@ export default function VulnerabilitiesPage() {
           {/*  <div className="grid gap-4 md:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
+                <CardTitle className="text-sx font-medium">
                   Critical Vulnerabilities
                 </CardTitle>
                 <AlertTriangle className="h-4 w-4 text-red-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold text-red-600">
+                <div className="text-sx font-bold text-red-600">
                   {criticalVulns}
                 </div>
                 <p className="text-xs text-muted-foreground">
@@ -87,13 +88,13 @@ export default function VulnerabilitiesPage() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
+                <CardTitle className="text-sx font-medium">
                   High Priority
                 </CardTitle>
                 <TrendingUp className="h-4 w-4 text-orange-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold text-orange-600">
+                <div className="text-sx font-bold text-orange-600">
                   {highVulns}
                 </div>
                 <p className="text-xs text-muted-foreground">
@@ -104,13 +105,13 @@ export default function VulnerabilitiesPage() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
+                <CardTitle className="text-sx font-medium">
                   Total Exploits
                 </CardTitle>
                 <Shield className="h-4 w-4 text-green-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold text-green-600">
+                <div className="text-sx font-bold text-green-600">
                   {exploitStats.totalExploits}
                 </div>
                 <p className="text-xs text-muted-foreground">
@@ -121,13 +122,13 @@ export default function VulnerabilitiesPage() {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
+                <CardTitle className="text-sx font-medium">
                   Detection Tools
                 </CardTitle>
                 <Activity className="h-4 w-4 text-blue-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-sm font-bold text-blue-600">
+                <div className="text-sx font-bold text-blue-600">
                   {detectionTools.length}
                 </div>
                 <p className="text-xs text-muted-foreground">Available tools</p>
@@ -136,83 +137,91 @@ export default function VulnerabilitiesPage() {
           </div> */}
 
           {/* Quick Access Cards */}
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3">
             <Link href="/dashboard/vulnerabilities/smart-contracts">
-              <Card className="cursor-pointer hover:shadow-md transition-shadow">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-sm">
-                    <AlertTriangle className="h-5 w-5 text-red-500" />
+              <Card className="cursor-pointer hover:shadow-md transition-all duration-200 border-l-4 border-l-red-500 h-full">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-2 text-sx">
+                    <AlertTriangle className="h-4 w-4 text-red-500" />
                     Smart Contract Vulnerabilities
                   </CardTitle>
-                  <CardDescription>
+                  <CardDescription className="text-xs leading-relaxed">
                     Common vulnerabilities found in smart contract
                     implementations
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="pt-0">
                   <div className="flex items-center justify-between">
                     <div className="space-y-1">
-                      <p className="text-sm font-bold text-orange-600">List</p>
+                      <p className="text-xs font-medium text-red-600">
+                        Documented Patterns
+                      </p>
                       <p className="text-xs text-muted-foreground">
-                        Of documented patterns
+                        Security vulnerabilities
                       </p>
                     </div>
-                    <Button size="sm">Explore</Button>
+                    <Button size="sm" className="text-xs">
+                      Explore
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
             </Link>
 
             <Link href="/dashboard/exploits">
-              <Card className="cursor-pointer hover:shadow-md transition-shadow">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-sm">
-                    <TrendingUp className="h-5 w-5 text-orange-500" />
+              <Card className="cursor-pointer hover:shadow-md transition-all duration-200 border-l-4 border-l-orange-500 h-full">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-2 text-sx">
+                    <TrendingUp className="h-4 w-4 text-orange-500" />
                     Protocol Exploits
                   </CardTitle>
-                  <CardDescription>
+                  <CardDescription className="text-xs leading-relaxed">
                     Real-world exploits and attack vectors targeting DeFi
                     protocols
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="pt-0">
                   <div className="flex items-center justify-between">
                     <div className="space-y-1">
-                      <p className="text-sm font-bold text-orange-600">
-                        Documentation
+                      <p className="text-xs font-medium text-orange-600">
+                        Major Incidents
                       </p>
                       <p className="text-xs text-muted-foreground">
-                        On major incidents
+                        Attack documentation
                       </p>
                     </div>
-                    <Button size="sm">Analyze</Button>
+                    <Button size="sm" className="text-xs">
+                      Analyze
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
             </Link>
 
             <Link href="/dashboard/blog">
-              <Card className="cursor-pointer hover:shadow-md transition-shadow">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-sm">
-                    <Shield className="h-5 w-5 text-blue-500" />
+              <Card className="cursor-pointer hover:shadow-md transition-all duration-200 border-l-4 border-l-blue-500 h-full">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-2 text-sx">
+                    <Shield className="h-4 w-4 text-blue-500" />
                     Security Research
                   </CardTitle>
-                  <CardDescription>
+                  <CardDescription className="text-xs leading-relaxed">
                     The latest research and insights on blockchain security
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="pt-0">
                   <div className="flex items-center justify-between">
                     <div className="space-y-1">
-                      <p className="text-sm font-bold text-blue-600">
-                        Research
+                      <p className="text-xs font-medium text-blue-600">
+                        Latest Research
                       </p>
                       <p className="text-xs text-muted-foreground">
                         Security insights
                       </p>
                     </div>
-                    <Button size="sm">Read</Button>
+                    <Button size="sm" className="text-xs">
+                      Read
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -221,36 +230,43 @@ export default function VulnerabilitiesPage() {
 
           {/* Recent Activity */}
           <Card>
-            <CardHeader>
-              <CardTitle className="text-sm">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-sx">
                 Recent Vulnerability Updates
               </CardTitle>
-              <CardDescription className="text-sm">
+              <CardDescription className="text-xs">
                 Latest additions and updates to the vulnerability database
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="">
+              <div className="space-y-3">
                 {vulnerabilities.slice(0, 3).map((vuln) => (
                   <Link
                     key={vuln.id}
                     href={`/dashboard/vulnerabilities/smart-contracts/${vuln.id}`}
                   >
-                    <div className="flex items-center justify-between p-3 border rounded-lg my-3 hover:bg-muted/50 transition-colors">
-                      <div className="space-y-1">
+                    <div className="flex items-start justify-between p-4 border rounded-lg hover:bg-muted/50 transition-colors group my-3">
+                      <div className="space-y-2 flex-1">
                         <div className="flex items-center gap-2">
-                          <Badge variant={vuln.badgeVariant as any}>
+                          <Badge
+                            variant={vuln.badgeVariant as any}
+                            className="text-xs"
+                          >
                             {vuln.severity}
                           </Badge>
-                          <span className="font-medium text-sm">
+                          <span className="font-medium text-sx group-hover:text-primary transition-colors">
                             {vuln.title}
                           </span>
                         </div>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-xs text-muted-foreground leading-relaxed">
                           {vuln.description}
                         </p>
                       </div>
-                      <Button variant="outline" size="sm">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="text-xs ml-4 shrink-0 bg-transparent"
+                      >
                         View
                       </Button>
                     </div>

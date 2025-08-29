@@ -6,13 +6,14 @@ import { type DialogProps } from "@radix-ui/react-dialog";
 import {
   ArrowRightFromLine,
   CornerDownLeftIcon,
+  SearchCheck,
   SquareDashedIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMac } from "@/hooks/use-is-mac";
 import { useMutationObserver } from "@/hooks/use-mutation-observer";
 import { copyToClipboard } from "@/components/copy-button";
-
+import { SidebarMenuButton } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import {
   Command,
@@ -270,14 +271,14 @@ export function CommandMenu(props: DialogProps) {
   return (
     <Dialog open={open} onOpenChange={setOpen} {...props}>
       <DialogTrigger asChild>
-        <Button
+        {/*  <Button
           variant="secondary"
           className={cn(
             "bg-sidebar text-surface-foreground/60 dark:bg-secondary relative h-8 w-full justify-start pl-2.5 font-normal shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64"
           )}
           onClick={() => setOpen(true)}
         >
-          <span className="hidden lg:inline-flex text-sm font-normal text-muted-foreground">
+          <span className="hidden lg:inline-flex text-sx font-normal text-muted-foreground">
             Search...
           </span>
           <span className="inline-flex lg:hidden">Search...</span>
@@ -285,7 +286,11 @@ export function CommandMenu(props: DialogProps) {
             <CommandMenuKbd>{isMac ? "⌘" : "Ctrl"}</CommandMenuKbd>
             <CommandMenuKbd className="aspect-square">K</CommandMenuKbd>
           </div>
-        </Button>
+        </Button> */}
+        <SidebarMenuButton tooltip="Soporte" size="default">
+          <SearchCheck />
+          <span>Search</span>
+        </SidebarMenuButton>
       </DialogTrigger>
       <DialogContent className="rounded-xl border-none bg-clip-padding p-2 pb-11 shadow-2xl ring-4 ring-neutral-200/80 dark:bg-neutral-900 dark:ring-neutral-800">
         <DialogHeader className="sr-only">
@@ -304,7 +309,7 @@ export function CommandMenu(props: DialogProps) {
         >
           <CommandInput placeholder="Search documentation..." />
           <CommandList className="no-scrollbar min-h-80 scroll-pt-2 scroll-pb-1.5">
-            <CommandEmpty className="text-muted-foreground py-12 text-center text-sm">
+            <CommandEmpty className="text-muted-foreground py-12 text-center text-sx">
               No results found.
             </CommandEmpty>
             <CommandGroup

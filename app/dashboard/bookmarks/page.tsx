@@ -38,7 +38,7 @@ export default function BookmarksPage() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -60,7 +60,7 @@ export default function BookmarksPage() {
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
           <div className="flex items-center justify-between mt-4">
             <div>
-              <h1 className="text-sm font-bold">Saved Research & Resources</h1>
+              <h1 className="text-sx font-bold">Saved Research & Resources</h1>
               <p className="text-muted-foreground">
                 Your bookmarked vulnerabilities, research papers, and security
                 resources
@@ -99,7 +99,7 @@ export default function BookmarksPage() {
                     </Button>
                   </div>
                 </div>
-                <CardTitle className="text-sm">
+                <CardTitle className="text-sx">
                   Uniswap V4 Hook Vulnerability
                 </CardTitle>
                 <CardDescription>
@@ -109,7 +109,7 @@ export default function BookmarksPage() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-4 text-sx text-muted-foreground">
                     <span className="flex items-center gap-1">
                       <Clock className="h-3 w-3" />
                       Saved 2 days ago
@@ -146,7 +146,7 @@ export default function BookmarksPage() {
                     </Button>
                   </div>
                 </div>
-                <CardTitle className="text-sm">
+                <CardTitle className="text-sx">
                   Advanced MEV Protection Mechanisms
                 </CardTitle>
                 <CardDescription>
@@ -156,7 +156,7 @@ export default function BookmarksPage() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-4 text-sx text-muted-foreground">
                     <span className="flex items-center gap-1">
                       <Clock className="h-3 w-3" />
                       Saved 1 week ago
@@ -193,7 +193,7 @@ export default function BookmarksPage() {
                     </Button>
                   </div>
                 </div>
-                <CardTitle className="text-sm">
+                <CardTitle className="text-sx">
                   Slither Static Analysis
                 </CardTitle>
                 <CardDescription>
@@ -203,7 +203,7 @@ export default function BookmarksPage() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-4 text-sx text-muted-foreground">
                     <span className="flex items-center gap-1">
                       <Clock className="h-3 w-3" />
                       Saved 3 days ago
@@ -240,7 +240,7 @@ export default function BookmarksPage() {
                     </Button>
                   </div>
                 </div>
-                <CardTitle className="text-sm">
+                <CardTitle className="text-sx">
                   Wormhole Bridge Exploit Analysis
                 </CardTitle>
                 <CardDescription>
@@ -250,7 +250,7 @@ export default function BookmarksPage() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-4 text-sx text-muted-foreground">
                     <span className="flex items-center gap-1">
                       <Clock className="h-3 w-3" />
                       Saved 1 month ago

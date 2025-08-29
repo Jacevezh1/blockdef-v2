@@ -200,7 +200,7 @@ export default function DashboardUpdatesPage() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -221,8 +221,8 @@ export default function DashboardUpdatesPage() {
         <div className="flex flex-1 flex-col gap-4 p-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-sm font-bold">Dashboard Updates</h1>
-              <p className="text-muted-foreground text-sm">
+              <h1 className="text-sx font-bold">Dashboard Updates</h1>
+              <p className="text-muted-foreground text-sx">
                 Latest features, improvements, and system status
               </p>
             </div>
@@ -231,11 +231,11 @@ export default function DashboardUpdatesPage() {
           {/* System Status Overview */}
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-sm">
+              <CardTitle className="flex items-center gap-2 text-sx">
                 <CheckCircle className="h-5 w-5 text-green-500" />
                 System Status
               </CardTitle>
-              <CardDescription className="text-sm">
+              <CardDescription className="text-sx">
                 Current operational status of all Blockdef services
               </CardDescription>
             </CardHeader>
@@ -247,10 +247,10 @@ export default function DashboardUpdatesPage() {
                     className="flex items-center justify-between p-3 border rounded-lg"
                   >
                     <div>
-                      <div className="font-medium text-sm">
+                      <div className="font-medium text-sx">
                         {service.service}
                       </div>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="text-sx text-muted-foreground">
                         Uptime: {service.uptime}
                       </div>
                     </div>
@@ -289,13 +289,13 @@ export default function DashboardUpdatesPage() {
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-2">
-                            <h3 className="font-semibold text-sm">
+                            <h3 className="font-semibold text-sx">
                               {update.title}
                             </h3>
                             {getImpactBadge(update.impact)}
                             <Badge variant="outline">{update.version}</Badge>
                           </div>
-                          <p className="text-muted-foreground mb-3 text-sm">
+                          <p className="text-muted-foreground mb-3 text-sx">
                             {update.description}
                           </p>
                           <div className="flex items-center gap-4 text-xs text-muted-foreground">
@@ -327,7 +327,7 @@ export default function DashboardUpdatesPage() {
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-2">
-                            <h3 className="font-semibold text-sm">
+                            <h3 className="font-semibold text-sx">
                               {feature.title}
                             </h3>
                             <Badge
@@ -343,10 +343,10 @@ export default function DashboardUpdatesPage() {
                                 : "Planning"}
                             </Badge>
                           </div>
-                          <p className="text-muted-foreground mb-3 text-sm">
+                          <p className="text-muted-foreground mb-3 text-sx">
                             {feature.description}
                           </p>
-                          <div className="flex items-center gap-1 text-sm text-muted-foreground text-xs">
+                          <div className="flex items-center gap-1 text-sx text-muted-foreground text-xs">
                             <Clock className="h-4 w-4" />
                             Expected: {feature.eta}
                           </div>
@@ -365,7 +365,7 @@ export default function DashboardUpdatesPage() {
                     <CardHeader>
                       <div className="flex items-center justify-between">
                         <CardTitle className="flex items-center gap-2 text-md">
-                          <GitBranch className="h-5 w-5 text-sm" />
+                          <GitBranch className="h-5 w-5 text-sx" />
                           {version.version}
                         </CardTitle>
                         <Badge variant="outline">{version.date}</Badge>
@@ -402,10 +402,10 @@ export default function DashboardUpdatesPage() {
                                 : "•"}
                             </div>
                             <div className="flex-1">
-                              <span className="capitalize font-medium text-sm">
+                              <span className="capitalize font-medium text-sx">
                                 {change.type}:{" "}
                               </span>
-                              <span className="text-sm">
+                              <span className="text-sx">
                                 {change.description}
                               </span>
                             </div>

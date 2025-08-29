@@ -66,7 +66,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -122,7 +122,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                 </Badge>
               </div>
 
-              <h1 className="text-sm font-semibold leading-tight">
+              <h1 className="text-sx font-semibold leading-tight">
                 {post.title}
               </h1>
 
@@ -167,37 +167,37 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
             <ReactMarkdown
               components={{
                 h1: ({ children, ...props }) => (
-                  <h1 className="text-sm font-semibold mb-4" {...props}>
+                  <h1 className="text-sx font-semibold mb-4" {...props}>
                     {children}
                   </h1>
                 ),
                 h2: ({ children, ...props }) => (
-                  <h2 className="text-sm font-medium mb-3 mt-6" {...props}>
+                  <h2 className="text-sx font-medium mb-3 mt-6" {...props}>
                     {children}
                   </h2>
                 ),
                 h3: ({ children, ...props }) => (
-                  <h3 className="text-sm font-medium mb-2 mt-4" {...props}>
+                  <h3 className="text-sx font-medium mb-2 mt-4" {...props}>
                     {children}
                   </h3>
                 ),
                 p: ({ children, ...props }) => (
-                  <p className="text-sm leading-relaxed mb-4" {...props}>
+                  <p className="text-sx leading-relaxed mb-4" {...props}>
                     {children}
                   </p>
                 ),
                 ul: ({ children, ...props }) => (
-                  <ul className="text-sm space-y-1 mb-4 ml-4" {...props}>
+                  <ul className="text-sx space-y-1 mb-4 ml-4" {...props}>
                     {children}
                   </ul>
                 ),
                 ol: ({ children, ...props }) => (
-                  <ol className="text-sm space-y-1 mb-4 ml-4" {...props}>
+                  <ol className="text-sx space-y-1 mb-4 ml-4" {...props}>
                     {children}
                   </ol>
                 ),
                 li: ({ children, ...props }) => (
-                  <li className="text-sm" {...props}>
+                  <li className="text-sx" {...props}>
                     {children}
                   </li>
                 ),
@@ -224,7 +224,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                 },
                 blockquote: ({ children, ...props }) => (
                   <blockquote
-                    className="border-l-4 border-muted-foreground/20 pl-4 italic text-sm mb-4"
+                    className="border-l-4 border-muted-foreground/20 pl-4 italic text-sx mb-4"
                     {...props}
                   >
                     {children}

@@ -78,7 +78,7 @@ export default async function VulnerabilityDetailPage({
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
@@ -98,7 +98,7 @@ export default async function VulnerabilityDetailPage({
         </header>
         <div className="flex-1 space-y-6 p-6">
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2 text-sx text-muted-foreground">
               <Link
                 href="/dashboard/vulnerabilities/smart-contracts"
                 className="hover:text-foreground flex items-center gap-1 text-xs"
@@ -111,7 +111,7 @@ export default async function VulnerabilityDetailPage({
             <div className="flex items-start gap-3">
               <div className="flex-1 space-y-2">
                 <div className="flex items-center justify-start">
-                  <h1 className="text-sm font-bold tracking-tight">
+                  <h1 className="text-sx font-bold tracking-tight">
                     {vulnerability.title}
                   </h1>
                   <Badge
@@ -121,7 +121,7 @@ export default async function VulnerabilityDetailPage({
                     {vulnerability.severity}
                   </Badge>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sx text-muted-foreground leading-relaxed">
                   {vulnerability.description}
                 </p>
               </div>
@@ -134,18 +134,18 @@ export default async function VulnerabilityDetailPage({
               {/* Detailed Description */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-sm">Overview</CardTitle>
+                  <CardTitle className="text-sx">Overview</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="leading-relaxed text-sm">
+                  <p className="leading-relaxed text-sx">
                     {vulnerability.detailedDescription}
                   </p>
                   <Separator />
                   <div>
-                    <h4 className="font-semibold mb-2 text-sm">
+                    <h4 className="font-semibold mb-2 text-sx">
                       Technical Details
                     </h4>
-                    <p className="text-muted-foreground leading-relaxed text-sm">
+                    <p className="text-muted-foreground leading-relaxed text-sx">
                       {vulnerability.technicalDetails}
                     </p>
                   </div>
@@ -155,12 +155,12 @@ export default async function VulnerabilityDetailPage({
               {/* Code Examples */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-sm">Code Examples</CardTitle>
+                  <CardTitle className="text-sx">Code Examples</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-semibold text-red-600 dark:text-red-400 text-sm">
+                      <h4 className="font-semibold text-red-600 dark:text-red-400 text-sx">
                         Vulnerable Code
                       </h4>
                       <Button variant="ghost" size="sm">
@@ -175,7 +175,7 @@ export default async function VulnerabilityDetailPage({
                   </div>
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-semibold text-green-600 dark:text-green-400 text-sm">
+                      <h4 className="font-semibold text-green-600 dark:text-green-400 text-sx">
                         Secure Code
                       </h4>
                       <Button variant="ghost" size="sm">
@@ -194,14 +194,14 @@ export default async function VulnerabilityDetailPage({
               {/* Impact */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-sm">Potential Impact</CardTitle>
+                  <CardTitle className="text-sx">Potential Impact</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
                     {vulnerability.impact.map((item, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 flex-shrink-0" />
-                        <span className="text-muted-foreground text-sm">
+                        <span className="text-muted-foreground text-sx">
                           {item}
                         </span>
                       </li>
@@ -216,11 +216,11 @@ export default async function VulnerabilityDetailPage({
               {/* Quick Info */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-sm">Quick Info</CardTitle>
+                  <CardTitle className="text-sx">Quick Info</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <h4 className="font-semibold mb-2 text-sm">Common In</h4>
+                    <h4 className="font-semibold mb-2 text-sx">Common In</h4>
                     <div className="flex flex-wrap gap-1">
                       {vulnerability.commonIn.map((item, index) => (
                         <Badge
@@ -235,12 +235,12 @@ export default async function VulnerabilityDetailPage({
                   </div>
                   <Separator />
                   <div>
-                    <h4 className="font-semibold mb-2 text-sm">Famous Cases</h4>
+                    <h4 className="font-semibold mb-2 text-sx">Famous Cases</h4>
                     <ul className="space-y-1">
                       {vulnerability.famousCases.map((case_, index) => (
                         <li
                           key={index}
-                          className="text-sm text-muted-foreground"
+                          className="text-sx text-muted-foreground"
                         >
                           {case_}
                         </li>
@@ -253,14 +253,14 @@ export default async function VulnerabilityDetailPage({
               {/* Prevention */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-sm">Prevention Methods</CardTitle>
+                  <CardTitle className="text-sx">Prevention Methods</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
                     {vulnerability.prevention.map((method, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-sx text-muted-foreground">
                           {method}
                         </span>
                       </li>
@@ -272,14 +272,14 @@ export default async function VulnerabilityDetailPage({
               {/* Detection Methods */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-sm">Detection Methods</CardTitle>
+                  <CardTitle className="text-sx">Detection Methods</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
                     {vulnerability.detectionMethods.map((method, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-sx text-muted-foreground">
                           {method}
                         </span>
                       </li>
@@ -291,7 +291,7 @@ export default async function VulnerabilityDetailPage({
               {/* References */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-sm">References</CardTitle>
+                  <CardTitle className="text-sx">References</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
@@ -301,7 +301,7 @@ export default async function VulnerabilityDetailPage({
                         href={ref.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                        className="flex items-center gap-2 text-sx text-blue-600 dark:text-blue-400 hover:underline"
                       >
                         <ExternalLink className="h-3 w-3" />
                         {ref.title}
@@ -315,7 +315,7 @@ export default async function VulnerabilityDetailPage({
               {relatedVulns.length > 0 && (
                 <Card>
                   <CardHeader>
-                    <CardTitle className="text-sm">
+                    <CardTitle className="text-sx">
                       Related Vulnerabilities
                     </CardTitle>
                   </CardHeader>
@@ -334,7 +334,7 @@ export default async function VulnerabilityDetailPage({
                             >
                               {vuln.severity}
                             </Badge>
-                            <span className="text-sm font-medium">
+                            <span className="text-sx font-medium">
                               {vuln.title}
                             </span>
                           </div>
