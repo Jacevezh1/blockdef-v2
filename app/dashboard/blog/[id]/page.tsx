@@ -145,10 +145,10 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                   <Clock className="h-3 w-3" />
                   <span>{post.readTime} min read</span>
                 </div>
-                <div className="flex items-center gap-1">
+                {/*  <div className="flex items-center gap-1">
                   <Eye className="h-3 w-3" />
                   <span>{post.views.toLocaleString()} views</span>
-                </div>
+                </div> */}
               </div>
 
               <div className="flex flex-wrap gap-2">

@@ -176,10 +176,10 @@ export default function NewsPage() {
                               <span>{post.readTime}m</span>
                             </div>
                           </div>
-                          <div className="flex items-center gap-1">
+                          {/*  <div className="flex items-center gap-1">
                             <Eye className="h-3 w-3" />
                             <span>{post.views.toLocaleString()}</span>
-                          </div>
+                          </div> */}
                         </div>
                       </CardContent>
                     </Card>
@@ -263,10 +263,10 @@ export default function NewsPage() {
                               <span>{post.readTime}m</span>
                             </div>
                           </div>
-                          <div className="flex items-center gap-1">
+                          {/*  <div className="flex items-center gap-1">
                             <Eye className="h-3 w-3" />
                             <span>{post.views.toLocaleString()}</span>
-                          </div>
+                          </div> */}
                         </div>
                       </CardContent>
                     </Card>
