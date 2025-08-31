@@ -36,7 +36,7 @@ import { Separator } from "@/components/ui/separator";
 const navItems = [
   { href: "/dashboard", label: "Home" },
   { href: "/dashboard/blog", label: "Blog" },
-  { href: "/dashboard/vulnerabilities", label: "Vulnerabilities" },
+  { href: "/dashboard/resources", label: "Resources" },
   { href: "/dashboard/tools", label: "Research Tools" },
   { href: "/dashboard/events", label: "Events" },
 ];
@@ -107,8 +107,8 @@ const pageTree = {
       ],
     },
     {
-      $id: "vulnerabilities",
-      name: "Vulnerabilities",
+      $id: "Resources",
+      name: "Resources",
       type: "folder",
       children: [
         /*         {
@@ -118,13 +118,8 @@ const pageTree = {
         }, */
         {
           type: "page",
-          url: "/dashboard/vulnerabilities/smart-contracts",
-          name: "Smart Contract Bugs",
-        },
-        {
-          type: "page",
-          url: "/dashboard/vulnerabilities/exploits",
-          name: "Protocol Exploits",
+          url: "/dashboard/resources",
+          name: "Security Resources",
         },
       ],
     },

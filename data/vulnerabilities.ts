@@ -9,7 +9,7 @@ export const vulnerabilityStats: VulnerabilityStats = {
 
 export const vulnerabilities: Vulnerability[] = [
   {
-    id: "reentrancy",
+    id: "https://scs.owasp.org/SCWE/SCSVS-CODE/SCWE-046",
     title: "Reentrancy Attacks",
     description:
       "Vulnerability where external calls can recursively call back into the contract before state changes are finalized",
@@ -68,7 +68,7 @@ function withdraw(uint amount) public nonReentrant {
     relatedVulnerabilities: ["access-control", "integer-overflow"],
   },
   {
-    id: "integer-overflow",
+    id: "https://scs.owasp.org/SCWE/SCSVS-CODE/SCWE-047",
     title: "Integer Overflow/Underflow",
     description: "Happens on arithmetic operations that exceed the maximum or minimum values for integer types",
     severity: "High",
@@ -118,9 +118,9 @@ function transfer(address to, uint256 amount) public {
     relatedVulnerabilities: ["reentrancy", "access-control"],
   },
   {
-    id: "access-control",
-    title: "Access Control Issues",
-    description: "Improper implementation of authorization checks allowing unauthorized access to functions",
+    id: "https://scs.owasp.org/SCWE/SCSVS-AUTH/SCWE-017/",
+    title: "Privileged Role Mismanagement",
+    description: "When a smart contract incorrectly assigns roles or permissions, granting excessive privileges to certain users. ",
     severity: "Medium",
     category: "Authorization",
     swcId: "SWC-115",
@@ -132,7 +132,7 @@ function transfer(address to, uint256 amount) public {
     iconColor: "text-yellow-500",
     badgeVariant: "outline",
     detailedDescription:
-      "Access control vulnerabilities occur when smart contracts fail to properly restrict access to sensitive functions. This can allow unauthorized users to execute privileged operations, modify critical state variables, or drain contract funds.",
+      "Privileged role mismanagement occurs when a smart contract incorrectly assigns roles or permissions, granting excessive privileges to certain users.",
     technicalDetails:
       "Access control in smart contracts typically relies on modifiers that check the caller's address or role. Common issues include missing access controls, incorrect role assignments, or flawed permission logic.",
     codeExample: {

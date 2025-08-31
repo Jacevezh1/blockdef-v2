@@ -10,6 +10,7 @@ import {
   Settings2,
   SettingsIcon,
   SquareTerminal,
+  WorkflowIcon,
 } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import { NavProjects } from "@/components/nav-projects";
@@ -69,23 +70,10 @@ const data = {
       ],
     },
     {
-      title: "Vulnerabilities",
-      url: "/dashboard/vulnerabilities",
-      icon: Bot,
-      items: [
-        /*   {
-          title: "Critical CVEs",
-          url: "/dashboard/vulnerabilities/cves",
-        }, */
-        {
-          title: "Smart Contract Bugs",
-          url: "/dashboard/vulnerabilities/smart-contracts",
-        },
-        {
-          title: "Protocol Exploits",
-          url: "/dashboard/vulnerabilities/exploits",
-        },
-      ],
+      title: "Resources",
+      url: "/dashboard/resources",
+      icon: WorkflowIcon,
+      items: [],
     },
     {
       title: "Blog",

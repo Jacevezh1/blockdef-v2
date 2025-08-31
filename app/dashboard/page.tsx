@@ -126,10 +126,19 @@ export default function Page() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-sx">
                   <AlertTriangle className="size-3.5 text-red-500" />
-                  Recently Added
+                  Security Weaknesses
                 </CardTitle>
                 <CardDescription className="text-xs">
-                  Latest security vulnerabilities newly added to the platform.
+                  Displayed from the Smart Contract Security Weakness
+                  Enumeration (SCWE) maintained by OWASP —{" "}
+                  <a
+                    href="https://scs.owasp.org/SCWE/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 underline"
+                  >
+                    SCWE
+                  </a>
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -163,8 +172,9 @@ export default function Page() {
                       </div>
                     </div>
                     <Link
-                      href={`/dashboard/vulnerabilities/smart-contracts/${vulnerability.id}`}
+                      href={`${vulnerability.id}`}
                       target="_blank"
+                      referrerPolicy="no-referrer"
                     >
                       <Button variant="outline" size="sm">
                         <ArrowUpRight className="size-4" />

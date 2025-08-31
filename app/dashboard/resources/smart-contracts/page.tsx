@@ -192,9 +192,9 @@ export default function SmartContractBugsPage() {
                         >
                           {vulnerability.severity}
                         </Badge>
-                        <Badge variant="outline" className="text-xs">
+                        {/*  <Badge variant="outline" className="text-xs">
                           {vulnerability.swcId}
-                        </Badge>
+                        </Badge> */}
                       </div>
                     </div>
                     <CardTitle className="text-sx mt-2 leading-tight">
